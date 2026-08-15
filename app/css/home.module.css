@@ -1,0 +1,36 @@
+.home {
+  padding: 20px;
+  border: 1px solid red;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  border: 1px solid #d3d3d3;
+  padding: 5px;
+  min-width: 170px;
+  width: 200px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.item h2 {
+  font-size: 18px;
+  height: 52px;
+  overflow: hidden;
+}
+
+.item img {
+  margin: 0 auto;
+  display: block;
+  padding-top: 5px;
+}
+
+.price {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 18px;
+}

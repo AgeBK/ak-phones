@@ -1,26 +1,91 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.light {
+  --filter-text: #333;
+  --table-row: #999;
+  --button-border: #5e4b56;
+  --background: #fff;
+  --light-text: #fff;
+  --table-row: #fff;
+  --table-row-odd: #888;
+  --spirits-text: #6b1818;
+  --light-display: block;
+  --dark-display: none;
+  --filter-invert: invert(0%);
+  --cart-invert: invert(100%);
+  --burger-bg: #fff;
+  --invert: #000;
+}
+
+.dark {
+  --filter-text: #999;
+  --table-row: #222;
+  --button-border: #b8dbd9;
+  --background: #000;
+  --light-text: #fff;
+  --table-row: #000;
+  --table-row-odd: #222;
+  --spirits-text: #888;
+  --light-display: none;
+  --dark-display: block;
+  --filter-invert: invert(100%);
+  --cart-invert: invert(0%);
+  --burger-bg: #000;
+  --invert: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: var(--spirits-text);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  padding: 0;
+}
+
+article {
+  /* padding-top: 20px; */
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  color: var(--spirits-text);
+  margin-bottom: 10px;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,0 +1,180 @@
+.btn {
+  padding: 5px 20px;
+  border: 1px solid #999;
+  background-color: #000;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.cartAdd {
+  background: url("/img/btn/plus1.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.cartAdd:hover {
+  background: url("/img/btn/plus.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.cartMinus {
+  background: url("/img/btn/minus1.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  filter: invert(100%);
+}
+
+.cartMinus:hover {
+  background: url("/img/btn/minus1.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  opacity: 0.5;
+}
+
+.cartDel {
+  background-color: transparent;
+}
+
+.cartToggle {
+  font-size: 24px;
+  /* background-color: #000; */
+  padding: 0px;
+}
+
+.itemAddCart {
+  position: absolute;
+  bottom: 5px;
+  padding: 5px 20px;
+  background-color: transparent;
+}
+
+.pillDel {
+  /* background-color: #777; */
+  /* color: #000; */
+  /* border-radius: 35px; */
+  border: 1px solid var(--spirits-text);
+  /* border: 1px solid #999; */
+  padding: 2px 4px;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.brand {
+  display: block;
+  padding: 3px;
+  text-decoration: underline;
+}
+
+.clear {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #888;
+  text-decoration: underline;
+  font-size: 0.7rem;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+/* .itemsPerPage {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #000;
+} */
+
+.selected {
+  color: #fff;
+  background-color: #000;
+  padding: 3px;
+}
+
+.paging {
+  padding: 5px;
+}
+
+.paging:disabled {
+  color: #555;
+}
+
+.itemsPP {
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+/* .itemsPP:hover {
+  color: #fff;
+  background-color: #555;
+} */
+
+.itemsPPSelected {
+  color: #fff;
+  background-color: #000;
+  padding: 5px;
+  border: 1px solid var(--spirits-text);
+  cursor: default;
+}
+
+.scroll {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.filterBtn {
+  display: none;
+}
+
+.save {
+  font-size: 20px;
+  display: flex;
+  border: 1px solid #888;
+  padding: 5px 15px;
+  margin: 0 5px;
+  border: 2px solid #008000;
+}
+
+.delete {
+  font-size: 20px;
+  display: flex;
+  border: 1px solid #888;
+  padding: 5px 15px;
+  margin: 0 5px;
+  border: 2px solid #f00;
+}
+
+.closeNav {
+  color: #fff;
+}
+
+@media screen and (max-width: 650px) {
+  .filterBtn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 18px;
+    width: 150px;
+    color: var(--spirits-text);
+    border: 1px solid var(--spirits-text);
+  }
+
+  .filterBtn:hover {
+    color: #fff;
+    background-color: var(--spirits-text);
+    /* border: 1px solid var(--spirits-text); */
+  }
+}
