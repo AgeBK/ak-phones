@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type PhoneProps = {
   id: number;
   brand: string;
@@ -50,6 +52,10 @@ export type ImgProps = {
   w: number;
   h: number;
   l: "eager" | "lazy" | undefined;
+};
+
+export type ContainerProps = {
+  children: ReactNode;
 };
 
 export type KeyStringProps = { [key: string]: string };

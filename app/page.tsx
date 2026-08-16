@@ -1,19 +1,17 @@
 import { fetchPhones } from "@/app/lib/data";
 import Img from "@/app/ui/image";
 import CartBtn from "@/app/ui/cartBtn";
-import acc from "@/app/lib/Acc.json";
-import phoneObj from "@/app/lib/__phoneObj.json";
-import styles from "@/app/css/home.module.css";
+import styles from "@/app/css/Home.module.css";
 
 // 279 phones
 // 134 accessories
 // 413 total
+// const merged = [...new Set([...array1, ...array2])];
 
 export default async function Home() {
   const [dataAll, dataDistinct] = await fetchPhones();
   console.log(dataAll);
   console.log(dataDistinct);
-  
 
   return (
     <div className={styles.home}>
@@ -39,9 +37,6 @@ export default async function Home() {
               <div className={styles.price}>${price}</div>
               <CartBtn id={id} />
             </div>
-            // <div>
-            //   {title} - {producttype}
-            // </div>
           );
         })}
       </div>

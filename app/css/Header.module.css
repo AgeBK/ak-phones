@@ -1,0 +1,66 @@
+.header {
+  width: 100%;
+  max-width: 1400px;
+  border-bottom: 1px solid #d3d3d3;
+  margin-bottom: 10px;
+  z-index: 3;
+  display: flex;
+  height: 80px;
+}
+
+.brand {
+  display: flex;
+  position: relative;
+}
+
+.search {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns all children to the right edge */
+}
+
+.hdr {
+  color: var(--spirits-text);
+  font-size: 16px;
+}
+
+.logo {
+  margin: 5px 0 0px 0px;
+}
+
+.logoLight {
+  display: var(--light-display);
+}
+
+.logoDark {
+  display: var(--dark-display);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+/* TODO */
+.light .darkLogo {
+  display: none;
+}
+
+@media screen and (max-width: 1250px) {
+  /* .hdr {
+    font-size: 2rem;
+    line-height: 2rem;
+  } */
+}
+
+@media screen and (max-width: 650px) {
+  /* .hdr {
+    display: none;
+  }
+
+  .logo {
+    margin: 5px 0 0px 5px;
+  } */
+}

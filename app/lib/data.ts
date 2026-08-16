@@ -6,6 +6,12 @@ if (!process.env.DATABASE_URL) {
 }
 const sql = neon(process.env.DATABASE_URL);
 
+// const dataDistinct = await sql`
+//   SELECT DISTINCT brand
+//   FROM phones
+//   WHERE producttype = 'Mobile Phone'
+//   `;
+
 // Promise<Record<string, string | number>>[]
 export async function fetchPhones() {
   // noStore() prevents the response from being cached. (good for dev) TODO
@@ -22,11 +28,13 @@ export async function fetchPhones() {
       `;
 
     const dataDistinct = await sql`
-      SELECT DISTINCT brand
+      SELECT DISTINCT ON (brand) 
+          brand, 
+          image
       FROM phones
       WHERE producttype = 'Mobile Phone'
+      ORDER BY brand, price DESC;
       `;
-
     // console.log(data);
     data.push(dataAll, dataDistinct);
 
