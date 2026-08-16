@@ -19,26 +19,35 @@ export async function fetchPhones() {
   console.log("fetchPhones");
 
   try {
-    const data = [];
-    // const data: Record<string, string | number>[] = await sql`
-    const dataAll = await sql`
+    const data = await sql`
       SELECT *
       FROM phones
       WHERE producttype = 'Mobile Phone'
       `;
 
-    const dataDistinct = await sql`
+    return data as PhoneProps[];
+  } catch (err) {
+    console.error("Database Error:", err);
+    throw new Error("Failed to fetch phones.");
+  }
+}
+
+export async function fetchNavBrands() {
+  // noStore() prevents the response from being cached. (good for dev) TODO
+  noStore();
+  console.log("fetchNavBrands");
+
+  try {
+    const data = await sql`
       SELECT DISTINCT ON (brand) 
           brand, 
           image
       FROM phones
       WHERE producttype = 'Mobile Phone'
-      ORDER BY brand, price DESC;
       `;
     // console.log(data);
-    data.push(dataAll, dataDistinct);
 
-    return data as [PhoneProps[], PhoneProps];
+    return data as PhoneProps[];
   } catch (err) {
     console.error("Database Error:", err);
     throw new Error("Failed to fetch phones.");

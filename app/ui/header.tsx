@@ -17,7 +17,7 @@ export default function Header() {
       </div>
       <div className={styles.items}>
         <Img
-          src={`icons/cartEmpty.svg`}
+          src={`icons/cartEmpty.png`}
           alt="cart empty"
           w={20}
           h={20}
