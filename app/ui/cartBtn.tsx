@@ -11,7 +11,7 @@ export default function CartBtn({ id }: KeyNumberProps) {
   };
 
   return (
-    <Btn onClick={() => addCartItem(id)} css="">
+    <Btn onClick={() => addCartItem(id)} css="btn">
       ADD TO CART
       <span className={styles.btnCart}>
         <Img

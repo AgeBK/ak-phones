@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Container from "./ui/container";
-import "./globals.css";
+import Container from "@/app/ui/container";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "AK Phones - The biggest range at the best prices guaranteed!!",

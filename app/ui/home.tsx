@@ -1,6 +1,6 @@
 import { fetchPhones } from "@/app/lib/data";
 import Img from "@/app/ui/image";
-import NavBrands from "./ui/navBrands";
+import NavBrands from "@/app/ui/navBrands";
 import CartBtn from "@/app/ui/cartBtn";
 import styles from "@/app/css/Home.module.css";
 

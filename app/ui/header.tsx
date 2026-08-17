@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styles from "@/app/css/Header.module.css";
 import Img from "./image";
+import FancyText from "@/app/ui/fancyText";
 
 export default function Header() {
   return (
@@ -10,10 +11,12 @@ export default function Header() {
       <div className={styles.brand}>
         <div className={styles.logo}>
           <Link href="/">
-            <Img src="logos/AK.png" alt="AK Phones" w={64} h={42} l="eager" />
+            <Img src="logos/AK.png" alt="AK Phones" w={90} h={60} l="eager" />
           </Link>
         </div>
-        <h1 className={styles.hdr}>Best phones, Best prices</h1>
+        <h1 className={styles.hdr}>
+          <FancyText text="Your phone shop" css="logoHdr"></FancyText>
+        </h1>
       </div>
       <div className={styles.items}>
         <Img

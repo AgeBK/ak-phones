@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .light {
   --filter-text: #333;
   --table-row: #999;
@@ -17,7 +18,7 @@ body {
   --light-text: #fff;
   --table-row: #fff;
   --table-row-odd: #888;
-  --spirits-text: #6b1818;
+  --phones-text: #6b1818;
   --light-display: block;
   --dark-display: none;
   --filter-invert: invert(0%);
@@ -34,7 +35,7 @@ body {
   --light-text: #fff;
   --table-row: #000;
   --table-row-odd: #222;
-  --spirits-text: #888;
+  --phones-text: #888;
   --light-display: none;
   --dark-display: block;
   --filter-invert: invert(100%);
@@ -45,7 +46,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--spirits-text);
+  color: var(--phones-text);
 }
 
 ul {
@@ -70,7 +71,7 @@ h3 {
 }
 
 h3 {
-  color: var(--spirits-text);
+  color: var(--phones-text);
   margin-bottom: 10px;
 }
 
