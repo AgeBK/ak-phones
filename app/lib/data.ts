@@ -26,6 +26,28 @@ export async function fetchPhones() {
   }
 }
 
+export async function fetchPhoneById(query: string) {
+  // noStore() prevents the response from being cached. (good for dev) TODO
+  noStore();
+  // console.log("fetchPhones");
+  console.log(query);
+  
+
+  try {
+    const data = await sql`
+      SELECT *
+      FROM phones
+      WHERE producttype = 'Mobile Phone'
+      AND modelid=${query}
+      `;
+
+    return data[0] as PhoneProps;
+  } catch (err) {
+    console.error("Database Error:", err);
+    throw new Error("Failed to fetch phones.");
+  }
+}
+
 export async function fetchPhonesByBrand(query: string) {
   // noStore() prevents the response from being cached. (good for dev) TODO
   noStore();

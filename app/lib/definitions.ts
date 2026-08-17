@@ -28,7 +28,7 @@ export type PhoneProps = {
   dimensions: string;
   sim: string;
   dualsim: boolean;
-  NFC: boolean;
+  nfc: boolean;
   wirelessprotocol: string;
   displaysize: string;
   displayres: string;
@@ -44,6 +44,8 @@ export type PhoneProps = {
   images: string[];
   battery: string;
   displaytype: string;
+  variation: string[];
+  capacity: string[];
 };
 
 export type ImgProps = {

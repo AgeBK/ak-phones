@@ -1,0 +1,70 @@
+.container {
+  font-size: 20px;
+  margin: 5px 0 10px 0;
+}
+
+.container > div {
+  display: inline-block;
+}
+
+.normal:before {
+  background: #777;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  top: 54%;
+  -webkit-transform: translate(-50%, -50%) rotate(-15deg);
+  transform: translate(-50%, -50%) rotate(-15deg);
+  width: 40px;
+}
+
+.product .normal:before {
+  width: 60px;
+}
+
+.normal {
+  color: #777;
+  position: relative;
+  margin-right: 10px;
+}
+
+.current {
+  font-weight: bold;
+  color: #000;
+}
+
+.product .current {
+  color: inherit;
+}
+
+.product .normal {
+  color: #777;
+  position: relative;
+  margin-right: 10px;
+  font-size: 36px;
+}
+
+.product .current {
+  font-weight: bold;
+  font-size: 36px;
+  /* color: #fff; */
+}
+
+/* .cart .normal {
+  color: #777;
+  position: relative;
+  margin-right: 10px;
+   font-size: 36px; 
+} */
+
+.cart .current {
+  font-weight: bold;
+  color: #fff;
+  font-size: 18px;
+}
+
+.container.cart {
+  margin: 0;
+}

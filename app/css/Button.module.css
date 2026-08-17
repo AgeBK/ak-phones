@@ -1,5 +1,5 @@
 .btn {
-  padding: 5px 20px 10px;
+  padding: 0 15px 5px;
   border: 1px solid #999;
   background-color: #000;
   color: #fff;
@@ -9,8 +9,8 @@
   background-color: #555;
 }
 
-.btn:hover {
-  background-color: #555;
+.btnProdImage{
+
 }
 
 .cartAdd {
