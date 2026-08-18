@@ -22,6 +22,7 @@
 
 .hdr {
   color: var(--spirits-text);
+  /* -webkit-text-stroke: 2px #000;  */
   font-size: 16px;
 }
 

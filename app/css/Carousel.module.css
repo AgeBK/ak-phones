@@ -1,0 +1,45 @@
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.window {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+}
+
+.item {
+  padding: 0 5px;
+}
+
+.card {
+  background: #3b82f6;
+  color: #fff;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.button {
+  background: #1f2937;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+}

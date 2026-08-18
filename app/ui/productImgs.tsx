@@ -9,13 +9,13 @@ export default function ProductImgs({
   data: string[];
   setHeroImage: (heroImage: string) => void;
 }) {
-  console.log("ProductImgs");
-  console.log(data);
+  // console.log("ProductImgs");
+  // console.log(data);
 
   return (
     <div className={styles.productImgs}>
       <div className={styles.items}>
-        {data.map((val, i) => {
+        {data.map((val) => {
           return (
             <Btn onClick={() => setHeroImage(val)} css="btnProdImg" key={val}>
               <div className={styles.item}>

@@ -60,6 +60,10 @@ export type ContainerProps = {
   children: ReactNode;
 };
 
+export type DataProps = {
+  data: PhoneProps;
+};
+
 export type KeyStringProps = { [key: string]: string };
 
 export type KeyNumberProps = { [key: string]: number };

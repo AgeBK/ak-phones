@@ -1,0 +1,18 @@
+.desc {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.descs {
+  /* border: 1px solid #d3d3d3; */
+}
+
+.descs .desc,
+.features {
+  padding: 10px;
+  margin-bottom: 0;
+}
+
+.descs .desc:nth-child(even) {
+  background-color: #e6e6fa;
+}

@@ -1,0 +1,34 @@
+.grid {
+  column-count: 4; /* Number of columns */
+  column-gap: 32px; /* Space between columns */
+  width: 100%;
+}
+
+.grid .item {
+  display: inline-block; /* Prevents item splitting across columns */
+  width: 100%; /* Fills column width */
+  margin-bottom: 16px; /* Space between stacked rows */
+  break-inside: avoid; /* Modern standard to prevent item splitting */
+  padding: 10px;
+  text-transform: capitalize;
+  border-radius: 0.75rem;
+}
+
+/* .grid .item:hover {
+  border: 1px solid #f6f6f6;
+} */
+
+.grid .item:nth-child(3n) {
+  aspect-ratio: 5;
+  background: lavender;
+}
+
+.grid .item:nth-child(3n - 1) {
+  aspect-ratio: 3;
+  background: lightblue;
+}
+
+.grid .item:nth-child(3n + 1) {
+  aspect-ratio: 4;
+  background: lightcoral;
+}

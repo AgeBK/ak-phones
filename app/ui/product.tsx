@@ -1,11 +1,16 @@
 "use client";
 
-import { PhoneProps } from "../lib/definitions";
+import { useState } from "react";
+import { PhoneProps } from "@/app/lib/definitions";
 import Img from "./image";
 import Price from "./price";
 import styles from "@/app/css/Product.module.css";
 import ProductImgs from "./productImgs";
-import { useState } from "react";
+import Carousel from "./carousel";
+import ProductSpecs from "./productSpecs";
+import ProductFeatures from "./ProductFeatures";
+
+// http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
 
 export default function Product({
   data,
@@ -18,8 +23,6 @@ export default function Product({
 }) {
   const [heroImage, setHeroImage] = useState<string>("");
   console.log("Product");
-  console.log(heroImage);
-
   // console.log(Product);
   // console.log(cat, id);
   // console.log(data);
@@ -29,74 +32,76 @@ export default function Product({
     brand,
     title,
     modelnumber,
-    modelid,
     price,
     pricewas,
-    producttype,
-    colour,
-    colour2,
-    colourvar,
-    colours,
-    height,
-    depth,
-    width,
-    weight,
-    dimensions,
     description,
     descriptions,
-    bluetooth,
-    memory,
-    memorycardmax,
-    memorycardtype,
-    displaytype,
-    warranty,
-    os,
-    displaysize,
-    displayres,
-    video,
-    primarycam,
-    secondarycam,
-    ram,
-    sim,
-    dualsim,
-    nfc,
-    battery,
     image,
     images,
-    wirelessprotocol,
-    barcode,
-    variation,
-    capacity,
-    launched,
   } = data;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.productCont}>
       <div className={styles.product}>
-        <div className={styles.Img}>
+        <div className={styles.imgCont}>
           <Img src={heroImage || image} alt={title} w={400} h={400} l="eager" />
         </div>
         <div className={styles.details}>
           <h2 className={styles.hdr}>{title}</h2>
           <h3 className={styles.title}>
-            <span>Brand:</span> {brand}
+            <span>Brand:</span>
+            {brand}
           </h3>
           <h3 className={styles.title}>
-            <span>Product Code:</span> {modelnumber}
+            <span>Product Code:</span>
+            {modelnumber}
           </h3>
           <Price price_current={price} price_normal={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
           <ProductImgs data={images} setHeroImage={setHeroImage} />
+          {/* <Carousel data={images} setHeroImage={setHeroImage} /> */}
+          <Carousel />
         </div>
       </div>
-      <div className={styles.descs}>
-        <h3 className={styles.features}>Features</h3>
-        {descriptions.map((val, i) => (
-          <div className={styles.desc} key={i}>
-            {val}
-          </div>
-        ))}
-      </div>
+      <ProductFeatures descriptions={descriptions} />
+      <hr />
+      <ProductSpecs data={data} />
     </div>
   );
 }
+
+// const specs = [
+//   "modelid",
+//   "producttype",
+//   "colour",
+//   "colour2",
+//   "colourvar",
+//   "colours",
+//   "height",
+//   "depth",
+//   "width",
+//   "weight",
+//   "dimensions",
+//   "bluetooth",
+//   "memory",
+//   "memorycardmax",
+//   "memorycardtype",
+//   "displaytype",
+//   "warranty",
+//   "os",
+//   "displaysize",
+//   "displayres",
+//   "video",
+//   "primarycam",
+//   "secondarycam",
+//   "ram",
+//   "sim",
+//   "dualsim",
+//   "nfc",
+//   "battery",
+//   "wirelessprotocol",
+//   "barcode",
+//   "variation",
+//   "capacity",
+//   "launched",
+// ];

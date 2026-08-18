@@ -29,7 +29,7 @@ export async function fetchPhones() {
 export async function fetchPhoneById(query: string) {
   // noStore() prevents the response from being cached. (good for dev) TODO
   noStore();
-  // console.log("fetchPhones");
+  // console.log("fetchPhoneById");
   console.log(query);
   
 
