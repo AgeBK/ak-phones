@@ -64,6 +64,12 @@ export type DataProps = {
   data: PhoneProps;
 };
 
+export type PriceProps = {
+  price: number;
+  pricewas: number;
+  css: string;
+};
+
 export type KeyStringProps = { [key: string]: string };
 
 export type KeyNumberProps = { [key: string]: number };

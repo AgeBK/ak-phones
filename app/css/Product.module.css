@@ -1,5 +1,4 @@
 .productCont {
-  padding: 20px;
 }
 
 .product {
@@ -10,6 +9,10 @@
 
 .hdr {
   margin-bottom: 10px;
+}
+
+.brand {
+  color: #9c0388;
 }
 
 .title {

@@ -9,6 +9,8 @@ import ProductImgs from "./productImgs";
 import Carousel from "./carousel";
 import ProductSpecs from "./productSpecs";
 import ProductFeatures from "./ProductFeatures";
+import Link from "next/link";
+import Masonary from "./masonary";
 
 // http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
 
@@ -50,7 +52,9 @@ export default function Product({
           <h2 className={styles.hdr}>{title}</h2>
           <h3 className={styles.title}>
             <span>Brand:</span>
-            {brand}
+            <Link href={`/${brand.toLowerCase()}`} className={styles.brand}>
+              {brand}
+            </Link>
           </h3>
           <h3 className={styles.title}>
             <span>Product Code:</span>
@@ -58,14 +62,14 @@ export default function Product({
           </h3>
           <Price price_current={price} price_normal={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          <ProductImgs data={images} setHeroImage={setHeroImage} />
+          {/* <ProductImgs data={images} setHeroImage={setHeroImage} /> */}
           {/* <Carousel data={images} setHeroImage={setHeroImage} /> */}
-          <Carousel />
         </div>
       </div>
       <ProductFeatures descriptions={descriptions} />
       <hr />
-      <ProductSpecs data={data} />
+      {/* <ProductSpecs data={data} /> */}
+      <hr /> <Masonary />
     </div>
   );
 }

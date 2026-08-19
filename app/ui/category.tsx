@@ -1,11 +1,16 @@
+"use client";
+
 import { PhoneProps } from "../lib/definitions";
+import { capitalizeFirstLetter } from "../lib/utils";
+import { useState } from "react";
 import Img from "@/app/ui/image";
 import CartBtn from "@/app/ui/cartBtn";
-import styles from "@/app/css/Category.module.css";
+import SortProducts from "@/app/ui/sortProducts";
 import Link from "next/link";
-import { capitalizeFirstLetter } from "../lib/utils";
+import Price from "@/app/ui/price";
+import styles from "@/app/css/Category.module.css";
 
-export default async function Category({
+export default function Category({
   data,
   cat,
 }: {
@@ -14,21 +19,26 @@ export default async function Category({
 }) {
   // console.log("Category");
   // console.log(data);
+  const [sortOrder, setSortOrder] = useState("");
+  console.log("Category");
+  console.log(data);
 
   return (
     <div className={styles.category}>
       <h1 className={styles.hdr}>{capitalizeFirstLetter(cat)}</h1>
-      <div className={styles.amt}>{data.length} products</div>
-
+      <div className={styles.catHdr}>
+        <div className={styles.amt}>{data.length} products</div>
+        <SortProducts data={data} setSortOrder={setSortOrder} />
+      </div>
       <div className={styles.items}>
         {data.map((val: PhoneProps) => {
-          const { id, modelid, brand, title, image, price } = val;
+          const { id, modelid, brand, title, image, price, pricewas } = val;
           return (
             <div className={styles.item} key={id}>
               <Link href={`/${brand}/${modelid}`}>
                 <h2>{title}</h2>
                 <Img src={image} alt={title} w={100} h={100} l="lazy" />
-                <div className={styles.price}>${price}</div>
+                <Price price={price} pricewas={pricewas} css="" />
               </Link>
               <CartBtn id={id} />
             </div>

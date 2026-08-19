@@ -19,7 +19,7 @@
 }
 
 .item {
-  padding: 0 5px;
+  padding: 0;
 }
 
 .card {
@@ -29,9 +29,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
+
+  border: 5px solid #fff;
 }
 
 .button {

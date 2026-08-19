@@ -1,7 +1,18 @@
 import React, { useState } from "react";
+import Img from "./image";
+import Btn from "./button";
 import styles from "@/app/css/Carousel.module.css";
 
-const Carousel = () => {
+export default function Carousel({
+  data,
+  setHeroImage,
+}: {
+  data: string[];
+  setHeroImage: (heroImage: string) => void;
+}) {
+  console.log("Carousel");
+  console.log(data);
+
   // Sample data array with 10 dummy items
   const items = Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`);
 
@@ -42,13 +53,15 @@ const Carousel = () => {
           }}
           className={styles.track}
         >
-          {items.map((item, index) => (
+          {data.map((val, index) => (
             <div
               key={index}
-              style={{ flex: `0 0 ${100 / itemsToShow - 2}%` }}
+              style={{ flex: `0 0 ${100 / itemsToShow}%` }}
               className={styles.item}
             >
-              <div className={styles.card}>{item}</div>
+              <Btn onClick={() => setHeroImage(val)} css="btnProdImg" key={val}>
+                <Img src={val} alt={val} w={120} h={120} l="eager" />
+              </Btn>
             </div>
           ))}
         </div>
@@ -67,7 +80,7 @@ const Carousel = () => {
       </button>
     </div>
   );
-};
+}
 
 // Inline styles for zero-dependency implementation
 // const styles = {
@@ -114,4 +127,4 @@ const Carousel = () => {
 //   },
 // };
 
-export default Carousel;
+// export default Carousel;

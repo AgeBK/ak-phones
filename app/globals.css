@@ -10,6 +10,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .light {
   --filter-text: #333;
   --table-row: #999;

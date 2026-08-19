@@ -2,8 +2,13 @@
   padding: 20px;
 }
 
+.catHdr {
+  display: flex;
+}
+
 .amt {
   color: #555;
+  flex-grow: 1;
 }
 
 .items {

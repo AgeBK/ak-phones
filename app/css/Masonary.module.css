@@ -1,7 +1,5 @@
-
-
 .grid {
-  columns: 18rem;
+  columns: 11rem;
   gap: 1rem;
   counter-reset: grid;
 }
@@ -23,12 +21,26 @@
   content: counter(grid);
 }
 
-.item:nth-child(3n) {
+.item:nth-child(5n) {
   aspect-ratio: 1;
   background: lavender;
 }
 
-.item:nth-child(3n - 1) {
-  aspect-ratio: 2 / 3;
+.item:nth-child(5n - 1) {
+  aspect-ratio: 4 / 5;
   background: lightblue;
+}
+
+.item:nth-child(5n -2) {
+  aspect-ratio: 2 / 3;
+  background: rgb(40, 236, 210);
+}
+
+.item:nth-child(5n -3) {
+  aspect-ratio: 2 / 5;
+  background: rgb(231, 158, 221);
+}
+.item:nth-child(5n -4) {
+  aspect-ratio: 6 / 5;
+  background: rgb(231, 224, 158);
 }
