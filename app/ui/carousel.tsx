@@ -1,27 +1,33 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { itemsToShow } from "@/app/lib/utils";
 import Img from "./image";
 import Btn from "./button";
 import styles from "@/app/css/Carousel.module.css";
 
 export default function Carousel({
-  data,
+  images,
   setHeroImage,
+  winWidth,
 }: {
-  data: string[];
+  images: string[];
   setHeroImage: (heroImage: string) => void;
+  winWidth: number;
 }) {
-  console.log("Carousel");
-  console.log(data);
+  // console.log("Carousel");
+  // console.log(images);
 
   // Sample data array with 10 dummy items
-  const items = Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`);
+  // const items = Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsToShow = 5;
+  const itemsCnt = itemsToShow(winWidth);
+  // console.log("itemsCnt");
+  // console.log("winWidth: " + winWidth);
+  // console.log(itemsCnt);
 
   // Handler to move to the next item
   const handleNext = () => {
-    if (currentIndex < items.length - itemsToShow) {
+    if (currentIndex < images.length - itemsCnt) {
       setCurrentIndex((prev) => prev + 1);
     }
   };
@@ -49,18 +55,18 @@ export default function Carousel({
       <div className={styles.window}>
         <div
           style={{
-            transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`,
+            transform: `translateX(-${currentIndex * (100 / itemsCnt)}%)`,
           }}
           className={styles.track}
         >
-          {data.map((val, index) => (
+          {images.map((val, index) => (
             <div
               key={index}
-              style={{ flex: `0 0 ${100 / itemsToShow}%` }}
+              style={{ flex: `0 0 ${100 / itemsCnt}%` }}
               className={styles.item}
             >
               <Btn onClick={() => setHeroImage(val)} css="btnProdImg" key={val}>
-                <Img src={val} alt={val} w={120} h={120} l="eager" />
+                <Img src={val} alt={val} w={140} h={140} l="eager" />
               </Btn>
             </div>
           ))}
@@ -70,9 +76,9 @@ export default function Carousel({
       {/* Next Button */}
       <button
         onClick={handleNext}
-        disabled={currentIndex >= items.length - itemsToShow}
+        disabled={currentIndex >= images.length - itemsCnt}
         style={{
-          opacity: currentIndex >= items.length - itemsToShow ? 0.5 : 1,
+          opacity: currentIndex >= images.length - itemsCnt ? 0.5 : 1,
         }}
         className={styles.button}
       >

@@ -2,15 +2,13 @@
 
 import { useState } from "react";
 import { PhoneProps } from "@/app/lib/definitions";
-import Img from "./image";
-import Price from "./price";
-import styles from "@/app/css/Product.module.css";
-import ProductImgs from "./productImgs";
-import Carousel from "./carousel";
-import ProductSpecs from "./productSpecs";
-import ProductFeatures from "./ProductFeatures";
+import Img from "@/app/ui/image";
+import Price from "@/app/ui/price";
 import Link from "next/link";
-import Masonary from "./masonary";
+import Carousel from "@/app/ui/carousel";
+import { useWindowWidth } from "@/app/hooks/useWindowWidth";
+import styles from "@/app/css/Product.module.css";
+import ProductInfo from "./productInfo";
 
 // http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
 
@@ -24,8 +22,10 @@ export default function Product({
   id: string;
 }) {
   const [heroImage, setHeroImage] = useState<string>("");
-  console.log("Product");
-  // console.log(Product);
+  const winWidth = useWindowWidth();
+
+  // console.log("Product");
+  // console.log(winWidth);
   // console.log(cat, id);
   // console.log(data);
   // console.log(Object.keys(data));
@@ -37,7 +37,6 @@ export default function Product({
     price,
     pricewas,
     description,
-    descriptions,
     image,
     images,
   } = data;
@@ -60,52 +59,23 @@ export default function Product({
             <span>Product Code:</span>
             {modelnumber}
           </h3>
-          <Price price_current={price} price_normal={pricewas} css="product" />
+          <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          {/* <ProductImgs data={images} setHeroImage={setHeroImage} /> */}
-          {/* <Carousel data={images} setHeroImage={setHeroImage} /> */}
+          {winWidth > 1150 ? (
+            <Carousel
+              images={images}
+              setHeroImage={setHeroImage}
+              winWidth={winWidth}
+            />
+          ) : null}
         </div>
       </div>
-      <ProductFeatures descriptions={descriptions} />
+      <ProductInfo
+        data={data}
+        setHeroImage={setHeroImage}
+        winWidth={winWidth}
+      />
       <hr />
-      {/* <ProductSpecs data={data} /> */}
-      <hr /> <Masonary />
     </div>
   );
 }
-
-// const specs = [
-//   "modelid",
-//   "producttype",
-//   "colour",
-//   "colour2",
-//   "colourvar",
-//   "colours",
-//   "height",
-//   "depth",
-//   "width",
-//   "weight",
-//   "dimensions",
-//   "bluetooth",
-//   "memory",
-//   "memorycardmax",
-//   "memorycardtype",
-//   "displaytype",
-//   "warranty",
-//   "os",
-//   "displaysize",
-//   "displayres",
-//   "video",
-//   "primarycam",
-//   "secondarycam",
-//   "ram",
-//   "sim",
-//   "dualsim",
-//   "nfc",
-//   "battery",
-//   "wirelessprotocol",
-//   "barcode",
-//   "variation",
-//   "capacity",
-//   "launched",
-// ];

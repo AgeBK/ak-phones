@@ -76,6 +76,10 @@
   display: block;
 }
 
+.details .carouselContainer {
+  border: 1px solid red;
+}
+
 @media screen and (max-width: 1250px) {
   .imgCont {
     flex: 0 0 35%;
@@ -88,7 +92,7 @@
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 850px) {
   .product {
     flex-direction: column;
     gap: 20px;

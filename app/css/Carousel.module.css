@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 900px;
+  border: 1px solid yellowgreen;
 }
 
 .window {
@@ -32,8 +32,7 @@
   border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
-
-  border: 5px solid #fff;
+  /* border: 5px solid #fff; */
 }
 
 .button {
@@ -44,4 +43,50 @@
   font-size: 18px;
   cursor: pointer;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 1400px) {
+  .carouselContainer {
+    max-width: 800px;
+    border: 1px solid red;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .carouselContainer {
+    max-width: 650px;
+    border: 1px solid blue;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .carouselContainer {
+    max-width: 900px;
+    border: 1px solid orchid;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .carouselContainer {
+    max-width: 700px;
+    border: 1px solid orange;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .carouselContainer {
+    max-width: 600px;
+    border: 1px solid gray;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .carouselContainer {
+    max-width: 400px;
+    border: 1px solid darkcyan;
+    margin: 0 auto;
+  }
 }

@@ -14,11 +14,12 @@
   background: pink;
   padding: 1rem;
   border-radius: 0.75rem;
+  text-transform: capitalize;
 }
 
 .item::before {
-  counter-increment: grid;
-  content: counter(grid);
+  /* counter-increment: grid;
+  content: counter(grid); */
 }
 
 .item:nth-child(5n) {
@@ -32,15 +33,15 @@
 }
 
 .item:nth-child(5n -2) {
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 8 / 6;
   background: rgb(40, 236, 210);
 }
 
 .item:nth-child(5n -3) {
-  aspect-ratio: 2 / 5;
+  aspect-ratio: 7 / 5;
   background: rgb(231, 158, 221);
 }
 .item:nth-child(5n -4) {
   aspect-ratio: 6 / 5;
-  background: rgb(231, 224, 158);
+  background: rgb(188, 253, 255);
 }

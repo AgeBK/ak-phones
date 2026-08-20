@@ -17,11 +17,10 @@ export default function Category({
   data: PhoneProps[];
   cat: string;
 }) {
+  const [, setSortOrder] = useState("");
+  // TODO: eager above fold?
   // console.log("Category");
   // console.log(data);
-  const [sortOrder, setSortOrder] = useState("");
-  console.log("Category");
-  console.log(data);
 
   return (
     <div className={styles.category}>
@@ -33,11 +32,12 @@ export default function Category({
       <div className={styles.items}>
         {data.map((val: PhoneProps) => {
           const { id, modelid, brand, title, image, price, pricewas } = val;
+          const link = `/${brand.toLowerCase()}/${modelid}`;
           return (
             <div className={styles.item} key={id}>
-              <Link href={`/${brand}/${modelid}`}>
+              <Link href={link}>
                 <h2>{title}</h2>
-                <Img src={image} alt={title} w={100} h={100} l="lazy" />
+                <Img src={image} alt={title} w={100} h={100} l="eager" />
                 <Price price={price} pricewas={pricewas} css="" />
               </Link>
               <CartBtn id={id} />
