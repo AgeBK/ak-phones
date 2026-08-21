@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "@/app/ui/carousel";
 import ProductFeatures from "@/app/ui/ProductFeatures";
 import Masonary from "@/app/ui/masonary";

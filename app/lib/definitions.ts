@@ -70,6 +70,8 @@ export type PriceProps = {
   css: string;
 };
 
+export type PagingProps = { page: number; pageSize: number };
+
 export type KeyStringProps = { [key: string]: string };
 
 export type KeyNumberProps = { [key: string]: number };

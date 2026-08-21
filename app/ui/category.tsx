@@ -1,7 +1,8 @@
 "use client";
 
-import { PhoneProps } from "../lib/definitions";
+import { PagingProps, PhoneProps } from "../lib/definitions";
 import { capitalizeFirstLetter } from "../lib/utils";
+import { pagingSettings } from "../lib/appData.json";
 import { useState } from "react";
 import Img from "@/app/ui/image";
 import CartBtn from "@/app/ui/cartBtn";
@@ -9,6 +10,7 @@ import SortProducts from "@/app/ui/sortProducts";
 import Link from "next/link";
 import Price from "@/app/ui/price";
 import styles from "@/app/css/Category.module.css";
+import Paging from "./paging";
 
 export default function Category({
   data,
@@ -18,9 +20,25 @@ export default function Category({
   cat: string;
 }) {
   const [, setSortOrder] = useState("");
+  const [paging, setPaging] = useState<PagingProps>(pagingSettings);
+  const dataLength = data.length;
   // TODO: eager above fold?
   // console.log("Category");
-  // console.log(data);
+  // // console.log(data);
+  // console.log(paging);
+  // console.log("=========");
+
+  const pagedData = [...data].slice(
+    paging.page * paging.pageSize,
+    (paging.page + 1) * paging.pageSize,
+  );
+
+  const updatePaging = (page: number, pageSize: number) => {
+    if (window) {
+      window.scrollTo(0, 0);
+      setPaging({ page, pageSize });
+    }
+  };
 
   return (
     <div className={styles.category}>
@@ -30,7 +48,7 @@ export default function Category({
         <SortProducts data={data} setSortOrder={setSortOrder} />
       </div>
       <div className={styles.items}>
-        {data.map((val: PhoneProps) => {
+        {pagedData.map((val: PhoneProps) => {
           const { id, modelid, brand, title, image, price, pricewas } = val;
           const link = `/${brand.toLowerCase()}/${modelid}`;
           return (
@@ -44,6 +62,13 @@ export default function Category({
             </div>
           );
         })}
+      </div>
+      <div className={styles.pageCont}>
+        <Paging
+          dataLength={dataLength}
+          updatePaging={updatePaging}
+          paging={paging}
+        />
       </div>
     </div>
   );

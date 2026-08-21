@@ -1,6 +1,7 @@
 {
   "errorMsg": "Something has gone wrong",
   "notFoundMsg": "Could not find the requested product",
+  "pagingSettings": { "page": 0, "pageSize": 20 },
   "specs": [
     "modelid",
     "producttype",
