@@ -10,10 +10,10 @@ export default function Footer() {
       <div className={styles.ak}>
         © {yr}
         <a
-          href="https://github.com/AgeBK/ak-spirits?tab=readme-ov-file#about"
+          href="https://github.com/AgeBK/ak-phones?tab=readme-ov-file#about"
           target="_blank"
         >
-          AK Spirits
+          AK Phones
         </a>
         All rights reserved.
         <div>

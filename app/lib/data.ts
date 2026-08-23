@@ -31,7 +31,6 @@ export async function fetchPhoneById(query: string) {
   noStore();
   // console.log("fetchPhoneById");
   console.log(query);
-  
 
   try {
     const data = await sql`
@@ -53,7 +52,13 @@ export async function fetchPhonesByBrand(query: string) {
   noStore();
   // console.log("fetchPhonesByBrand");
   // console.log(query);
-  const q = capitalizeFirstLetter(query);
+  let q = "";
+  if (query === "oppo") {
+    // This brand is all uppercase
+    q = query.toUpperCase();
+  } else {
+    q = capitalizeFirstLetter(query);
+  }
 
   try {
     const data = await sql`
@@ -62,7 +67,7 @@ export async function fetchPhonesByBrand(query: string) {
       WHERE producttype = 'Mobile Phone'
       AND brand=${q}
       `;
-
+    
     return data as PhoneProps[];
   } catch (err) {
     console.error("Database Error:", err);

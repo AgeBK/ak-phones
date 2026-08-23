@@ -9,8 +9,7 @@
   background-color: #555;
 }
 
-.btnProdImage{
-
+.btnProdImage {
 }
 
 .cartAdd {
@@ -60,7 +59,7 @@
 }
 
 .pillDel {
-  border: 1px solid var(--spirits-text);
+  border: 1px solid var(--phones-text);
   padding: 2px 4px;
   text-transform: capitalize;
   font-size: 14px;
@@ -108,9 +107,10 @@
 
 .itemsPPSelected {
   color: #fff;
-  background-color: #000;
+  background-color: #9c0388;
   padding: 5px;
-  border: 1px solid var(--spirits-text);
+  /* border: 1px solid var(--phones-text); */
+  border: 1px solid #000;
   cursor: default;
 }
 
@@ -156,12 +156,12 @@
     font-weight: bold;
     font-size: 18px;
     width: 150px;
-    color: var(--spirits-text);
-    border: 1px solid var(--spirits-text);
+    color: var(--phones-text);
+    border: 1px solid var(--phones-text);
   }
 
   .filterBtn:hover {
     color: #fff;
-    background-color: var(--spirits-text);
+    background-color: var(--phones-text);
   }
 }

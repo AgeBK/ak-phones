@@ -2,6 +2,21 @@
   "errorMsg": "Something has gone wrong",
   "notFoundMsg": "Could not find the requested product",
   "pagingSettings": { "page": 0, "pageSize": 20 },
+  "sortBy": ["--- Select ---", "$", "$$$", "Sale", "A-Z", "Z-A"],
+  "blurb": {
+    "samsung": "Chasing a Galaxy that fits how you actually use your phone? Easy. AK’s range of Samsung mobile phones lines up the full spectrum. We're talking Galaxy A everyday hitters, feature-packed Galaxy S flagships, plus fun foldables like the latest Galaxy Z Flip 8, Z Fold 8 and Z Fold 8 Ultra. Which Galaxy gets the nod?",
+    "apple": "From fresh drops to fan favourites, AK’s iPhone range is stacked. Think the latest iPhone 17 and 17e for your everyday flex, Air for lightweight vibes, 17 Pro for the tech heads, and 17 Pro Max for full send. Chasing value? Score deals on the iPhone 16 or 15 series. Every model. Every colour. One’s got your name on it.",
+    "motorola": "Foldable, flagship or everyday favourite? No matter the vibe, AK’s lineup of Motorola phones has the gear to match. The range spans Razr, Edge and G Series models, with the ultra-thin Motorola Edge 70, Edge 70 Fusion and full-specced Motorola Signature bringing the freshest tech to the mix. Sounds like an upgrade? Definitely.",
+    "oppo": "Camera roll looking a bit too quiet? Not here. AK’s range of OPPO phones is built for the snap-happy, scroll-heavy, always-on crowd. Think everyday Android smarts with OPPO A Series value, Find Series power or fresh Reno energy in the OPPO Reno16 F and Reno16 Pro. Which OPPO is making your shortlist",
+    "default": "mad phone for a good price bruz"
+  },
+  "filters": {
+    "samsung": [" Galaxy A", "Galaxy S", "Galaxy Z"],
+    "apple": ["iPhone 13", "iPhone 14", "iPhone 15", "iPhone 16", "iPhone 17"],
+    "motorola": "Foldable, flagship or everyday favourite? No matter the vibe, AK’s lineup of Motorola phones has the gear to match. The range spans Razr, Edge and G Series models, with the ultra-thin Motorola Edge 70, Edge 70 Fusion and full-specced Motorola Signature bringing the freshest tech to the mix. Sounds like an upgrade? Definitely.",
+    "default": "mad phone for a good price bruz",
+    "oppo": "Camera roll looking a bit too quiet? Not here. AK’s range of OPPO phones is built for the snap-happy, scroll-heavy, always-on crowd. Think everyday Android smarts with OPPO A Series value, Find Series power or fresh Reno energy in the OPPO Reno16 F and Reno16 Pro. Which OPPO is making your shortlist"
+  },
   "specs": [
     "modelid",
     "producttype",
@@ -50,6 +65,5 @@
     "wirelessprotocol": "wireless protocol",
     "os": "operating system",
     "nfc": "NFC"
-  },
-  "sortBy": ["--- Select ---", "$", "$$$", "Sale", "A-Z", "Z-A"]
+  }
 }

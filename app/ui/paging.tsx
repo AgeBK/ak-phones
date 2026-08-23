@@ -24,7 +24,7 @@ export default function Paging({
   console.log(dataLength);
   console.log(page, pageSize);
 
-  if (dataLength > pageSize) {
+  if (totalPages > 1) {
     return (
       <div className={styles.container}>
         <Button

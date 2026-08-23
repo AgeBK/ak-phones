@@ -2,7 +2,7 @@
 
 import { PagingProps, PhoneProps } from "../lib/definitions";
 import { capitalizeFirstLetter } from "../lib/utils";
-import { pagingSettings } from "../lib/appData.json";
+import { pagingSettings, blurb, filters } from "../lib/appData.json";
 import { useState } from "react";
 import Img from "@/app/ui/image";
 import CartBtn from "@/app/ui/cartBtn";
@@ -11,6 +11,11 @@ import Link from "next/link";
 import Price from "@/app/ui/price";
 import styles from "@/app/css/Category.module.css";
 import Paging from "./paging";
+import CategoryItems from "./categoryItems";
+import ItemsPerPage from "./itemsPerPage";
+import Button from "./button";
+import CategoryFitler from "./categoryFilter";
+import CategoryFilter from "./categoryFilter";
 
 export default function Category({
   data,
@@ -21,17 +26,28 @@ export default function Category({
 }) {
   const [, setSortOrder] = useState("");
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
-  const dataLength = data.length;
+  const [filter, setFilter] = useState("");
+  let dataLength = data.length;
+  const catLow = cat.toLowerCase();
+  const intro = blurb[catLow] || blurb["default"];
+
   // TODO: eager above fold?
-  // console.log("Category");
-  // // console.log(data);
+  // TODO: appData phone intros?
+  // TODO: error page (no internet, turn off hotspot)
+
+  console.log("Category");
+  console.log(filter);
   // console.log(paging);
   // console.log("=========");
 
-  const pagedData = [...data].slice(
-    paging.page * paging.pageSize,
-    (paging.page + 1) * paging.pageSize,
-  );
+  const pagedData = [...data]
+    .filter(({ title }) => {
+      if (!filter) return true;
+      return title.includes(filter);
+    })
+    .slice(paging.page * paging.pageSize, (paging.page + 1) * paging.pageSize);
+
+  if (filter) dataLength = pagedData.length;
 
   const updatePaging = (page: number, pageSize: number) => {
     if (window) {
@@ -43,31 +59,23 @@ export default function Category({
   return (
     <div className={styles.category}>
       <h1 className={styles.hdr}>{capitalizeFirstLetter(cat)}</h1>
+      <div className={styles.intro}>{intro}</div>
       <div className={styles.catHdr}>
-        <div className={styles.amt}>{data.length} products</div>
+        <div className={styles.amt}>{dataLength} products</div>
+        <CategoryFilter catLow={catLow} setFilter={setFilter} filter={filter} />
         <SortProducts data={data} setSortOrder={setSortOrder} />
       </div>
-      <div className={styles.items}>
-        {pagedData.map((val: PhoneProps) => {
-          const { id, modelid, brand, title, image, price, pricewas } = val;
-          const link = `/${brand.toLowerCase()}/${modelid}`;
-          return (
-            <div className={styles.item} key={id}>
-              <Link href={link}>
-                <h2>{title}</h2>
-                <Img src={image} alt={title} w={100} h={100} l="eager" />
-                <Price price={price} pricewas={pricewas} css="" />
-              </Link>
-              <CartBtn id={id} />
-            </div>
-          );
-        })}
-      </div>
+      <CategoryItems pagedData={pagedData} />
       <div className={styles.pageCont}>
         <Paging
           dataLength={dataLength}
           updatePaging={updatePaging}
           paging={paging}
+        />
+        <ItemsPerPage
+          updatePaging={updatePaging}
+          paging={paging}
+          dataLength={dataLength}
         />
       </div>
     </div>

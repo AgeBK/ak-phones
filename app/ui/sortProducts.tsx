@@ -57,7 +57,7 @@ export default function SortProducts({
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.sortCont}>
       <select className={styles.sortBy} onChange={handleChange}>
         {sortBy.map((option) => (
           <option key={option} value={option}>

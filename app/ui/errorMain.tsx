@@ -9,13 +9,18 @@ export default function ErrorMain({ message }: { message: string }) {
   const pathname = usePathname();
   console.log(`ErrorMain - ${message}`);
 
+  // TODO: needs styling
+  // To create error replace samsung filter in appData with this: "samsung": "['Samsung Galaxy A, Samsung Galaxy S, Samsung Galaxy Z']",
+  // then goto http://localhost:3000/samsung
+
   return (
     <section className={styles.container}>
       <Img
-        imgSrc={"error/sad.webp"}
-        imgAlt="error"
-        imgHeight={100}
-        imgWidth={100}
+        src={"error/sad.webp"}
+        alt="An error has occured"
+        w={100}
+        h={100}
+        l="eager"
       />
       <h2 className={styles.hdr}>
         <strong>Whoops!!</strong>

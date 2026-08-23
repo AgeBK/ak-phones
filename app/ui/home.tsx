@@ -14,7 +14,15 @@ export default async function Home() {
 
   return (
     <div className={styles.home}>
-      <h1 className={styles.hdr}>Home</h1>
+      <h1 className={styles.hdr}>Mobile Phones</h1>
+      <div className={styles.homeIntro}>
+        Chasing the latest smartphone tech around? Good. AK’s collection of
+        mobile phones lines them all up, from the Google Pixel 11 Series to the
+        best Apple iPhone, Samsung Galaxy, Google, OPPO, Motorola and many
+        more!! Think proper grunt, clever AI and cameras that punch above their
+        weight. Which one’s making your shortlist?
+      </div>
+
       <NavBrands />
       <div className={styles.items}>
         {dataAll.map((val) => {

@@ -1,8 +1,12 @@
+.sortCont {
+  border: 1px solid #d3d3d3;
+}
+
 .sortBy {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   font-size: 16px;
   padding: 5px;
-  border: 1px solid var(--spirits-text);
+  border: 1px solid var(--phones-text);
 }
