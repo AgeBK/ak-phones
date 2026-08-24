@@ -93,7 +93,6 @@ export default function Product({
         setHeroImage={setHeroImage}
         winWidth={winWidth}
       />
-      <hr />
     </div>
   );
 }

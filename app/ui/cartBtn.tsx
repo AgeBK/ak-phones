@@ -6,22 +6,30 @@ import Btn from "@/app/ui/button";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/CartBtn.module.css";
 
-// type CartBtnProps = {
-//   item: PhoneProps;
-// };
-
 export default function CartBtn({ item }: CartItemProps) {
   const addCartItem = useCartStore((state) => state.addCartItem);
-
-  console.log(Object.keys(item));
+  const { modelid, brand, title, colour, image, price, pricewas } = item;
 
   return (
-    <Btn onClick={() => addCartItem(item)} css="btn">
+    <Btn
+      onClick={() =>
+        addCartItem({
+          modelid,
+          brand,
+          title,
+          colour,
+          image,
+          price,
+          pricewas,
+        })
+      }
+      css="btn"
+    >
       ADD TO CART
       <span className={styles.btnCart}>
         <Img
           src={`icons/cartEmpty.svg`}
-          alt="cart empty"
+          alt="Add to cart"
           w={20}
           h={20}
           l="eager"

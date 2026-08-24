@@ -30,7 +30,7 @@ const checkCartExisting = (
 export const useCartStore = create<{
   cartItems: CartItemProps[];
   addCartItem: (item: CartItemProps, qty?: number) => void;
-  // removeItem: (modelid: string) => void;
+  removeItem: (modelid: string) => void;
   deleteItem: (modelid: string) => void;
   clearCart: () => void;
   totalPrice: () => number;
@@ -42,12 +42,15 @@ export const useCartStore = create<{
       cartItems: checkCartExisting(state.cartItems, item, qty),
     }));
   },
-  // removeItem: (modelid: string) =>
-  //   set((state) => ({
-  //     cartItems: state.cartItems.map((item) =>
-  //       item.modelid === modelid ? item.qty-- : true,
-  //     ),
-  //   })),
+  removeItem: (modelid: string) =>
+    set((state) => ({
+      cartItems: state.cartItems.map((item) => {
+        if (item.modelid === modelid) {
+          item.qty--;
+        }
+        return item;
+      }),
+    })),
   deleteItem: (modelid: string) =>
     set((state) => ({
       cartItems: state.cartItems.filter((item) => item.modelid !== modelid),
@@ -55,11 +58,11 @@ export const useCartStore = create<{
   clearCart: () => set({ cartItems: [] }),
   totalPrice: (): number => {
     return get().cartItems.reduce(
-      (total, product) => total + product.price * product.qty,
+      (total, item) => total + item.price * item.qty,
       0,
     );
   },
   totalItems: (): number => {
-    return get().cartItems.reduce((acc, product) => acc + product.qty, 0);
+    return get().cartItems.reduce((acc, item) => acc + item.qty, 0);
   },
 }));

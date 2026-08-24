@@ -14,5 +14,7 @@
 }
 
 .descs .desc:nth-child(even) {
-  background-color: #e6e6fa;
+  /* background-color: #e6e6fa; */
+  background-color: #476391;
+  color: #fff;
 }

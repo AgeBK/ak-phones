@@ -25,17 +25,7 @@ export default function CategoryItems({
                 <Img src={image} alt={title} w={100} h={100} l="eager" />
                 <Price price={price} pricewas={pricewas} css="" />
               </Link>
-              <CartBtn
-                item={{
-                  modelid,
-                  brand,
-                  title,
-                  colour,
-                  image,
-                  price,
-                  pricewas,
-                }}
-              />
+              <CartBtn item={item} />
             </div>
           );
         })}

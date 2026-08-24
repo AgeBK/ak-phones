@@ -21,8 +21,10 @@ export default function Cart() {
   const cartTotalItems = totalItems();
 
   console.log("Cart");
-  console.log("cartTotalPrice: " + cartTotalPrice);
-  console.log("cartTotalItems: " + cartTotalItems);
+  console.log(cartItems);
+
+  // console.log("cartTotalPrice: " + cartTotalPrice);
+  // console.log("cartTotalItems: " + cartTotalItems);
 
   return (
     <div className={styles.container}>
@@ -47,31 +49,21 @@ export default function Cart() {
           </div>
         )}
         {cartItems.map((item) => {
-          const {
-            id,
-            modelid,
-            brand,
-            title,
-            colour,
-            image,
-            price,
-            pricewas,
-            qty,
-          } = item;
+          const { modelid, brand, title, colour, image, price, pricewas, qty } =
+            item;
           return (
-            <div className={styles.cartItem} key={id}>
+            <div className={styles.cartItem} key={modelid}>
               <div className={styles.imgCont}>
                 <Img src={`${image}`} alt={title} w={50} h={50} l="eager" />
               </div>
               <div className={styles.details}>
                 <h3 className={styles.brand}>{brand}</h3>
                 <div className={styles.sName}>{title}</div>
-                <div className={styles.sName}>{colour}</div>
                 <div className={styles.qtyCont}>
                   <span className={styles.qtyUpdate}>
                     <Button
                       onClick={() =>
-                        qty === 1 ? deleteItem(id) : removeItem(id)
+                        qty === 1 ? deleteItem(modelid) : removeItem(modelid)
                       }
                       css="cartUpdate"
                     >
@@ -87,7 +79,7 @@ export default function Cart() {
                 </div>
               </div>
               <div className={styles.price}>
-                <Button onClick={() => deleteItem(id)} css="cartDel">
+                <Button onClick={() => deleteItem(modelid)} css="cartDel">
                   <Img
                     src={`icons/bin.png`}
                     alt="delete"

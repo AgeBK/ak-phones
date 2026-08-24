@@ -95,8 +95,13 @@
 @media screen and (max-width: 850px) {
   .product {
     flex-direction: column;
+    align-items: center;
     gap: 20px;
-    margin-bottom: 0;
+    margin-bottom: 80px;
+  }
+
+  .details {
+    text-align: center;
   }
 
   .hdr {
