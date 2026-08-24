@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import styles from "@/app/css/Header.module.css";
-import Img from "./image";
+import Cart from "@/app/ui/cart";
+import Img from "@/app/ui/image";
 import FancyText from "@/app/ui/fancyText";
+import styles from "@/app/css/Header.module.css";
 
 export default function Header() {
   return (
@@ -19,13 +20,7 @@ export default function Header() {
         </h1>
       </div>
       <div className={styles.items}>
-        <Img
-          src={`icons/cartEmpty.png`}
-          alt="cart empty"
-          w={20}
-          h={20}
-          l="eager"
-        />
+        <Cart />
       </div>
     </header>
   );

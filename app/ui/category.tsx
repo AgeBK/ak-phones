@@ -35,8 +35,8 @@ export default function Category({
   // TODO: appData phone intros?
   // TODO: error page (no internet, turn off hotspot)
 
-  console.log("Category");
-  console.log(filter);
+  // console.log("Category");
+  // console.log(filter);
   // console.log(paging);
   // console.log("=========");
 

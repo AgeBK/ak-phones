@@ -4,6 +4,7 @@
   width: 100%;
   max-width: 900px;
   border: 1px solid yellowgreen;
+  margin-bottom: 20px;
 }
 
 .window {
@@ -23,7 +24,7 @@
 }
 
 .card {
-  background: #3b82f6;
+  background: #476391;
   color: #fff;
   height: 150px;
   display: flex;

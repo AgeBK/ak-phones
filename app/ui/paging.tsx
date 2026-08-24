@@ -20,9 +20,9 @@ export default function Paging({
   // let totalItems = data.length;
   const { page, pageSize } = paging;
 
-  console.log("Paging");
-  console.log(dataLength);
-  console.log(page, pageSize);
+  // console.log("Paging");
+  // console.log(dataLength);
+  // console.log(page, pageSize);
 
   if (totalPages > 1) {
     return (

@@ -9,6 +9,7 @@ import Carousel from "@/app/ui/carousel";
 import { useWindowWidth } from "@/app/hooks/useWindowWidth";
 import styles from "@/app/css/Product.module.css";
 import ProductInfo from "./productInfo";
+import CartBtn from "./cartBtn";
 
 // http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
 
@@ -33,9 +34,11 @@ export default function Product({
   const {
     brand,
     title,
+    modelid,
     modelnumber,
     price,
     pricewas,
+    colour,
     description,
     image,
     images,
@@ -58,6 +61,10 @@ export default function Product({
           <h3 className={styles.title}>
             <span>Product Code:</span>
             {modelnumber}
+          </h3>{" "}
+          <h3 className={styles.title}>
+            <span>Colour:</span>
+            {colour}
           </h3>
           <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
@@ -68,6 +75,17 @@ export default function Product({
               winWidth={winWidth}
             />
           ) : null}
+          <CartBtn
+            item={{
+              modelid,
+              brand,
+              title,
+              colour,
+              image,
+              price,
+              pricewas,
+            }}
+          />
         </div>
       </div>
       <ProductInfo

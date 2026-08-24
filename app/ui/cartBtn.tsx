@@ -1,17 +1,22 @@
 "use client";
 
+import { useCartStore } from "../store";
+import { CartItemProps } from "../lib/definitions";
 import Btn from "@/app/ui/button";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/CartBtn.module.css";
-import { KeyNumberProps } from "../lib/definitions";
 
-export default function CartBtn({ id }: KeyNumberProps) {
-  const addCartItem = (id: number) => {
-    console.log(id);
-  };
+// type CartBtnProps = {
+//   item: PhoneProps;
+// };
+
+export default function CartBtn({ item }: CartItemProps) {
+  const addCartItem = useCartStore((state) => state.addCartItem);
+
+  console.log(Object.keys(item));
 
   return (
-    <Btn onClick={() => addCartItem(id)} css="btn">
+    <Btn onClick={() => addCartItem(item)} css="btn">
       ADD TO CART
       <span className={styles.btnCart}>
         <Img

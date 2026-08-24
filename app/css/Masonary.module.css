@@ -1,5 +1,5 @@
 .grid {
-  columns: 11rem;
+  columns: 10rem;
   gap: 1rem;
   counter-reset: grid;
 }
@@ -22,26 +22,38 @@
   content: counter(grid); */
 }
 
-.item:nth-child(5n) {
+.item:nth-child(7n) {
   aspect-ratio: 1;
-  background: lavender;
+  background: #0d1117;
+  color: #e4e6eb;
 }
 
-.item:nth-child(5n - 1) {
+.item:nth-child(7n - 1) {
   aspect-ratio: 4 / 5;
   background: lightblue;
 }
 
-.item:nth-child(5n -2) {
+.item:nth-child(7n -2) {
   aspect-ratio: 8 / 6;
-  background: rgb(40, 236, 210);
+  background: #476391;
+  color: #fff;
 }
 
-.item:nth-child(5n -3) {
+.item:nth-child(7n -3) {
   aspect-ratio: 7 / 5;
-  background: rgb(231, 158, 221);
+  background: #e4e6eb;
+  color: #0d1117;
 }
-.item:nth-child(5n -4) {
+.item:nth-child(7n -4) {
   aspect-ratio: 6 / 5;
-  background: rgb(188, 253, 255);
+  background: #8b949e;
+}
+.item:nth-child(7n -5) {
+  aspect-ratio: 6 / 5;
+  background: #476391;
+  color: #fff;
+}
+.item:nth-child(7n -6) {
+  aspect-ratio: 6 / 5;
+  background: lightyellow;
 }

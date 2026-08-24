@@ -112,7 +112,7 @@ export default function Carousel({
 //     padding: "0 5px",
 //   },
 //   card: {
-//     background: "#3b82f6",
+//     background: "#476391",
 //     color: "#fff",
 //     height: "150px",
 //     display: "flex",

@@ -13,8 +13,8 @@ export default function CategoryFilter({
   filter: string;
 }) {
   const filterBy = filters[catLow];
-  console.log(filterBy);
-  console.log(filterBy.length);
+  // console.log(filterBy);
+  // console.log(filterBy.length);
 
   const handleFilter = (val: string) =>
     filter === val ? setFilter("") : setFilter(val);

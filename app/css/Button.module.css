@@ -1,7 +1,7 @@
 .btn {
   padding: 0 15px 5px;
-  border: 1px solid #999;
-  background-color: #000;
+  border: 1px solid #000;
+  background-color: #476391;
   color: #fff;
 }
 
@@ -12,38 +12,30 @@
 .btnProdImage {
 }
 
-.cartAdd {
-  background: url("/img/btn/plus1.png") no-repeat;
-  width: 30px;
-  height: 30px;
-  background-size: 30px 30px;
+.cartUpdate {
+  font-size: 20px;
+}
+
+/* .cartAdd {
+
 }
 
 .cartAdd:hover {
-  background: url("/img/btn/plus.png") no-repeat;
-  width: 30px;
-  height: 30px;
-  background-size: 30px 30px;
+
 }
 
 .cartMinus {
-  background: url("/img/btn/minus1.png") no-repeat;
-  width: 30px;
-  height: 30px;
-  background-size: 30px 30px;
-  filter: invert(100%);
+
 }
 
 .cartMinus:hover {
-  background: url("/img/btn/minus1.png") no-repeat;
-  width: 30px;
-  height: 30px;
-  background-size: 30px 30px;
-  opacity: 0.5;
-}
+
+} */
 
 .cartDel {
   background-color: transparent;
+  font-size: 12px;
+  color: #999;
 }
 
 .cartToggle {
@@ -107,7 +99,7 @@
 
 .itemsPPSelected {
   color: #fff;
-  background-color: #9c0388;
+  background-color: #476391;
   padding: 5px;
   /* border: 1px solid var(--phones-text); */
   border: 1px solid #000;

@@ -11,10 +11,12 @@
 }
 
 .filters:hover {
-  border: 1px solid #999;
+  background-color: #555;
+  color: #fff;
 }
 
 .selected {
-  background-color: #9c0388;
+  /* background-color: #476391; */
+  background-color: #476391;
   color: #fff;
 }

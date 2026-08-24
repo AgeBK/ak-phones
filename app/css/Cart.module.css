@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  cursor: default;
+  /* max-height: 100vh; */
+  z-index: 11;
+  position: relative;
+  border-radius: 0 10px 10px 0;
+  margin: 5px 5px 0 0;
+}
+
+.cartCont {
+  cursor: pointer;
+  display: flex;
+  margin: 5px 5px 0 0;
+}
+
+.cartHdr {
+  border: 1px solid #999;
+  border-bottom: 0;
+  padding-right: 20px;
+  border-radius: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartHdr > span:first-child {
+  flex-grow: 1;
+}
+
+.cartDetails {
+  text-align: center;
+  display: none;
+  position: relative;
+}
+
+.showCart {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.close {
+  margin-left: 25px;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid #999;
+  border-bottom: 0;
+  width: 330px;
+  text-align: left;
+}
+
+.cartItem:last-child {
+  border: 1px solid #999;
+}
+
+.itemCnt {
+  line-height: 0;
+  margin-left: 3px;
+}
+
+.imgCont {
+  margin-top: 10px;
+  background-color: #fff;
+  min-width: 50px;
+  /* padding: 10px; */
+  background-color: #fff;
+}
+
+.details {
+  padding: 5px;
+  max-width: 170px;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.details h3 {
+  margin-bottom: 0;
+}
+
+.sName {
+  font-size: 14px;
+  height: 18px;
+  overflow: hidden; /* TODO */
+}
+
+.qtyCont {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  margin-top: 10px;
+}
+
+.qtyCont > * {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.qtyCont button {
+  filter: var(--filter-invert);
+}
+
+.price {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.total {
+  display: flex;
+  border-top: 1px solid #d3d3d3;
+  padding: 5px;
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid #555;
+}
+
+.total span:first-child {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.cartTotal {
+  margin: auto;
+  font-size: 20px;
+}
+
+/* cart image show/hide TODO: ?? */
+.cartLight {
+  display: var(--light-display);
+}
+
+.cartDark {
+  display: var(--dark-display);
+}

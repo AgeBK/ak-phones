@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.hdr {
+  color: #476391;
+}
+
 .hdr,
 .intro {
   margin-bottom: 20px;

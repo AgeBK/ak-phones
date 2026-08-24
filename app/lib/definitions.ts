@@ -70,6 +70,24 @@ export type PriceProps = {
   css: string;
 };
 
+export type CartItemProps = {
+  item: {
+    brand: string;
+    title: string;
+    colour: string;
+    modelid: string;
+    price: number;
+    pricewas: number;
+    image: string;
+    qty?: number;
+  };
+};
+
+// TODO: research interface
+// export interface CartItemProps extends PhoneProps {
+//   qty: number;
+// }
+
 export type PagingProps = { page: number; pageSize: number };
 
 export type KeyStringProps = { [key: string]: string };

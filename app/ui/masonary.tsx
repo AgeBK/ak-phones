@@ -2,6 +2,8 @@ import { DataProps, PhoneProps } from "../lib/definitions";
 import { specs, alternateName } from "@/app/lib/appData.json";
 import styles from "@/app/css/Masonary.module.css";
 
+// TODO: not always masonary??
+
 export default function Masonary({ data }: DataProps) {
   return (
     <>

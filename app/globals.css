@@ -15,6 +15,11 @@ body {
 *::after {
   box-sizing: border-box;
 }
+/* TODO: global vars */
+/* #0d1117 */
+/* #e4e6eb */
+/* #3b83f6 */
+/* #8b949e */
 
 .light {
   --filter-text: #333;
