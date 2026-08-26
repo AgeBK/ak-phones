@@ -4,9 +4,11 @@ import Link from "next/link";
 import Cart from "@/app/ui/cart";
 import Img from "@/app/ui/image";
 import FancyText from "@/app/ui/fancyText";
+import Search from "./search";
+import { DataProps } from "../lib/definitions";
 import styles from "@/app/css/Header.module.css";
 
-export default function Header() {
+export default function Header({ data }: DataProps[]) {
   return (
     <header className={styles.header}>
       <div className={styles.brand}>
@@ -18,6 +20,9 @@ export default function Header() {
         <h1 className={styles.hdr}>
           <FancyText text="Your phone shop" css="logoHdr"></FancyText>
         </h1>
+      </div>
+      <div className={styles.search}>
+        <Search data={data} />
       </div>
       <div className={styles.items}>
         <Cart />

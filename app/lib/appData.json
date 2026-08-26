@@ -17,7 +17,7 @@
     "default": "mad phone for a good price bruz",
     "oppo": "Camera roll looking a bit too quiet? Not here. AK’s range of OPPO phones is built for the snap-happy, scroll-heavy, always-on crowd. Think everyday Android smarts with OPPO A Series value, Find Series power or fresh Reno energy in the OPPO Reno16 F and Reno16 Pro. Which OPPO is making your shortlist"
   },
-  "specs": [
+  "specKeys": [
     "modelid",
     "producttype",
     "colour",

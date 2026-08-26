@@ -2,7 +2,6 @@ import Carousel from "@/app/ui/carousel";
 import ProductFeatures from "@/app/ui/ProductFeatures";
 import Masonary from "@/app/ui/masonary";
 import { PhoneProps } from "../lib/definitions";
-
 import styles from "@/app/css/ProductInfo.module.css";
 
 export default function ProductInfo({
@@ -24,7 +23,9 @@ export default function ProductInfo({
           winWidth={winWidth}
         />
       ) : null}
+      <hr />
       <ProductFeatures descriptions={descriptions} />
+      <hr />
       <Masonary data={data} />
     </div>
   );

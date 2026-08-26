@@ -6,10 +6,10 @@ export default function ProductFeatures({
   descriptions: string[];
 }) {
   return (
-    <div className={styles.descs}>
-      <h3 className={styles.features}>Features</h3>
+    <div className={styles.features}>
+      <h3 className={styles.hdr}>Features</h3>
       {descriptions.map((val, i) => (
-        <div className={styles.desc} key={i}>
+        <div className={styles.feature} key={i}>
           {val}
         </div>
       ))}
