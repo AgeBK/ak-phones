@@ -44,15 +44,18 @@
   background: #e4e6eb;
   color: #0d1117;
 }
+
 .item:nth-child(7n -4) {
   aspect-ratio: 6 / 5;
   background: #8b949e;
 }
+
 .item:nth-child(7n -5) {
   aspect-ratio: 6 / 5;
   background: #476391;
   color: #fff;
 }
+
 .item:nth-child(7n -6) {
   aspect-ratio: 6 / 5;
   background: lightyellow;

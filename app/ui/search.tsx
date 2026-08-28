@@ -1,17 +1,11 @@
 import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-import { Chip, InputAdornment } from "@mui/material";
+// import { Chip, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import {
-  DataProps,
-  KeyStringProps,
-  PhoneProps,
-  SpiritProps,
-} from "../lib/definitions";
-import parse from "autosuggest-highlight/parse";
-import match from "autosuggest-highlight/match";
-// import ImgFill from "./image-fill";
+import { DataProps, KeyStringProps, PhoneProps } from "../lib/definitions";
+// import parse from "autosuggest-highlight/parse";
+// import match from "autosuggest-highlight/match";
 import Img from "./image";
 import styles from "../css/Search.module.css";
 
@@ -22,6 +16,8 @@ export default function Search({ data }: DataProps[]) {
   // const { MAX_SMALLSCREEN } = data;
   // const isPageWidth: boolean | undefined = usePageWidth(MAX_SMALLSCREEN);
   const { replace } = useRouter();
+
+  // TODO: the clear button when you click on a specific product when the text box is small looks bad??
 
   if (data) {
     // data used by the auto complete component
@@ -41,7 +37,7 @@ export default function Search({ data }: DataProps[]) {
 
     const handleChange = (
       _: SyntheticEvent<Element, Event>,
-      val: SpiritProps | null,
+      val: PhoneProps | null,
     ): void => {
       if (val) {
         const { brand, modelid } = val;
@@ -135,15 +131,17 @@ export default function Search({ data }: DataProps[]) {
               </li>
             );
           }}
-          renderTags={(tagValue, getTagProps) => {
-            return tagValue.map((option, index) => (
-              <Chip
-                {...getTagProps({ index })}
-                label={option.modelid}
-                key={option.modelid}
-              />
-            ));
-          }}
+          // TODO: below causing Next error, don't think it's required??
+
+          // renderTags={(tagValue, getTagProps) => {
+          //   return tagValue.map((option, index) => (
+          //     <Chip
+          //       {...getTagProps({ index })}
+          //       label={option.modelid}
+          //       key={option.modelid}
+          //     />
+          //   ));
+          // }}
           renderInput={(params) => (
             <TextField
               // label={isPageWidth ? "Search" : "What are you looking for?"}
@@ -164,21 +162,22 @@ export default function Search({ data }: DataProps[]) {
                   paddingRight: "10px !important", // Adjust padding here
                 },
               }}
-              InputProps={{
-                ...params.InputProps,
-                endAdornment: (
-                  <InputAdornment position="end">
-                    {/* <SearchIcon /> */}
-                    <Img
-                      src={`icons/search.png`}
-                      alt="search"
-                      w={24}
-                      h={24}
-                      l="eager"
-                    />
-                  </InputAdornment>
-                ),
-              }}
+              // TODO: below causing Next error, don't think it's required??
+              // InputProps={{
+              //   ...params.InputProps,
+              //   endAdornment: (
+              //     <InputAdornment position="end">
+              //       {/* <SearchIcon /> */}
+              //       <Img
+              //         src={`icons/search.png`}
+              //         alt="search"
+              //         w={24}
+              //         h={24}
+              //         l="eager"
+              //       />
+              //     </InputAdornment>
+              //   ),
+              // }}
             />
           )}
         ></Autocomplete>

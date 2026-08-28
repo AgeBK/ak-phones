@@ -1,0 +1,89 @@
+:root {
+  --loading-grey: #ededed;
+}
+
+.skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.card,
+.btn {
+  flex: 1;
+  margin-right: 30px;
+  max-width: 140px;
+  height: 140px;
+}
+
+.btn {
+  height: 50px;
+  max-width: 50px;
+}
+
+.image {
+  height: 140px;
+}
+
+.btn .image {
+  height: 50px;
+  width: 50px;
+}
+
+.image img {
+  display: block;
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+.content {
+  padding: 2rem 1.8rem;
+}
+
+.card h4 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+.loading .image,
+.loading .btn,
+.loading h4,
+.loading .description {
+  background-color: var(--loading-grey);
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    var(--loading-grey);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+
+.loading h4 {
+  min-height: 1.6rem;
+  border-radius: 4px;
+  animation-delay: 0.05s;
+}
+/* 
+.loading .description {
+  min-height: 4rem;
+  border-radius: 4px;
+  animation-delay: 0.06s;
+} */

@@ -7,9 +7,10 @@ import Price from "@/app/ui/price";
 import Link from "next/link";
 import Carousel from "@/app/ui/carousel";
 import { useWindowWidth } from "@/app/hooks/useWindowWidth";
-import styles from "@/app/css/Product.module.css";
 import ProductInfo from "./productInfo";
 import CartBtn from "./cartBtn";
+import Skeleton from "./skeleton";
+import styles from "@/app/css/Product.module.css";
 
 // http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
 
@@ -30,6 +31,10 @@ export default function Product({
   // console.log(cat, id);
   // console.log(data);
   // console.log(Object.keys(data));
+
+  // useEffect(() => {
+  //   winWidth = useWindowWidth()
+  // }, []);
 
   const {
     brand,
@@ -61,20 +66,22 @@ export default function Product({
           <h3 className={styles.title}>
             <span>Product Code:</span>
             {modelnumber}
-          </h3>{" "}
+          </h3>
           <h3 className={styles.title}>
             <span>Colour:</span>
             {colour}
           </h3>
           <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          {winWidth > 1150 ? (
+          {0 > 1150 ? (
             <Carousel
               images={images}
               setHeroImage={setHeroImage}
               winWidth={winWidth}
             />
-          ) : null}
+          ) : (
+            <Skeleton />
+          )}
           <CartBtn
             item={{
               modelid,

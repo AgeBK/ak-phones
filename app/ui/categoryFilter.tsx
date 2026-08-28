@@ -1,8 +1,10 @@
-import { PhoneProps } from "../lib/definitions";
 import { filters } from "../lib/appData.json";
 import Button from "./button";
 import styles from "@/app/css/CategoryFilter.module.css";
 
+// For popular phones with more products,
+// Samsung, Apple, OPPO
+// pill style filters will render on Category page
 export default function CategoryFilter({
   catLow,
   setFilter,
@@ -13,8 +15,10 @@ export default function CategoryFilter({
   filter: string;
 }) {
   const filterBy = filters[catLow];
+
+  // console.log("CategoryFilter");
+  // console.log(filters);
   // console.log(filterBy);
-  // console.log(filterBy.length);
 
   const handleFilter = (val: string) =>
     filter === val ? setFilter("") : setFilter(val);

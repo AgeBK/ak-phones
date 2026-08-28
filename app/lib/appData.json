@@ -8,16 +8,16 @@
     "apple": "From fresh drops to fan favourites, AK’s iPhone range is stacked. Think the latest iPhone 17 and 17e for your everyday flex, Air for lightweight vibes, 17 Pro for the tech heads, and 17 Pro Max for full send. Chasing value? Score deals on the iPhone 16 or 15 series. Every model. Every colour. One’s got your name on it.",
     "motorola": "Foldable, flagship or everyday favourite? No matter the vibe, AK’s lineup of Motorola phones has the gear to match. The range spans Razr, Edge and G Series models, with the ultra-thin Motorola Edge 70, Edge 70 Fusion and full-specced Motorola Signature bringing the freshest tech to the mix. Sounds like an upgrade? Definitely.",
     "oppo": "Camera roll looking a bit too quiet? Not here. AK’s range of OPPO phones is built for the snap-happy, scroll-heavy, always-on crowd. Think everyday Android smarts with OPPO A Series value, Find Series power or fresh Reno energy in the OPPO Reno16 F and Reno16 Pro. Which OPPO is making your shortlist",
-    "default": "mad phone for a good price bruz"
+    "google": "Want Android the way Google actually built it? Easy. JB's range of Google Pixel phones delivers that and more, from the Google Pixel 11 Series to the Pixel 10, Pixel 9 and value-friendly Pixel 9a. We’re talking Gemini AI working in the background, that signature Pixel camera, plus clean software built for the long run.",
+    "default": "Mad phone for a good price boss. Lets get it!!!"
   },
   "filters": {
-    "samsung": [" Galaxy A", "Galaxy S", "Galaxy Z"],
+    "samsung": ["Galaxy A", "Galaxy S", "Galaxy Z"],
     "apple": ["iPhone 13", "iPhone 14", "iPhone 15", "iPhone 16", "iPhone 17"],
-    "motorola": "Foldable, flagship or everyday favourite? No matter the vibe, AK’s lineup of Motorola phones has the gear to match. The range spans Razr, Edge and G Series models, with the ultra-thin Motorola Edge 70, Edge 70 Fusion and full-specced Motorola Signature bringing the freshest tech to the mix. Sounds like an upgrade? Definitely.",
-    "default": "mad phone for a good price bruz",
-    "oppo": "Camera roll looking a bit too quiet? Not here. AK’s range of OPPO phones is built for the snap-happy, scroll-heavy, always-on crowd. Think everyday Android smarts with OPPO A Series value, Find Series power or fresh Reno energy in the OPPO Reno16 F and Reno16 Pro. Which OPPO is making your shortlist"
+    "google": ["Google Pixel 8", "Google Pixel 9", "Google Pixel 10"],
+    "oppo": ["OPPO A", "OPPO Reno"]
   },
-  "specKeys": [
+  "specKeysArr": [
     "modelid",
     "producttype",
     "colour",
@@ -55,6 +55,8 @@
   "alternateName": {
     "modelid": "model",
     "producttype": "product",
+    "memorycardmax": "memory card max",
+    "memorycardtype": "memory card type",
     "displaysize": "display size",
     "displayres": "display resolution",
     "displaytype": "display type",

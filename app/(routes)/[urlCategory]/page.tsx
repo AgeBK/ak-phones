@@ -1,13 +1,12 @@
 import Category from "@/app/ui/category";
-import { fetchPhonesByBrand } from "@/app/lib/data";
+import { fetchPhones } from "@/app/lib/data";
 
 export default async function Page({
   params,
-}: {
+}: {  
   params: Promise<{ urlCategory: string }>;
 }) {
   const { urlCategory } = await params;
-  const data = await fetchPhonesByBrand(urlCategory);
-
+  const data = await fetchPhones();
   return <Category data={data} cat={urlCategory} />;
 }

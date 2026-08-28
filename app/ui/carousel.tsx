@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { itemsToShow } from "@/app/lib/utils";
 import Img from "./image";
@@ -16,10 +18,8 @@ export default function Carousel({
   // console.log("Carousel");
   // console.log(images);
 
-  // Sample data array with 10 dummy items
-  // const items = Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`);
-
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const itemsCnt = itemsToShow(winWidth);
   // console.log("itemsCnt");
   // console.log("winWidth: " + winWidth);

@@ -1,38 +1,41 @@
 import { DataProps, PhoneProps } from "../lib/definitions";
-import { specKeys, alternateName } from "@/app/lib/appData.json";
+import { specKeysArr, alternateName } from "@/app/lib/appData.json";
 import styles from "@/app/css/Masonary.module.css";
 // TODO: not always masonary??
 
+// renders phone specifications in a masonary style format
+// specKeysArr = hard coded array of db column names to render for specification table
+// val = each key
+// altName = hard coded alternate name for some keys where val not suitable
 export default function Masonary({ data }: DataProps) {
+  const checkVals = (val: string | number | true | string[]) => {
+    // specification values can be either strings or arrays
+    // render array values in seperate divs
+    let jsx = val;
+    if (Array.isArray(val)) {
+      jsx = val.map((v: string) => <div key={v}>{v}</div>);
+    }
+    return jsx;
+  };
+
   return (
     <>
       <h3 className={styles.features}>Specs</h3>
       <div className={styles.grid}>
-        {(specKeys as Array<keyof PhoneProps>).map((val) => {
-          // specKeys = hard coded list of phone obj keys to render for specification table
-          // val = each key
-          // altName = hard coded alternate name for some keys where val not suitable)
+        {(specKeysArr as Array<keyof PhoneProps>).map((val) => {
           const specValue = data[val];
           const altName = alternateName[val];
 
-          const checkVals = (val: string | number | true | string[]) => {
-            // specification values can be either strings or arrays
-            let jsx = val;
-            if (Array.isArray(val)) {
-              jsx = val.map((v: string) => <div key={v}>{v}</div>);
-            }
-            return jsx;
-          };
           return (
-            <>
+            <div key={val} className={styles.item}>
               {specValue ? (
-                <div className={styles.item} key={val}>
+                <div>
                   <b>{altName || val}:</b>
                   <br />
                   {checkVals(specValue)}
                 </div>
               ) : null}
-            </>
+            </div>
           );
         })}
       </div>
