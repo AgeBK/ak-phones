@@ -70,7 +70,11 @@ export const filterBySearch = (arr: PhoneProps[], searchTerm: string) => {
   return arr;
 };
 
-export const filterPageData = (data: PhoneProps[], catLow: string, searchTerm: string) => {
+export const filterPageData = (
+  data: PhoneProps[],
+  catLow: string,
+  searchTerm: string,
+) => {
   let filteredData = [...data];
   if (searchTerm) {
     // MUI search bar
@@ -80,8 +84,69 @@ export const filterPageData = (data: PhoneProps[], catLow: string, searchTerm: s
     filteredData = data.filter(
       ({ brand }: { brand: string }) => brand.toLowerCase() === catLow,
     );
-    console.log("pagedData");
-    console.log(filteredData);
+    // console.log("pagedData");
+    // console.log(filteredData);
   }
   return filteredData;
+};
+
+export const typeCheck = (obj: Record<string, unknown>) => {
+  const o: Record<string, unknown> = {};
+  for (const key in obj) {
+    if (!Object.prototype.hasOwnProperty.call(obj, key)) continue;
+
+    const val: unknown = obj[key];
+    const valType: string = typeof val;
+
+    // if (typeof val === "number" && Number(val) >= 0) {
+    if (Number(val) >= 0) {
+      o[key] = 0;
+    } else if (Array.isArray(val)) {
+      o[key] = [];
+    } else if (valType === "string") {
+      o[key] = "string";
+    } else {
+      // type object or bool (not using)
+    }
+
+    // console.log("valType: " + valType);
+  }
+  console.log(o);
+};
+
+export const validateImage = async (strUrl: string) => {
+  try {
+    await new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = strUrl;
+      img.onload = () => resolve(strUrl);
+      img.onerror = () => {
+        reject();
+      };
+    });
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+// export const uploadImg = async (file: Blob, productId: string) => {
+export const uploadImg = async (file: Blob, imgName: string) => {
+  // const fileName: string = imgName;
+  const formData = new FormData();
+  formData.append("file", file, imgName);
+
+  const response = await fetch("/api/upload", {
+    method: "POST",
+    body: formData,
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    return true;
+  } else {
+    console.log("ManageUpload image FAILED");
+    return false;
+  }
 };

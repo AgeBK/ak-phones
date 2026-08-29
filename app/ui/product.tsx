@@ -73,7 +73,7 @@ export default function Product({
           </h3>
           <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          {0 > 1150 ? (
+          {winWidth && winWidth > 1150 ? (
             <Carousel
               images={images}
               setHeroImage={setHeroImage}

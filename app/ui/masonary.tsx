@@ -25,18 +25,18 @@ export default function Masonary({ data }: DataProps) {
         {(specKeysArr as Array<keyof PhoneProps>).map((val) => {
           const specValue = data[val];
           const altName = alternateName[val];
-
-          return (
-            <div key={val} className={styles.item}>
-              {specValue ? (
+          if (specValue) {
+            return (
+              <div key={val} className={styles.item}>
                 <div>
                   <b>{altName || val}:</b>
                   <br />
                   {checkVals(specValue)}
                 </div>
-              ) : null}
-            </div>
-          );
+              </div>
+            );
+          }
+          return null;
         })}
       </div>
     </>

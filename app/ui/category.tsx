@@ -6,6 +6,7 @@ import {
   checkSearch,
   filterBySearch,
   filterPageData,
+  typeCheck,
 } from "../lib/utils";
 import { pagingSettings, blurb, filters } from "../lib/appData.json";
 import { useState } from "react";
@@ -47,6 +48,8 @@ export default function Category({
   // console.log(filter);
   // console.log(paging);
   // console.log("=========");
+  console.log(Object.keys(data[1]));
+  const prodObj = data[1];
 
   // filters phone data by brand or by users search term
   pagedData = filterPageData(data, catLow, searchTerm);
@@ -58,6 +61,9 @@ export default function Category({
       return title.includes(filter);
     });
   }
+
+  console.log(data[1]);
+  typeCheck(data[1]);
 
   const dataLength = pagedData.length;
 
