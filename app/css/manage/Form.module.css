@@ -16,7 +16,9 @@
 
 .inputContainer > div {
   flex: 50%;
-  margin: 10px 0;
+  margin: 5px 0;
+  padding: 0 5px;
+  background-color: #f6f6f6;
 }
 
 .container .id,
@@ -49,7 +51,7 @@
   text-transform: capitalize;
   display: inline-block;
   margin-right: 10px;
-  width: 120px;
+  width: 125px;
   overflow-wrap: break-word;
   font-size: 14px;
 }
@@ -83,4 +85,7 @@
 
 .newImage {
   text-align: center;
+}
+
+.csv {
 }

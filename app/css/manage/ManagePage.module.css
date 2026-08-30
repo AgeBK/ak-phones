@@ -5,6 +5,11 @@
   margin: 0 auto;
 }
 
+.csv {
+  color: #999;
+  font-size: 14px;
+}
+
 .hdr {
   padding: 15px;
   color: #555;

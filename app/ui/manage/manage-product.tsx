@@ -4,12 +4,11 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { addProduct, deleteProduct, updateProduct } from "@/app/lib/actions";
 import { useActionState } from "react";
 import InputFields from "./manage-input-fields";
-// import ManageProductActions from "./manage-product-actions";
-// import ManageDBMessages from "./manage-db-messages";
-// import ModalDelete from "./manage-modal-delete";
+import ManageProductActions from "./manage-product-actions";
+import ManageDBMessages from "./manage-db-messages";
+import ModalDelete from "./manage-modal-delete";
 import ManageImage from "./manage-image";
 // import { FormStateProps, ManageProductProps } from "@/app/lib/definitions";
-
 import styles from "@/app/css/manage/Form.module.css";
 
 const initialState: FormStateProps = {
@@ -19,7 +18,7 @@ const initialState: FormStateProps = {
 };
 
 export default function ManageProduct({ product, action }: ManageProductProps) {
-  // const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const [, setProductId] = useState<string>("");
   const { id, image, name } = product;
   const isDelete = action === "delete";
@@ -68,10 +67,10 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
     }
   };
 
-  // const enableModal = (e: React.MouseEvent<Element, MouseEvent>): void => {
-  //   e.preventDefault();
-  //   setShowModal(true);
-  // };
+  const enableModal = (e: React.MouseEvent<Element, MouseEvent>): void => {
+    e.preventDefault();
+    setShowModal(true);
+  };
 
   return (
     <form action={formAction} className={styles.container}>
@@ -81,7 +80,7 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
         handleChange={handleChange}
       />
       <ManageImage id={id} image={image} isDelete={isDelete} />
-      {/*   <ManageProductActions isDelete={isDelete} enableModal={enableModal} />
+      <ManageProductActions isDelete={isDelete} enableModal={enableModal} />
       <ManageDBMessages errorMessages={state} />
       {showModal && (
         <ModalDelete
@@ -90,7 +89,7 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
           initialState={initialState}
           setShowModal={setShowModal}
         />
-      )} */}
+      )}
       {/* {state.errors && <p>{state.errors}</p>} */}
     </form>
   );
