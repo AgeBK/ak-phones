@@ -12,11 +12,17 @@ import styles from "@/app/css/manage/Form.module.css";
 // loads textboxes on add/edit/delete manage page
 export default function ManageInputFields({
   product,
-  isDelete,
+  action,
   handleChange,
 }: InputFieldsProps) {
   // console.log("ManageInputFields");
   // console.log(readOnlyFields);
+  // console.log(location.pathname);
+  const arr = [];
+
+  Array.from({ length: 7 }, (_, i) => arr.push(`31_${i + 1}.webp`));
+
+  // console.log(arr);
 
   return (
     <div className={styles.inputContainer}>
@@ -27,7 +33,7 @@ export default function ManageInputFields({
           const isDisabled =
             readOnlyFields.indexOf(key) > -1 ||
             (product.id && key === "id") ||
-            isDelete;
+            action === "delete";
           const prodKey = alternateName[key] || key;
           return (
             <div key={key}>

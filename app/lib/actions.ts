@@ -4,7 +4,8 @@ import { neon } from "@neondatabase/serverless";
 const sql = neon(process.env.DATABASE_URL);
 // const sql = neon(process.env.NEON_DATABASE_URL!); TODO:?? https://www.freecodecamp.org/news/nextjs-clerk-neon-fullstack-development/
 import { z } from "zod";
-
+const minStr = z.string();
+const minNum = z.number();
 const minStr3 = z
   .string()
   .min(3, { message: "Must be 3 or more characters long" });
@@ -14,55 +15,63 @@ const gt0 = z
 // const nonNeg = z.coerce.number().nonnegative();
 
 const FormSchema = z.object({
-  id: gt0,
-  brand: minStr3,
-  title: minStr3,
-  modelnumber: minStr3,
-  modelid: minStr3,
+  // not null values in db must be checked here
+  brand: minStr,
+  title: minStr,
+  modelid: minStr,
+  colour: minStr,
   price: gt0,
-  pricewas: gt0,
-  producttype: minStr3,
-  colour: minStr3,
-  colour2: minStr3,
-  colours: minStr3,
-  height: minStr3,
-  depth: minStr3,
-  width: minStr3,
-  weight: minStr3,
-  dimensions: minStr3,
-  description: minStr3,
-  descriptions: minStr3,
-  bluetooth: minStr3,
-  memory: minStr3,
-  memorycardmax: minStr3,
-  memorycardtype: minStr3,
-  displaytype: minStr3,
-  warranty: minStr3,
-  os: minStr3,
-  displaysize: minStr3,
-  displayres: minStr3,
-  video: minStr3,
-  primarycam: minStr3,
-  secondarycam: minStr3,
-  ram: minStr3,
-  sim: minStr3,
-  dualsim: minStr3,
-  nfc: minStr3,
-  battery: minStr3,
-  image: minStr3,
-  images: minStr3,
-  wirelessprotocol: minStr3,
-  barcode: gt0,
-  variation: minStr3,
-  capacity: minStr3,
-  launched: minStr3,
+  description: minStr,
+  image: minStr,
+  producttype: minStr,
+
+  // brand: minStr3,
+  // title: minStr3,
+  // modelnumber: minStr3,
+  // modelid: minStr3,
+  // price: gt0,
+  // pricewas: gt0,
+  // producttype: minStr3,
+  // colour: minStr3,
+  // colour2: minStr3,
+  // colours: minStr3,
+  // height: minStr3,
+  // depth: minStr3,
+  // width: minStr3,
+  // weight: minStr3,
+  // dimensions: minStr3,
+  // description: minStr3,
+  // descriptions: minStr3,
+  // bluetooth: minStr3,
+  // memory: minStr3,
+  // memorycardmax: minStr3,
+  // memorycardtype: minStr3,
+  // displaytype: minStr3,
+  // warranty: minStr3,
+  // os: minStr3,
+  // displaysize: minStr3,
+  // displayres: minStr3,
+  // video: minStr3,
+  // primarycam: minStr3,
+  // secondarycam: minStr3,
+  // ram: minStr3,
+  // sim: minStr3,
+  // dualsim: minStr3,
+  // nfc: minStr3,
+  // battery: minStr3,
+  // image: minStr3,
+  // images: minStr3,
+  // wirelessprotocol: minStr3,
+  // barcode: gt0,
+  // variation: minStr3,
+  // capacity: minStr3,
+  // launched: minStr3,
 });
 
 const UpdateSchema = FormSchema.omit({ id: true });
 
 const validateFormData = (Schema: SchemaProps, formData: FormData) => {
   return Schema.safeParse({
-    id: Number(formData.get("id")),
     brand: formData.get("brand"),
     title: formData.get("title"),
     modelnumber: formData.get("modelnumber"),
@@ -113,15 +122,23 @@ export async function addProduct(
 ) {
   const validatedFields = validateFormData(FormSchema, formData);
 
+  // console.log("***********");
+  console.log("addProduct");
+  // console.log(prevState);
+  console.log(formData);
+  console.log("Brand: " + formData.get("brand"));
+
   if (!validatedFields.success) {
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: "Failed to add new product. Please check the fields above",
-    };
+    console.log("Fields NOT validated?");
+    console.log(validatedFields);
+
+    //   return {
+    //     errors: validatedFields.error.flatten().fieldErrors,
+    //     message: "Failed to add new product. Please check the fields above",
+    //   };
   }
 
   const {
-    id,
     brand,
     title,
     modelnumber,
@@ -167,12 +184,12 @@ export async function addProduct(
 
   console.log("validatedFields.data");
   console.log(validatedFields.data);
+  console.log(brand);
 
   // Insert data into the database
   try {
     await sql`
       INSERT INTO "phones" (
-        "id",
         "brand",
         "title",
         "modelnumber",
@@ -217,7 +234,6 @@ export async function addProduct(
        )
 
       VALUES(
-        ${id},
         ${brand},
         ${title},
         ${modelnumber},
@@ -234,7 +250,7 @@ export async function addProduct(
         ${weight},
         ${dimensions},
         ${description},
-        ${descriptions},
+        ${'{"A,B,C"}'},
         ${bluetooth},
         ${memory},
         ${memorycardmax},
@@ -277,6 +293,10 @@ export async function updateProduct(
   prevState: { message: unknown },
   formData: FormData,
 ) {
+  console.log("updateProduct");
+  console.log(prevState);
+  console.log(formData);
+
   const validatedFields = validateFormData(UpdateSchema, formData); // TODO: update schema vs add??
   if (!validatedFields.success) {
     return {

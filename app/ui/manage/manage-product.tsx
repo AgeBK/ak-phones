@@ -21,7 +21,7 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [, setProductId] = useState<string>("");
   const { id, image, name } = product;
-  const isDelete = action === "delete";
+  const isDelete = action === "delete"; // TODO: can I just use action??
 
   // TODO: looks a bit bland??
   // TODO:
@@ -76,10 +76,10 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
     <form action={formAction} className={styles.container}>
       <InputFields
         product={product}
-        isDelete={isDelete}
+        action={action}
         handleChange={handleChange}
       />
-      <ManageImage id={id} image={image} isDelete={isDelete} />
+      {/* <ManageImage id={id} image={image} isDelete={isDelete} /> */}
       <ManageProductActions isDelete={isDelete} enableModal={enableModal} />
       <ManageDBMessages errorMessages={state} />
       {showModal && (

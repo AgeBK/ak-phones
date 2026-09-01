@@ -42,9 +42,9 @@ export default function Category({
   // TODO: appData phone intros?
   // TODO: error page (no internet, turn off hotspot)
 
-  console.log("Category");
-  console.log(cat);
-  console.log(searchTerm);
+  // console.log("Category");
+  // console.log(cat);
+  // console.log(searchTerm);
   // console.log(filter);
   // console.log(paging);
   // console.log("=========");
@@ -80,8 +80,8 @@ export default function Category({
       setPaging({ page, pageSize });
     }
   };
-  console.log("pagedData");
-  console.log(pagedData);
+  // console.log("pagedData");
+  // console.log(pagedData);
 
   return (
     <div className={styles.category}>

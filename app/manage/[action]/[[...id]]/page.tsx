@@ -7,7 +7,7 @@ import styles from "@/app/css/manage/ManagePage.module.css";
 // import notFound from "@/app/(routes)/[urlCategory]/[urlVariety]/[urlId]/not-found";
 
 export default async function ManagePage({ params }: ManagePageProps) {
-  // console.log("ManagePage");
+  //  console.log("ManagePage");
   // console.log(productKeysForm);
   // const o = {};
   // // console.log(Object.keys(productKeysForm));
@@ -21,9 +21,14 @@ export default async function ManagePage({ params }: ManagePageProps) {
   // // console.log(o);
 
   const { action, id } = await params;
+  // console.log(action, id ? id[0] : "no ID");
+
   const product: PhoneProps | undefined = id
-    ? await fetchPhoneById(id[0])
+    ? await fetchPhoneById(id[0]) // TODO: test for no result (wrong id)
     : { ...productKeysForm }; // fetch product or product shape
+
+  // console.log("product");
+  // console.log(product);
 
   if (product) {
     return (

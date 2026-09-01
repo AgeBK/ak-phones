@@ -18,9 +18,9 @@ export default function ManageImage({ id, image, isDelete }: ManageImageProps) {
 
   validateImage(imgURL).then((isValid) => {
     // check if image exists
-    console.log("validateImage");
-    console.log(isValid);
-    setIsImageFound(isValid);
+    // console.log("validateImage");
+    // console.log(isValid);
+    // setIsImageFound(isValid);
   });
 
   return (

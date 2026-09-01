@@ -30,7 +30,7 @@ export async function fetchPhoneById(query: string) {
   // noStore() prevents the response from being cached. (good for dev) TODO
   noStore();
   // console.log("fetchPhoneById");
-  console.log(query);
+  // console.log(query);
 
   try {
     const data = await sql`
@@ -67,7 +67,7 @@ export async function fetchPhonesByBrand(query: string) {
       WHERE producttype = 'Mobile Phone'
       AND brand=${q}
       `;
-    
+
     return data as PhoneProps[];
   } catch (err) {
     console.error("Database Error:", err);
