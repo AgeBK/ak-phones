@@ -297,9 +297,11 @@ export async function updateProduct(
   formData: FormData,
 ) {
   console.log("updateProduct");
-  console.log(prevState);
-  console.log(formData);
-  console.log(id);
+  // console.log(prevState);
+  // console.log(formData);
+  // console.log(id);
+
+  // TODO: 
 
   const validatedFields = validateFormData(FormSchema, formData); // TODO: update schema vs add??
   if (!validatedFields.success) {
@@ -392,11 +394,11 @@ export async function updateProduct(
         nfc = ${nfc},
         battery = ${battery},  
         image = ${image},  
-        images = ${images},
+        images = ${postGresArr(images)},
         wirelessprotocol = ${wirelessprotocol},  
         barcode = ${barcode},  
         variation = ${postGresArr(variation)},
-        capacity = ${capacity},  
+        capacity = ${postGresArr(capacity)},  
         launched = ${launched}
       WHERE id = ${id}
     `;

@@ -12,56 +12,54 @@ export default function ManageProducts({ data }: ManageProps) {
           <div>Id</div>
           <div>Name</div>
           <div className={styles.brand}>Brand</div>
-          <div className={styles.spirit}>Spirit</div>
+          {/* <div className={styles.spirit}>Price was</div> */}
           <div>Price</div>
           <div>Actions</div>
         </header>
         {data.map((val: SpiritProps) => {
           const {
-            id,
-            category,
-            sub_category,
-            name,
+            modelid,
+            // category,
+            // sub_category,
+            title,
             brand,
-            price_normal,
-            price_current,
+            pricewas,
+            price,
           } = val;
           return (
-            <div key={id} className={styles.row}>
-              <div>{id}</div>
-              <div className={`${styles.col} ${styles.name}`}>{name}</div>
+            <div key={modelid} className={styles.row}>
+              <div>{modelid}</div>
+              <div className={`${styles.col} ${styles.title}`}>{title}</div>
               <div className={`${styles.col} ${styles.brand}`}>{brand}</div>
-              <div className={`${styles.col} ${styles.spirit}`}>
-                {sub_category}
-              </div>
+              {/* <div className={`${styles.col} ${styles.spirit}`}>
+                <span>{pricewas}</span>
+              </div> */}
               <div className={`${styles.col} ${styles.price}`}>
-                {price_normal} / <span> {price_current}</span>
+                <span>{price}</span>
               </div>
               <div className={`${styles.col} ${styles.actions}`}>
                 <Link
-                  href={`/${category.toLowerCase()}/${sub_category.toLowerCase()}/${id}`}
+                  // href={`/${category.toLowerCase()}/${sub_category.toLowerCase()}/${modelid}`}
+                  href={`/${brand.toLowerCase()}/${modelid}`}
                 >
+                  <Img src="icons/eye.svg" alt="view" w={24} h={24} l="eager" />
+                </Link>
+                <Link href={`/manage/edit/${modelid}`}>
                   <Img
-                    imgSrc={`icons/eye.svg`}
-                    imgAlt="view"
-                    imgWidth={24}
-                    imgHeight={24}
+                    src="icons/pencil.svg"
+                    alt="view"
+                    w={24}
+                    h={24}
+                    l="eager"
                   />
                 </Link>
-                <Link href={`/manage/edit/${id}`}>
+                <Link href={`/manage/delete/${modelid}`}>
                   <Img
-                    imgSrc={`icons/pencil.svg`}
-                    imgAlt="edit"
-                    imgWidth={24}
-                    imgHeight={24}
-                  />
-                </Link>
-                <Link href={`/manage/delete/${id}`}>
-                  <Img
-                    imgSrc={`icons/trash.svg`}
-                    imgAlt="trash"
-                    imgWidth={24}
-                    imgHeight={24}
+                    src="icons/trash.svg"
+                    alt="view"
+                    w={24}
+                    h={24}
+                    l="eager"
                   />
                 </Link>
               </div>

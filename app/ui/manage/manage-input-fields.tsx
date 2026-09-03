@@ -61,7 +61,9 @@ export default function ManageInputFields({
                 aria-labelledby={`lbl${key}`}
                 disabled={isDisabled}
                 required={isReq}
-                pattern={numOnlyFields.indexOf(key) > -1 ? "[0-9]*" : "[^]*"}
+                pattern={
+                  numOnlyFields.indexOf(key) > -1 ? "^[1-9][0-9]*$" : "[^]*"
+                }
               />
             </div>
           );

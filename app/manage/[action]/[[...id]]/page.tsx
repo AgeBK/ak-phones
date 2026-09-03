@@ -38,7 +38,7 @@ export default async function ManagePage({ params }: ManagePageProps) {
           <span className={styles.csv}>
             * CSV fields: For multiple values enter comma seperated values
           </span>
-          <ManageProduct product={product} action={action} />
+          <ManageProduct data={product} action={action} />
         </div>
       </div>
     );

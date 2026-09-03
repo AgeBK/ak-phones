@@ -64,8 +64,8 @@ export const filterBySearch = (arr: PhoneProps[], searchTerm: string) => {
     return false;
   });
   //}
-  console.log("arr");
-  console.log(arr);
+  // console.log("arr");
+  // console.log(arr);
 
   return arr;
 };
@@ -87,7 +87,7 @@ export const filterPageData = (
     // console.log("pagedData");
     // console.log(filteredData);
   }
-  return filteredData;
+  return filteredData.length ? filteredData : data;
 };
 
 export const typeCheck = (obj: Record<string, unknown>) => {

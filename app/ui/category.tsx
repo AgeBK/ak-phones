@@ -20,8 +20,8 @@ import Paging from "./paging";
 import CategoryItems from "./categoryItems";
 import ItemsPerPage from "./itemsPerPage";
 import Button from "./button";
-import CategoryFitler from "./categoryFilter";
 import CategoryFilter from "./categoryFilter";
+import CategoryList from "./categoryList";
 
 export default function Category({
   data,
@@ -33,8 +33,8 @@ export default function Category({
   const [, setSortOrder] = useState("");
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
   const [filter, setFilter] = useState("");
-  const catLow = cat.toLowerCase(); // TODO:
-  const searchTerm = checkSearch(cat);
+  const catLow = cat?.toLowerCase(); // TODO:
+  const searchTerm = cat && checkSearch(cat);
   const intro = blurb[catLow] || blurb["default"];
   let pagedData: PhoneProps[] = [];
 
@@ -42,17 +42,23 @@ export default function Category({
   // TODO: appData phone intros?
   // TODO: error page (no internet, turn off hotspot)
 
-  // console.log("Category");
-  // console.log(cat);
+  console.log("Category");
+  console.log(cat);
+  console.log(data);
+
   // console.log(searchTerm);
   // console.log(filter);
   // console.log(paging);
   // console.log("=========");
   console.log(Object.keys(data[1]));
   const prodObj = data[1];
+  console.log("BEFORE filter paged data");
+  console.log(pagedData);
 
   // filters phone data by brand or by users search term
   pagedData = filterPageData(data, catLow, searchTerm);
+  console.log("filteredPagedData");
+  console.log(pagedData);
 
   if (filter) {
     // popular phones can be filtered by subcategory with filter pills that appear (Samsung, Apple, Google, Oppo)
@@ -95,7 +101,7 @@ export default function Category({
         <CategoryFilter catLow={catLow} setFilter={setFilter} filter={filter} />
         <SortProducts data={data} setSortOrder={setSortOrder} />
       </div>
-      <CategoryItems pagedData={pagedData} />
+      <CategoryList data={pagedData} cat={cat} />
       <div className={styles.pageCont}>
         <Paging
           dataLength={dataLength}
