@@ -6,6 +6,8 @@ import {
   alternateName,
   isRequired,
   readOnlyFields,
+  productKeys,
+  numOnlyFields,
 } from "@/app/lib/appData.json";
 import styles from "@/app/css/manage/Form.module.css";
 
@@ -18,23 +20,29 @@ export default function ManageInputFields({
   // console.log("ManageInputFields");
   // console.log(readOnlyFields);
   // console.log(location.pathname);
-  const arr = [];
 
-  Array.from({ length: 7 }, (_, i) => arr.push(`31_${i + 1}.webp`));
-
+  //const arr = [];
+  // Array.from({ length: 7 }, (_, i) => arr.push(`31_${i + 1}.webp`));
   // console.log(arr);
+  // pattern="[0-9]*" Number pattern for text boxes - avoid 0 issue ??
+  console.log(numOnlyFields);
 
   return (
     <div className={styles.inputContainer}>
       {Object.entries(product).map(
         ([key, value]: [string, string | number]) => {
           const isReq = isRequired.includes(key);
-          const dataType = typeof value === "number" ? "number" : "text";
+          // const dataType = typeof productKeys[key];
           const isDisabled =
             readOnlyFields.indexOf(key) > -1 ||
             (product.id && key === "id") ||
             action === "delete";
           const prodKey = alternateName[key] || key;
+          console.log("Input");
+          console.log(key);
+
+          console.log(numOnlyFields.indexOf(key));
+
           return (
             <div key={key}>
               <label htmlFor={key} id={`lbl${key}`}>
@@ -48,11 +56,12 @@ export default function ManageInputFields({
                 name={key}
                 onChange={handleChange}
                 className={styles.input}
-                type={dataType}
+                type="text"
                 defaultValue={value}
                 aria-labelledby={`lbl${key}`}
                 disabled={isDisabled}
                 required={isReq}
+                pattern={numOnlyFields.indexOf(key) > -1 ? "[0-9]*" : "[^]*"}
               />
             </div>
           );

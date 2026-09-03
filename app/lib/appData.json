@@ -54,7 +54,7 @@
     "launched"
   ],
   "alternateName": {
-    "modelid": "model",
+    "modelid": "model id",
     "producttype": "product",
     "modelnumber": "model number",
     "pricewas": "price was",
@@ -72,13 +72,12 @@
     "nfc": "NFC"
   },
   "productKeys": {
-    "id": 0,
     "brand": "",
     "title": "",
     "modelnumber": "",
     "modelid": "",
-    "price": 0,
-    "pricewas": 0,
+    "price": "",
+    "pricewas": "",
     "producttype": "",
     "colour": "",
     "colour2": "",
@@ -110,12 +109,12 @@
     "image": "",
     "images": [],
     "wirelessprotocol": "",
-    "barcode": 0,
+    "barcode": "",
     "variation": [],
     "capacity": [],
-    "launched": 0
+    "launched": ""
   },
-  "productKeysForm": {
+  "productKeysForm-NOT-USING": {
     "brand": "",
     "title": "",
     "modelnumber": "",
@@ -159,14 +158,14 @@
     "launched": 0
   },
   "readOnlyFields": ["created"],
+  "numOnlyFields": ["price", "pricewas"],
   "isRequired": [
     "id",
     "title",
     "brand",
-    "model id",
-    "model number",
+    "modelid",
     "price",
-    "product type",
+    "producttype",
     "colour",
     "description",
     "image",

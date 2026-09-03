@@ -150,3 +150,9 @@ export const uploadImg = async (file: Blob, imgName: string) => {
     return false;
   }
 };
+
+// converts a string to postGres friendly array
+export const postGresArr = (str: string) =>
+  str
+    ? JSON.stringify(str.split(",")).replace("[", "{").replace("]", "}")
+    : null;

@@ -4,9 +4,16 @@ import { neon } from "@neondatabase/serverless";
 const sql = neon(process.env.DATABASE_URL);
 // const sql = neon(process.env.NEON_DATABASE_URL!); TODO:?? https://www.freecodecamp.org/news/nextjs-clerk-neon-fullstack-development/
 import { z } from "zod";
-const minStr = z.string();
+import { postGresArr } from "./utils";
+
+const zStrNull = z.string().nullable().optional();
+const zNumNull = z.number().nullable().optional();
+const zStr = z.string();
 const minNum = z.number();
-const minStr3 = z
+const zStr3 = z
+  .string()
+  .min(3, { message: "Must be 3 or more characters long" });
+const zStr10 = z
   .string()
   .min(3, { message: "Must be 3 or more characters long" });
 const gt0 = z
@@ -14,61 +21,54 @@ const gt0 = z
   .gt(0, { message: "Please enter an amount greater than 0." });
 // const nonNeg = z.coerce.number().nonnegative();
 
-const FormSchema = z.object({
-  // not null values in db must be checked here
-  brand: minStr,
-  title: minStr,
-  modelid: minStr,
-  colour: minStr,
-  price: gt0,
-  description: minStr,
-  image: minStr,
-  producttype: minStr,
+// TODO: SIM, NFC types in DB?
 
-  // brand: minStr3,
-  // title: minStr3,
-  // modelnumber: minStr3,
-  // modelid: minStr3,
-  // price: gt0,
-  // pricewas: gt0,
-  // producttype: minStr3,
-  // colour: minStr3,
-  // colour2: minStr3,
-  // colours: minStr3,
-  // height: minStr3,
-  // depth: minStr3,
-  // width: minStr3,
-  // weight: minStr3,
-  // dimensions: minStr3,
-  // description: minStr3,
-  // descriptions: minStr3,
-  // bluetooth: minStr3,
-  // memory: minStr3,
-  // memorycardmax: minStr3,
-  // memorycardtype: minStr3,
-  // displaytype: minStr3,
-  // warranty: minStr3,
-  // os: minStr3,
-  // displaysize: minStr3,
-  // displayres: minStr3,
-  // video: minStr3,
-  // primarycam: minStr3,
-  // secondarycam: minStr3,
-  // ram: minStr3,
-  // sim: minStr3,
-  // dualsim: minStr3,
-  // nfc: minStr3,
-  // battery: minStr3,
-  // image: minStr3,
-  // images: minStr3,
-  // wirelessprotocol: minStr3,
-  // barcode: gt0,
-  // variation: minStr3,
-  // capacity: minStr3,
-  // launched: minStr3,
+const FormSchema = z.object({
+  brand: zStr3,
+  title: zStr3,
+  modelid: zStr3,
+  colour: zStr3,
+  price: gt0,
+  producttype: zStr3,
+  description: zStr3,
+  image: zStr3,
+  barcode: zStr10,
+
+  descriptions: zStrNull,
+  modelnumber: zStr,
+  pricewas: zNumNull,
+  colour2: zStr,
+  colours: zStrNull,
+  height: zStr,
+  depth: zStr,
+  width: zStr,
+  weight: zStr,
+  dimensions: zStr,
+  bluetooth: zStr,
+  memory: zStr,
+  memorycardmax: zStr,
+  memorycardtype: zStr,
+  displaytype: zStr,
+  warranty: zStr,
+  os: zStr,
+  displaysize: zStr,
+  displayres: zStr,
+  video: zStr,
+  primarycam: zStr,
+  secondarycam: zStr,
+  ram: zStr,
+  sim: zStr,
+  dualsim: zStr,
+  nfc: zStr,
+  battery: zStr,
+  images: zStrNull,
+  wirelessprotocol: zStr,
+  variation: zStr,
+  capacity: zStrNull,
+  launched: zStrNull,
 });
 
-const UpdateSchema = FormSchema.omit({ id: true });
+// const UpdateSchema = FormSchema.omit({ id: true });
 
 const validateFormData = (Schema: SchemaProps, formData: FormData) => {
   return Schema.safeParse({
@@ -109,7 +109,7 @@ const validateFormData = (Schema: SchemaProps, formData: FormData) => {
     image: formData.get("image"),
     images: formData.get("images"),
     wirelessprotocol: formData.get("wirelessprotocol"),
-    barcode: Number(formData.get("barcode")),
+    barcode: formData.get("barcode"),
     variation: formData.get("variation"),
     capacity: formData.get("capacity"),
     launched: formData.get("launched"),
@@ -122,21 +122,21 @@ export async function addProduct(
 ) {
   const validatedFields = validateFormData(FormSchema, formData);
 
-  // console.log("***********");
+  console.log("***********");
   console.log("addProduct");
-  // console.log(prevState);
+  console.log(validatedFields);
   console.log(formData);
   console.log("Brand: " + formData.get("brand"));
 
-  if (!validatedFields.success) {
-    console.log("Fields NOT validated?");
-    console.log(validatedFields);
+  // if (!validatedFields.success) {
+  //   console.log("Fields NOT validated?");
+  //   console.log(validatedFields);
 
-    //   return {
-    //     errors: validatedFields.error.flatten().fieldErrors,
-    //     message: "Failed to add new product. Please check the fields above",
-    //   };
-  }
+  //   //   return {
+  //   //     errors: validatedFields.error.flatten().fieldErrors,
+  //   //     message: "Failed to add new product. Please check the fields above",
+  //   //   };
+  // }
 
   const {
     brand,
@@ -185,6 +185,9 @@ export async function addProduct(
   console.log("validatedFields.data");
   console.log(validatedFields.data);
   console.log(brand);
+
+  // TODO: barcode not number in edit but is add??
+  // TODO: edit = all strings no numbers??
 
   // Insert data into the database
   try {
@@ -243,20 +246,20 @@ export async function addProduct(
         ${producttype},
         ${colour},
         ${colour2},
-        ${colours},
+        ${postGresArr(colours)},
         ${height},  
         ${depth},      
         ${width},
         ${weight},
         ${dimensions},
         ${description},
-        ${'{"A,B,C"}'},
+        ${postGresArr(descriptions)},
         ${bluetooth},
         ${memory},
         ${memorycardmax},
         ${memorycardtype},  
         ${displaytype},      
-        ${warranty},
+        ${warranty},  
         ${os},
         ${displaysize},
         ${displayres},
@@ -269,11 +272,11 @@ export async function addProduct(
         ${nfc},
         ${battery},  
         ${image},  
-        ${images},
+        ${postGresArr(images)},
         ${wirelessprotocol},  
         ${barcode},  
-        ${variation},
-        ${capacity},  
+        ${postGresArr(variation)},
+        ${postGresArr(capacity)},
         ${launched})
     `;
   } catch (error) {
@@ -289,15 +292,16 @@ export async function addProduct(
 }
 
 export async function updateProduct(
-  id: string,
+  id: number,
   prevState: { message: unknown },
   formData: FormData,
 ) {
   console.log("updateProduct");
   console.log(prevState);
   console.log(formData);
+  console.log(id);
 
-  const validatedFields = validateFormData(UpdateSchema, formData); // TODO: update schema vs add??
+  const validatedFields = validateFormData(FormSchema, formData); // TODO: update schema vs add??
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -362,14 +366,14 @@ export async function updateProduct(
         producttype = ${producttype},
         colour = ${colour},
         colour2 = ${colour2},
-        colours = ${colours},
+        colours = ${postGresArr(colours)},
         height = ${height},  
         depth = ${depth},      
         width = ${width},
         weight = ${weight},
         dimensions = ${dimensions},
         description = ${description},
-        descriptions = ${descriptions},
+        descriptions = ${postGresArr(descriptions)},
         bluetooth = ${bluetooth},
         memory = ${memory},
         memorycardmax = ${memorycardmax},
@@ -391,7 +395,7 @@ export async function updateProduct(
         images = ${images},
         wirelessprotocol = ${wirelessprotocol},  
         barcode = ${barcode},  
-        variation = ${variation},
+        variation = ${postGresArr(variation)},
         capacity = ${capacity},  
         launched = ${launched}
       WHERE id = ${id}
