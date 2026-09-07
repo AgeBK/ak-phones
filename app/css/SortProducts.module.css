@@ -1,5 +1,6 @@
 .sortCont {
   border: 1px solid #d3d3d3;
+  display: inline-block;
 }
 
 .sortBy {
@@ -8,5 +9,5 @@
   /* margin-bottom: 20px; */
   font-size: 16px;
   padding: 5px;
-  border: 1px solid var(--phones-text);
+  border: 1px solid #f6f6f6;
 }

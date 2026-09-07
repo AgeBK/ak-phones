@@ -1,10 +1,16 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { ManageProps, SpiritProps } from "@/app/lib/definitions";
+import Link from "next/link";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/manage/ManageProducts.module.css";
 
 // renders each row products main manage page (uses CategoryList)
 export default function ManageProducts({ data }: ManageProps) {
+  // const [manageData, setManageData] = useState(data);
+  // console.log(data);
+
   return (
     <div className={styles.list}>
       <div className={styles.table}>
@@ -17,15 +23,7 @@ export default function ManageProducts({ data }: ManageProps) {
           <div>Actions</div>
         </header>
         {data.map((val: SpiritProps) => {
-          const {
-            modelid,
-            // category,
-            // sub_category,
-            title,
-            brand,
-            pricewas,
-            price,
-          } = val;
+          const { modelid, title, brand, price } = val;
           return (
             <div key={modelid} className={styles.row}>
               <div>{modelid}</div>
@@ -44,7 +42,7 @@ export default function ManageProducts({ data }: ManageProps) {
                 >
                   <Img src="icons/eye.svg" alt="view" w={24} h={24} l="eager" />
                 </Link>
-                <Link href={`/manage/edit/${modelid}`}>
+                <Link href={`/manage/${modelid}`}>
                   <Img
                     src="icons/pencil.svg"
                     alt="view"

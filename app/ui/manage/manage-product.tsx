@@ -23,8 +23,11 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
   const { id, image, name } = product;
   const isDelete = action === "delete"; // TODO: can I just use action??
 
+  console.log("ManageProduct");
+  console.log(product);
+
   // TODO: looks a bit bland??
-  // TODO:
+  // TODO: if product id doens't exist, blank page?
   // eslint-disable-next-line
   let currentActionFn: any = null;
 

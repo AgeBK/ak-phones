@@ -8,6 +8,10 @@ import styles from "@/app/css/CategoryList.module.css";
 
 export default function CategoryList({ data, cat }: CategoryListProps) {
   // Loads product lists on Category page and Manage products page
+  console.log("CategoryList");
+  console.log(cat);
+  console.log(data);
+
   const style = cat === "manage" ? "table" : "categoryList";
   const List = cat === "manage" ? ManageProducts : CategoryItems;
 

@@ -3,7 +3,6 @@ import { productKeys } from "@/app/lib/appData.json";
 import { fetchPhoneById } from "@/app/lib/data";
 import { PhoneProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/ManagePage.module.css";
-
 // import notFound from "@/app/(routes)/[urlCategory]/[urlVariety]/[urlId]/not-found";
 
 export default async function ManagePage({ params }: ManagePageProps) {
@@ -27,9 +26,6 @@ export default async function ManagePage({ params }: ManagePageProps) {
     ? await fetchPhoneById(id[0]) // TODO: test for no result (wrong id)
     : { ...productKeys }; // fetch product or product shape
 
-  // console.log("product");
-  // console.log(product);
-
   if (product) {
     return (
       <div className={styles.container}>
@@ -38,7 +34,7 @@ export default async function ManagePage({ params }: ManagePageProps) {
           <span className={styles.csv}>
             * CSV fields: For multiple values enter comma seperated values
           </span>
-          <ManageProduct data={product} action={action} />
+          <ManageProduct product={product} action={action} />
         </div>
       </div>
     );

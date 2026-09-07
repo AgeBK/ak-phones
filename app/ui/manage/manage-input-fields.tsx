@@ -17,7 +17,9 @@ export default function ManageInputFields({
   action,
   handleChange,
 }: InputFieldsProps) {
-  // console.log("ManageInputFields");
+  console.log("ManageInputFields");
+  console.log(product);
+
   // console.log(readOnlyFields);
   // console.log(location.pathname);
 

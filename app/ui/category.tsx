@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { PagingProps, PhoneProps } from "../lib/definitions";
 import {
   capitalizeFirstLetter,
@@ -8,18 +9,11 @@ import {
   filterPageData,
   typeCheck,
 } from "../lib/utils";
-import { pagingSettings, blurb, filters } from "../lib/appData.json";
-import { useState } from "react";
-import Img from "@/app/ui/image";
-import CartBtn from "@/app/ui/cartBtn";
+import { pagingSettings, blurb } from "../lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
-import Link from "next/link";
-import Price from "@/app/ui/price";
 import styles from "@/app/css/Category.module.css";
 import Paging from "./paging";
-import CategoryItems from "./categoryItems";
 import ItemsPerPage from "./itemsPerPage";
-import Button from "./button";
 import CategoryFilter from "./categoryFilter";
 import CategoryList from "./categoryList";
 
@@ -41,24 +35,23 @@ export default function Category({
   // TODO: eager above fold?
   // TODO: appData phone intros?
   // TODO: error page (no internet, turn off hotspot)
+  // TODO: deal badge like officeworks
 
   console.log("Category");
   console.log(cat);
   console.log(data);
-
-  // console.log(searchTerm);
+  console.log(searchTerm);
   // console.log(filter);
   // console.log(paging);
   // console.log("=========");
-  console.log(Object.keys(data[1]));
-  const prodObj = data[1];
-  console.log("BEFORE filter paged data");
-  console.log(pagedData);
+  // const prodObj = data[1];
+
+  // console.log(Object.keys(data[1]));
+  // console.log("BEFORE filter paged data");
+  // console.log(pagedData);
 
   // filters phone data by brand or by users search term
   pagedData = filterPageData(data, catLow, searchTerm);
-  console.log("filteredPagedData");
-  console.log(pagedData);
 
   if (filter) {
     // popular phones can be filtered by subcategory with filter pills that appear (Samsung, Apple, Google, Oppo)
@@ -68,11 +61,12 @@ export default function Category({
     });
   }
 
-  console.log(data[1]);
-  typeCheck(data[1]);
+  // console.log("AFTER filter paged data");
+  // console.log(pagedData);
 
   const dataLength = pagedData.length;
 
+  // page data results (20, 40, 60, 80 per page)
   pagedData = pagedData.slice(
     paging.page * paging.pageSize,
     (paging.page + 1) * paging.pageSize,
@@ -81,6 +75,7 @@ export default function Category({
   // dataLength = pagedData.length;
 
   const updatePaging = (page: number, pageSize: number) => {
+    // show data for next/prev page, scroll back to top of page
     if (window) {
       window.scrollTo(0, 0);
       setPaging({ page, pageSize });

@@ -6,11 +6,12 @@
   "imgPath": "/img/",
 
   "blurb": {
-    "samsung": "Chasing a Galaxy that fits how you actually use your phone? Easy. AK’s range of Samsung mobile phones lines up the full spectrum. We're talking Galaxy A everyday hitters, feature-packed Galaxy S flagships, plus fun foldables like the latest Galaxy Z Flip 8, Z Fold 8 and Z Fold 8 Ultra. Which Galaxy gets the nod?",
+    "samsung": "Flagship power, foldable flex or bang-for-buck wins? Whatever you’re chasing, AK’s range of Samsung Galaxy phones brings the goods. From Galaxy A and Galaxy Z to the latest Samsung Galaxy S26 Series, every phone in this collection pulls its weight, with stacked specs across the board. The hard part? Picking just one.",
     "apple": "From fresh drops to fan favourites, AK’s iPhone range is stacked. Think the latest iPhone 17 and 17e for your everyday flex, Air for lightweight vibes, 17 Pro for the tech heads, and 17 Pro Max for full send. Chasing value? Score deals on the iPhone 16 or 15 series. Every model. Every colour. One’s got your name on it.",
     "motorola": "Foldable, flagship or everyday favourite? No matter the vibe, AK’s lineup of Motorola phones has the gear to match. The range spans Razr, Edge and G Series models, with the ultra-thin Motorola Edge 70, Edge 70 Fusion and full-specced Motorola Signature bringing the freshest tech to the mix. Sounds like an upgrade? Definitely.",
     "oppo": "Camera roll looking a bit too quiet? Not here. AK’s range of OPPO phones is built for the snap-happy, scroll-heavy, always-on crowd. Think everyday Android smarts with OPPO A Series value, Find Series power or fresh Reno energy in the OPPO Reno16 F and Reno16 Pro. Which OPPO is making your shortlist",
     "google": "Want Android the way Google actually built it? Easy. JB's range of Google Pixel phones delivers that and more, from the Google Pixel 11 Series to the Pixel 10, Pixel 9 and value-friendly Pixel 9a. We’re talking Gemini AI working in the background, that signature Pixel camera, plus clean software built for the long run.",
+    "manage": "",
     "default": "Mad phone for a good price boss. Lets get it!!!"
   },
   "filters": {

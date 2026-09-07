@@ -75,6 +75,7 @@ export const filterPageData = (
   catLow: string,
   searchTerm: string,
 ) => {
+  // filters category data by url (eg: samsung) or by search term (MUI search box)
   let filteredData = [...data];
   if (searchTerm) {
     // MUI search bar
@@ -84,13 +85,12 @@ export const filterPageData = (
     filteredData = data.filter(
       ({ brand }: { brand: string }) => brand.toLowerCase() === catLow,
     );
-    // console.log("pagedData");
-    // console.log(filteredData);
   }
-  return filteredData.length ? filteredData : data;
+  return filteredData.length ? filteredData : data; // TODO: this will return all data for manage page
 };
 
 export const typeCheck = (obj: Record<string, unknown>) => {
+  // Checks type of value in an object (number, string and array only)
   const o: Record<string, unknown> = {};
   for (const key in obj) {
     if (!Object.prototype.hasOwnProperty.call(obj, key)) continue;

@@ -4,12 +4,13 @@ import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 // import { Chip, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { DataProps, KeyStringProps, PhoneProps } from "../lib/definitions";
-// import parse from "autosuggest-highlight/parse";
-// import match from "autosuggest-highlight/match";
+import parse from "autosuggest-highlight/parse";
+import match from "autosuggest-highlight/match";
 import Img from "./image";
 import styles from "../css/Search.module.css";
 
-export default function Search({ data }: DataProps[]) {
+// export default function Search({ data }: {data: PhoneProps[]}) {
+export default function Search({ data }: DataProps) {
   const [overlay, setOverlay] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -22,7 +23,7 @@ export default function Search({ data }: DataProps[]) {
   if (data) {
     // data used by the auto complete component
     const ACData = data.map(
-      ({ title, modelid, brand, image, price }: KeyStringProps) => {
+      ({ title, modelid, brand, image, price }: PhoneProps) => {
         // TODO: ??
         // console.log("ACData");
         // console.log(title, modelid, brand, image, price);
@@ -41,6 +42,7 @@ export default function Search({ data }: DataProps[]) {
     ): void => {
       if (val) {
         const { brand, modelid } = val;
+
         setOverlay(false);
         setOpen(false);
         replace(`/${brand}/${modelid}`);
@@ -65,7 +67,7 @@ export default function Search({ data }: DataProps[]) {
       _: SyntheticEvent<Element, Event>,
       val: string,
     ): void => {
-      console.log("handleInputChange");
+      console.log("handleInputChange: " + val);
       // store user input in searchTerm state var
       // only show results if 2 or more characters are entered
       setSearchTerm(val);
@@ -82,7 +84,7 @@ export default function Search({ data }: DataProps[]) {
           onChange={(e, value) => handleChange(e, value)}
           onInputChange={(_, value) => handleInputChange(_, value)}
           onKeyDown={(e) => handleKeyDown(e)}
-          getOptionLabel={(option: PhoneProps) => option.title} // TODO: was name? is short_name unique??
+          getOptionLabel={(option) => option.title} // TODO: was name? is short_name unique??
           className={`${styles.autoComplete} ${
             overlay ? styles.pageWidth : ""
           }`}

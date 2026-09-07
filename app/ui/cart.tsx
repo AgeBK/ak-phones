@@ -19,9 +19,8 @@ export default function Cart() {
   const [showCart, setShowCart] = useState(false);
   const cartTotalPrice = totalPrice();
   const cartTotalItems = totalItems();
-
-  console.log("Cart");
-  console.log(cartItems);
+  // console.log("Cart");
+  // console.log(cartItems);
 
   // console.log("cartTotalPrice: " + cartTotalPrice);
   // console.log("cartTotalItems: " + cartTotalItems);

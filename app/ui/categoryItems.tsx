@@ -7,14 +7,14 @@ import Price from "./price";
 import styles from "@/app/css/CategoryItems.module.css";
 
 export default function CategoryItems({
-  pagedData,
+  data,
 }: {
-  pagedData: PhoneProps[];
+  data: PhoneProps[];
 }) {
   return (
     <div className={styles.categoryItems}>
       <div className={styles.items}>
-        {pagedData.map((item) => {
+        {data.map((item) => {
           const { modelid, brand, title, colour, image, price, pricewas } =
             item;
           const link = `/${brand.toLowerCase()}/${modelid}`;

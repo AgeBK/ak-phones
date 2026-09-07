@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 
 export type PhoneProps = {
   id: number;
@@ -61,7 +61,7 @@ export type ContainerProps = {
 };
 
 export type DataProps = {
-  data: PhoneProps;
+  data: PhoneProps[];
 };
 
 export type PriceProps = {
@@ -81,6 +81,13 @@ export type CartItemProps = {
     image: string;
     qty?: number;
   };
+};
+
+export type SelectProps = {
+  data: string[];
+  id: string;
+  hdr: string;
+  handleChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
 // TODO: research interface
