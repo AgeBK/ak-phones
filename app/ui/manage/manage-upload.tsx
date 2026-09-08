@@ -16,7 +16,8 @@ export default function ManageUpload({
 
       if (files) {
         const file = files[0];
-        const validImg = file.type === "image/jpg"; // TODO: covert to webp??
+        const validImg =
+          file.type === "image/webp" || file.type === "image/jpg"; // TODO: covert to webp??
 
         if (validImg) {
           const isSuccess = await uploadImg(file, image);

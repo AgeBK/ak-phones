@@ -11,30 +11,24 @@ import styles from "@/app/css/manage/Form.module.css";
 export default function ManageImage({ id, image, isDelete }: ManageImageProps) {
   const [isImageFound, setIsImageFound] = useState(false);
   const [newImage, setNewImage] = useState("");
-  // const imgURL = `${imgPath}/${id}.webp`; // TODO: appData?
-  const imgURL = `${imgPath}/${image}`; // TODO: image?
+  const phoneImg = `${imgPath}${image}`; // TODO: image?
+  
   console.log("ManageImage");
-  console.log(imgURL);
+  console.log(id, image, phoneImg);
 
-  validateImage(imgURL).then((isValid) => {
+  validateImage(phoneImg).then((isValid) => {
     // check if image exists
-    // console.log("validateImage");
-    // console.log(isValid);
-    // setIsImageFound(isValid);
+    console.log("validateImage");
+    console.log(isValid);
+    setIsImageFound(isValid);
   });
 
   return (
     <div className={styles.manageImg}>
       <ManageUpload id={image} setNewImage={setNewImage} isDelete={isDelete} />
-      {/* {id && isImageFound && !newImage && ( */}
+      {/* edit */}
       {id && isImageFound && !newImage && (
         <div className={styles.existingImage}>
-          {/* <ImgFill
-            src={`spirits/${id}.webp`}
-            alt={"TODO"}
-            css="product160h"
-            priority={true} // priority = max in view onload
-          /> */}
           <Img src={image} alt="manage image" w={160} h={160} l="eager" />
         </div>
       )}
@@ -43,9 +37,11 @@ export default function ManageImage({ id, image, isDelete }: ManageImageProps) {
       {/* Next.js image caching stops new uploaded images being shown so using standard img element */}
       {id && newImage && (
         <div className={styles.newImage}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${imgURL}?imgId=${Date.now()}`}
-            alt="wine"
+            // src={`${phoneImg}?imgId=${Date.now()}`}
+            src={phoneImg}
+            alt="phone"
             className={styles.uploadImg}
           />
         </div>

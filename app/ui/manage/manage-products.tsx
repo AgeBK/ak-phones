@@ -42,10 +42,10 @@ export default function ManageProducts({ data }: ManageProps) {
                 >
                   <Img src="icons/eye.svg" alt="view" w={24} h={24} l="eager" />
                 </Link>
-                <Link href={`/manage/${modelid}`}>
+                <Link href={`/manage/edit/${modelid}`}>
                   <Img
                     src="icons/pencil.svg"
-                    alt="view"
+                    alt="edit"
                     w={24}
                     h={24}
                     l="eager"

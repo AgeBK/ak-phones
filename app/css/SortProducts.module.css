@@ -11,3 +11,8 @@
   padding: 5px;
   border: 1px solid #f6f6f6;
 }
+
+.label {
+  display: inline-block;
+  margin-right: 10px;
+}

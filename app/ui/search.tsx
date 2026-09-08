@@ -19,6 +19,7 @@ export default function Search({ data }: DataProps) {
   const { replace } = useRouter();
 
   // TODO: the clear button when you click on a specific product when the text box is small looks bad??
+  // TODO: search 2 words eg: google pixel?
 
   if (data) {
     // data used by the auto complete component

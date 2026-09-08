@@ -7,6 +7,7 @@ import ManageSideNav from "@/app/ui/manage/manage-sidenav";
 import styles from "@/app/css/manage/ManagePage.module.css";
 
 export default function ManageHome({ data }: DataProps) {
+  // Manage home page
   // CategoryMain component used for category page and main manage page
   // TODO: check spirits manage
   const [manageData, setManageData] = useState(data);

@@ -17,8 +17,8 @@ export default function ManageInputFields({
   action,
   handleChange,
 }: InputFieldsProps) {
-  console.log("ManageInputFields");
-  console.log(product);
+  // console.log("ManageInputFields");
+  // console.log(product);
 
   // console.log(readOnlyFields);
   // console.log(location.pathname);
@@ -27,7 +27,7 @@ export default function ManageInputFields({
   // Array.from({ length: 7 }, (_, i) => arr.push(`31_${i + 1}.webp`));
   // console.log(arr);
   // pattern="[0-9]*" Number pattern for text boxes - avoid 0 issue ??
-  console.log(numOnlyFields);
+  // console.log(numOnlyFields);
 
   return (
     <div className={styles.inputContainer}>
@@ -40,10 +40,9 @@ export default function ManageInputFields({
             (product.id && key === "id") ||
             action === "delete";
           const prodKey = alternateName[key] || key;
-          console.log("Input");
-          console.log(key);
-
-          console.log(numOnlyFields.indexOf(key));
+          // console.log("Input");
+          // console.log(key);
+          // console.log(numOnlyFields.indexOf(key));
 
           return (
             <div key={key}>

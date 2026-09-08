@@ -90,8 +90,12 @@ export default function Category({
       <div className={styles.intro}>{intro}</div>
       <div className={styles.catHdr}>
         <div className={styles.amt}>
-          {dataLength} results for{" "}
-          <b>{capitalizeFirstLetter(searchTerm || cat)}</b>
+          {dataLength} results
+          {cat !== "manage" && (
+            <span>
+              for <b>{capitalizeFirstLetter(searchTerm || cat)}</b>
+            </span>
+          )}
         </div>
         <CategoryFilter catLow={catLow} setFilter={setFilter} filter={filter} />
         <SortProducts data={data} setSortOrder={setSortOrder} />

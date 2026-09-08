@@ -82,7 +82,7 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
         action={action}
         handleChange={handleChange}
       />
-      {/* <ManageImage id={id} image={image} isDelete={isDelete} /> */}
+      <ManageImage id={id} image={image} isDelete={isDelete} />
       <ManageProductActions isDelete={isDelete} enableModal={enableModal} />
       <ManageDBMessages errorMessages={state} />
       {showModal && (

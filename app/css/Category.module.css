@@ -24,6 +24,11 @@
   flex-grow: 1;
 }
 
+.amt span {
+  display: inline-block;
+  margin-left: 4px;
+}
+
 /* .price {
   margin: 10px 0 20px;
   font-weight: bold;

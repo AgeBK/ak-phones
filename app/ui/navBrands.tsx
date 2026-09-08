@@ -1,12 +1,12 @@
 import { fetchNavBrands } from "../lib/data";
-import priority from "@/app/lib/priority.json";
+import { priority } from "@/app/lib/appData.json";
 import Img from "./image";
 import Link from "next/link";
 import styles from "@/app/css/NavBrands.module.css";
 
 export default async function NavBrands() {
   const data = await fetchNavBrands();
-  data.sort((a, b) => priority.indexOf(a.brand) - priority.indexOf(b.brand)); // popular brands first
+  data.sort((a, b) => priority.indexOf(b.brand) - priority.indexOf(a.brand)); // popular brands first
 
   return (
     <div className={styles.brands}>
@@ -17,7 +17,7 @@ export default async function NavBrands() {
             <div className={styles.item} key={brand}>
               <Link href={`${brand.toLowerCase()}`}>
                 <div className={styles.img}>
-                  <Img src={image} alt={brand} w={90} h={70} l="eager" />
+                  <Img src={image} alt={brand} w={200} h={200} l="eager" />
                 </div>
                 <h2 className={styles.hdr}>{brand}</h2>
               </Link>
