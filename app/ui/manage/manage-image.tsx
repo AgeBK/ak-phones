@@ -12,7 +12,7 @@ export default function ManageImage({ id, image, isDelete }: ManageImageProps) {
   const [isImageFound, setIsImageFound] = useState(false);
   const [newImage, setNewImage] = useState("");
   const phoneImg = `${imgPath}${image}`; // TODO: image?
-  
+
   console.log("ManageImage");
   console.log(id, image, phoneImg);
 
@@ -26,8 +26,8 @@ export default function ManageImage({ id, image, isDelete }: ManageImageProps) {
   return (
     <div className={styles.manageImg}>
       <ManageUpload id={image} setNewImage={setNewImage} isDelete={isDelete} />
-      {/* edit */}
       {id && isImageFound && !newImage && (
+        // edit
         <div className={styles.existingImage}>
           <Img src={image} alt="manage image" w={160} h={160} l="eager" />
         </div>

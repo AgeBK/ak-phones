@@ -7,10 +7,14 @@ import FancyText from "@/app/ui/fancyText";
 import Search from "./search";
 import { DataProps } from "../lib/definitions";
 import styles from "@/app/css/Header.module.css";
+import Menu from "./menu";
 
-export default function Header({ data }: DataProps[]) {
+export default function Header({ data }: DataProps) {
   return (
     <header className={styles.header}>
+      <div className={styles.menu}>
+        <Menu data={data} />
+      </div>
       <div className={styles.brand}>
         <div className={styles.logo}>
           <Link href="/">

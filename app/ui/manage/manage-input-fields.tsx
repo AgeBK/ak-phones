@@ -15,7 +15,6 @@ import styles from "@/app/css/manage/Form.module.css";
 export default function ManageInputFields({
   product,
   action,
-  handleChange,
 }: InputFieldsProps) {
   // console.log("ManageInputFields");
   // console.log(product);
@@ -55,7 +54,7 @@ export default function ManageInputFields({
               <input
                 id={key}
                 name={key}
-                onChange={handleChange}
+                // onChange={handleChange}
                 className={styles.input}
                 type="text"
                 defaultValue={value}

@@ -11,7 +11,7 @@
 .brand {
   display: flex;
   position: relative;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .search {
@@ -19,6 +19,7 @@
   flex-grow: 1;
   flex-direction: column;
   align-items: flex-end; /* Aligns all children to the right edge */
+  min-width: 300px;
 }
 
 .hdr {
@@ -52,18 +53,22 @@
 }
 
 @media screen and (max-width: 1250px) {
-  /* .hdr {
-    font-size: 2rem;
-    line-height: 2rem;
-  } */
+  .brand {
+    flex-grow: 0;
+  }
 }
 
-@media screen and (max-width: 650px) {
-  /* .hdr {
+@media screen and (max-width: 800px) {
+  .hdr {
     display: none;
   }
 
   .logo {
     margin: 5px 0 0px 5px;
-  } */
+  }
+
+  .search {
+    min-width: auto;
+    align-items: center;
+  }
 }

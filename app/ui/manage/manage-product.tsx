@@ -1,15 +1,16 @@
 "use client";
 
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { addProduct, deleteProduct, updateProduct } from "@/app/lib/actions";
 import { useActionState } from "react";
 import InputFields from "./manage-input-fields";
-import ManageProductActions from "./manage-product-actions";
-import ManageDBMessages from "./manage-db-messages";
+import ProductActions from "./manage-product-actions";
+import DBMessages from "./manage-db-messages";
 import ModalDelete from "./manage-modal-delete";
 import ManageImage from "./manage-image";
 // import { FormStateProps, ManageProductProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/Form.module.css";
+import { redirect } from "next/navigation";
 
 const initialState: FormStateProps = {
   message: null,
@@ -20,7 +21,7 @@ const initialState: FormStateProps = {
 export default function ManageProduct({ product, action }: ManageProductProps) {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [, setProductId] = useState<string>("");
-  const { id, image, name } = product;
+  const { id, name } = product;
   const isDelete = action === "delete"; // TODO: can I just use action??
 
   console.log("ManageProduct");
@@ -28,6 +29,8 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
 
   // TODO: looks a bit bland??
   // TODO: if product id doens't exist, blank page?
+  // TODO: manage image (difficult with muliple?)
+
   // eslint-disable-next-line
   let currentActionFn: any = null;
 
@@ -52,23 +55,23 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
 
   useEffect(() => {
     if (state.success) {
-      window.location.href = "/manage";
+      redirect("/manage");
     }
   }, [state]);
 
-  // product id used for image name when adding product
-  const handleChange = ({
-    target: { value, id },
-  }: ChangeEvent<HTMLInputElement>) => {
-    if (id === "id") {
-      if (value.length >= 5) {
-        // TODO: 5
-        setProductId(value);
-      } else {
-        setProductId("");
-      }
-    }
-  };
+  // // product id used for image name when adding product
+  // const handleChange = ({
+  //   target: { value, id },
+  // }: ChangeEvent<HTMLInputElement>) => {
+  //   if (id === "id") {
+  //     if (value.length >= 5) {
+  //       // TODO: 5
+  //       setProductId(value);
+  //     } else {
+  //       setProductId("");
+  //     }
+  //   }
+  // };
 
   const enableModal = (e: React.MouseEvent<Element, MouseEvent>): void => {
     e.preventDefault();
@@ -77,14 +80,9 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
 
   return (
     <form action={formAction} className={styles.container}>
-      <InputFields
-        product={product}
-        action={action}
-        handleChange={handleChange}
-      />
-      <ManageImage id={id} image={image} isDelete={isDelete} />
-      <ManageProductActions isDelete={isDelete} enableModal={enableModal} />
-      <ManageDBMessages errorMessages={state} />
+      <InputFields product={product} action={action} />
+      <ProductActions isDelete={isDelete} enableModal={enableModal} />
+      <DBMessages errorMessages={state} />
       {showModal && (
         <ModalDelete
           id={id}

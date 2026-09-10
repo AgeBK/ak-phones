@@ -16,7 +16,7 @@
 
 .item {
   text-align: center;
-  margin: 0 1rem 1rem;
+  margin: 15px;
 }
 
 .item h2 {
@@ -36,9 +36,29 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
+  .item {
+    margin: 15px 5px;
+  }
+
   .img {
     width: 200px;
     height: 200px;
+  }
+
+  .img img {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .img img {
+    width: 100px;
+    height: 100px;
   }
 }
