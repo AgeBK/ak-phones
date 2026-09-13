@@ -8,6 +8,9 @@ import styles from "@/app/css/Error.module.css";
 export default function ErrorMain({ message }: { message: string }) {
   const pathname = usePathname();
   console.log(`ErrorMain - ${message}`);
+  console.log(pathname);
+
+  const homeLink = pathname.startsWith("/manage") ? "/manage" : "/";
 
   // TODO: needs styling
   // To create error replace samsung filter in appData with this: "samsung": "['Samsung Galaxy A, Samsung Galaxy S, Samsung Galaxy Z']",
@@ -30,7 +33,7 @@ export default function ErrorMain({ message }: { message: string }) {
       <Link href={pathname} className={styles.navigate}>
         Reload page
       </Link>
-      <Link href="/" className={styles.navigate}>
+      <Link href={homeLink} className={styles.navigate}>
         Go home
       </Link>
     </section>

@@ -18,12 +18,12 @@ export default function ManageProductActions({
       </Link>
       {isDelete ? (
         <Button css="delete" onClick={enableModal}>
-          <span>Delete </span>
+          <span>Delete</span>
           <Img src="icons/trash.svg" alt="trash" w={24} h={24} l="eager" />
         </Button>
       ) : (
         <Button css="save" type="submit">
-          <span>Save </span>
+          <span>Save</span>
           <Img src="icons/save.svg" alt="save" w={24} h={24} l="eager" />
         </Button>
         //         <button type="submit" disabled={isPending}>

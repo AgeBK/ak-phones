@@ -25,9 +25,31 @@ export async function fetchPhones() {
     throw new Error("Failed to fetch phones.");
   }
 }
+
+export async function fetchPhonesManage() {
+  // Same as fetchPhones except ordered by created date
+  // noStore() prevents the response from being cached. (good for dev) TODO
+
+  noStore(); // TODO: google Next 16 noStore()
+
+  try {
+    const data = await sql`
+      SELECT *
+      FROM phones
+      WHERE producttype = 'Mobile Phone'
+      ORDER BY created desc
+      `;
+
+    return data as PhoneProps[];
+  } catch (err) {
+    console.error("Database Error:", err);
+    throw new Error("Failed to fetch phones.");
+  }
+}
+
 export async function fetchPhonesByQry(query: string) {
   // noStore() prevents the response from being cached. (good for dev) TODO
-  
+
   noStore();
   console.log("fetchPhonesByQry: " + query);
 

@@ -1,33 +1,19 @@
 "use client";
 
-// import { InputFieldsProps } from '@/app/lib/definitions';
-// import { deCamelise } from '@/app/lib/utils';
 import {
   alternateName,
   isRequired,
   readOnlyFields,
-  productKeys,
   numOnlyFields,
 } from "@/app/lib/appData.json";
+import { ManageProductProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/Form.module.css";
 
 // loads textboxes on add/edit/delete manage page
 export default function ManageInputFields({
   product,
   action,
-}: InputFieldsProps) {
-  // console.log("ManageInputFields");
-  // console.log(product);
-
-  // console.log(readOnlyFields);
-  // console.log(location.pathname);
-
-  //const arr = [];
-  // Array.from({ length: 7 }, (_, i) => arr.push(`31_${i + 1}.webp`));
-  // console.log(arr);
-  // pattern="[0-9]*" Number pattern for text boxes - avoid 0 issue ??
-  // console.log(numOnlyFields);
-
+}: ManageProductProps) {
   return (
     <div className={styles.inputContainer}>
       {Object.entries(product).map(

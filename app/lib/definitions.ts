@@ -11,24 +11,21 @@ export type PhoneProps = {
   producttype: string;
   colour: string;
   colour2: string;
-  colourvar: string[];
-  colours: string;
+  colours: string[];
   bluetooth: string;
-  productcode: string;
   height: string;
   depth: string;
   width: string;
   weight: string;
   memory: string;
   launched: string;
-  manufacturer: string;
   warranty: string;
   barcode: string;
   os: string;
   dimensions: string;
   sim: string;
-  dualsim: boolean;
-  nfc: boolean;
+  dualsim: string;
+  nfc: string;
   wirelessprotocol: string;
   displaysize: string;
   displayres: string;
@@ -88,6 +85,28 @@ export type SelectProps = {
   id: string;
   hdr: string;
   handleChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+};
+
+export type ManagePageParams = {
+  params: KeyStringProps;
+};
+
+export type ManageProductProps = {
+  product: PhoneProps;
+  action: string;
+};
+
+export type FormStateProps = {
+  message: string | null;
+  errors: KeyStringProps;
+  success: boolean | null;
+};
+
+export type ModalDeleteProps = {
+  id: number;
+  name: string;
+  initialState: FormStateProps;
+  setShowModal: (show: boolean) => void;
 };
 
 // TODO: research interface

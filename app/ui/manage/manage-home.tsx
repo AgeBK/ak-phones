@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { DataProps } from "@/app/lib/definitions";
 import Category from "@/app/ui/category";
-import ManageSideNav from "@/app/ui/manage/manage-sidenav";
+import ManageNav from "@/app/ui/manage/manage-nav";
 import styles from "@/app/css/manage/ManagePage.module.css";
 
 export default function ManageHome({ data }: DataProps) {
@@ -24,7 +24,7 @@ export default function ManageHome({ data }: DataProps) {
   return (
     <div className={styles.home}>
       <div className={styles.manageHdr}>
-        <ManageSideNav data={arr} handleChange={handleChange} />
+        <ManageNav data={arr} handleChange={handleChange} />
       </div>
       <Category data={manageData} cat="manage" />
     </div>

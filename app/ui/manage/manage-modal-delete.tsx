@@ -9,10 +9,14 @@ import styles from "@/app/css/manage/ManageModalDelete.module.css";
 
 export default function ModalDelete({
   id,
-  name,
+  title,
   setShowModal,
 }: ModalDeleteProps) {
   // loads pop up to confirm product deletion
+  console.log("ModalDelete");
+  console.log(title);
+  console.log(id);
+
   const closeModal = (
     e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
   ) => {
@@ -39,7 +43,7 @@ export default function ModalDelete({
             <div>
               <b>Name:</b>
               <br />
-              {name}
+              {title}
             </div>
             <div>
               <b>Id:</b>
@@ -51,20 +55,16 @@ export default function ModalDelete({
             <Link href="/manage" className={styles.cancel}>
               <span>Cancel </span>
               <Img
-                imgSrc={`icons/xCircle.svg`}
-                imgAlt=""
-                imgWidth={24}
-                imgHeight={24}
+                src="icons/xCircle.svg"
+                alt="Cancel"
+                w={24}
+                h={24}
+                l="eager"
               />
             </Link>
             <Button css="delete" type="submit">
               <span>Delete </span>
-              <Img
-                imgSrc={`icons/trash.svg`}
-                imgAlt=""
-                imgWidth={24}
-                imgHeight={24}
-              />
+              <Img src="icons/trash.svg" alt="Delete" w={24} h={24} l="eager" />
             </Button>
           </div>
         </div>

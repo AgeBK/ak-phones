@@ -54,28 +54,20 @@
 
 .actions {
   white-space: nowrap;
+  text-align: right;
 }
 
 .actions > * {
   display: inline-block;
-  /* filter: var(--filter-invert); */
 }
 
 /* ===================================== */
 
-.list {
-  /* display: flex;
-  flex-wrap: wrap;
-  min-width: 70%; */
-}
-
 .table {
   display: table;
-  width: 99%;
+  width: 100%;
   text-align: left;
-  padding: 5px;
-  /* background-color: var(--invert); */
-  border-radius: 6px;
+  margin-top: 10px;
 }
 
 div.table header:nth-of-type(odd) {
@@ -99,7 +91,11 @@ div.table header:nth-of-type(odd) {
 }
 
 @media screen and (max-width: 550px) {
-  .brand {
+  .row .brand {
     display: none;
+  }
+
+  .table {
+    font-size: 14px;
   }
 }

@@ -1,16 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { FormStateProps, ManageProductProps } from "@/app/lib/definitions";
 import { addProduct, deleteProduct, updateProduct } from "@/app/lib/actions";
 import { useActionState } from "react";
 import InputFields from "./manage-input-fields";
 import ProductActions from "./manage-product-actions";
 import DBMessages from "./manage-db-messages";
 import ModalDelete from "./manage-modal-delete";
-import ManageImage from "./manage-image";
-// import { FormStateProps, ManageProductProps } from "@/app/lib/definitions";
-import styles from "@/app/css/manage/Form.module.css";
 import { redirect } from "next/navigation";
+import styles from "@/app/css/manage/Form.module.css";
 
 const initialState: FormStateProps = {
   message: null,
@@ -20,16 +19,16 @@ const initialState: FormStateProps = {
 
 export default function ManageProduct({ product, action }: ManageProductProps) {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [, setProductId] = useState<string>("");
-  const { id, name } = product;
+  const { id, modelid, title } = product;
   const isDelete = action === "delete"; // TODO: can I just use action??
 
   console.log("ManageProduct");
   console.log(product);
 
-  // TODO: looks a bit bland??
   // TODO: if product id doens't exist, blank page?
   // TODO: manage image (difficult with muliple?)
+  // TODO: remove unneccassary comments and commented out stuff, & colour red at end
+  // TODO: error/not found pages
 
   // eslint-disable-next-line
   let currentActionFn: any = null;
@@ -59,20 +58,6 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
     }
   }, [state]);
 
-  // // product id used for image name when adding product
-  // const handleChange = ({
-  //   target: { value, id },
-  // }: ChangeEvent<HTMLInputElement>) => {
-  //   if (id === "id") {
-  //     if (value.length >= 5) {
-  //       // TODO: 5
-  //       setProductId(value);
-  //     } else {
-  //       setProductId("");
-  //     }
-  //   }
-  // };
-
   const enableModal = (e: React.MouseEvent<Element, MouseEvent>): void => {
     e.preventDefault();
     setShowModal(true);
@@ -86,7 +71,7 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
       {showModal && (
         <ModalDelete
           id={id}
-          name={name}
+          title={title}
           initialState={initialState}
           setShowModal={setShowModal}
         />

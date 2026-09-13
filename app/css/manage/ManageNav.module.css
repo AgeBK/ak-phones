@@ -36,14 +36,13 @@
   align-items: center;
 }
 
-/* .navItems {
-} */
+.add {
+  color: green;
+}
 
 .burger {
   cursor: pointer;
   position: absolute;
-  background-color: var(--background);
-  color: var(--filter-text);
   padding: 2px;
   font-size: 1rem;
   font-weight: normal;
@@ -64,5 +63,9 @@
 
   .manageNav li:first-child {
     flex-grow: 0;
+  }
+
+  .sales {
+    display: none;
   }
 }

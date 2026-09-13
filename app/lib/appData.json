@@ -75,12 +75,13 @@
     "nfc": "NFC"
   },
   "productKeys": {
+    "id": 0,
     "brand": "",
     "title": "",
     "modelnumber": "",
     "modelid": "",
-    "price": "",
-    "pricewas": "",
+    "price": 0,
+    "pricewas": 0,
     "producttype": "",
     "colour": "",
     "colour2": "",
