@@ -1,9 +1,9 @@
+/* TODO: being used?? */
+
 .burger nav {
   position: absolute;
   top: 70px;
   left: 10px;
-  background: var(--burger-bg);
-  color: var(--filter-text);
   -webkit-clip-path: circle(24px at 30px 24px);
   clip-path: circle(24px at 32px 24px);
   -webkit-transition:
@@ -17,7 +17,6 @@
 }
 
 .burger nav:hover {
-  /* width: 200px; */
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
   -webkit-transition-duration: 0.75s;
@@ -26,23 +25,16 @@
   clip-path: circle(690px at 150px 24px);
   background-color: #fff;
   border: 5px solid black;
-  border-bottom: 5px solid var(--spirits-text);
-  border-bottom: 5px solid var(--spirits-text);
+  border-bottom: 5px solid red;
+  border-bottom: 5px solid red;
 }
 
-.burger ul {
-  /* column-count: 3;*/
-  /* column-gap: 10px; */
-}
 .burger li {
-  /* column-count: 3;
-  column-gap: 20px; */
   padding: 5px;
 }
 
 .burger a {
   display: block;
-  /* line-height: 50px; */
   padding: 0 10px;
   color: inherit;
   cursor: pointer;
@@ -53,7 +45,7 @@
 }
 
 .burger a:hover {
-  background: var(--spirits-text);
+  background: red;
   color: #fff;
 }
 
@@ -73,7 +65,7 @@
   position: relative;
   width: 20px;
   height: 2px;
-  background: var(--spirits-text);
+  background: red;
 }
 
 .navicon div:before,
@@ -82,7 +74,7 @@
   content: "";
   width: 20px;
   height: 2px;
-  background: var(--spirits-text);
+  background: red;
   position: absolute;
 }
 

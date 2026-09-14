@@ -20,7 +20,7 @@
 }
 
 .amt {
-  color: #555;
+  color: #999;
   flex-grow: 1;
 }
 
@@ -45,4 +45,14 @@
 .pageCont > div:first-child {
   flex-grow: 1;
   text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .pageCont {
+    flex-direction: column;
+  }
+
+  .pageCont > div:first-child {
+    margin: 15px 0;
+  }
 }

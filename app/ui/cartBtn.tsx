@@ -1,14 +1,14 @@
 "use client";
 
 import { useCartStore } from "../store";
-import { CartItemProps } from "../lib/definitions";
+import { CartItemProps, PhoneProps } from "../lib/definitions";
 import Btn from "@/app/ui/button";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/CartBtn.module.css";
 
-export default function CartBtn({ item }: CartItemProps) {
+export default function CartBtn({ item }: { item: PhoneProps }) {
   const addCartItem = useCartStore((state) => state.addCartItem);
-  const { modelid, brand, title, colour, image, price, pricewas } = item;
+  const { modelid, brand, title, image, price, pricewas } = item;
 
   return (
     <Btn
@@ -17,7 +17,6 @@ export default function CartBtn({ item }: CartItemProps) {
           modelid,
           brand,
           title,
-          colour,
           image,
           price,
           pricewas,

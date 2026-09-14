@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
 import { FormStateProps, ManageProductProps } from "@/app/lib/definitions";
 import { addProduct, deleteProduct, updateProduct } from "@/app/lib/actions";
 import { useActionState } from "react";
@@ -8,7 +9,6 @@ import InputFields from "./manage-input-fields";
 import ProductActions from "./manage-product-actions";
 import DBMessages from "./manage-db-messages";
 import ModalDelete from "./manage-modal-delete";
-import { redirect } from "next/navigation";
 import styles from "@/app/css/manage/Form.module.css";
 
 const initialState: FormStateProps = {
@@ -19,16 +19,8 @@ const initialState: FormStateProps = {
 
 export default function ManageProduct({ product, action }: ManageProductProps) {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const { id, modelid, title } = product;
-  const isDelete = action === "delete"; // TODO: can I just use action??
-
-  console.log("ManageProduct");
-  console.log(product);
-
-  // TODO: if product id doens't exist, blank page?
-  // TODO: manage image (difficult with muliple?)
-  // TODO: remove unneccassary comments and commented out stuff, & colour red at end
-  // TODO: error/not found pages
+  const { id, title } = product;
+  const isDelete = action === "delete";
 
   // eslint-disable-next-line
   let currentActionFn: any = null;
@@ -69,14 +61,8 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
       <ProductActions isDelete={isDelete} enableModal={enableModal} />
       <DBMessages errorMessages={state} />
       {showModal && (
-        <ModalDelete
-          id={id}
-          title={title}
-          initialState={initialState}
-          setShowModal={setShowModal}
-        />
+        <ModalDelete id={id} title={title} setShowModal={setShowModal} />
       )}
-      {/* {state.errors && <p>{state.errors}</p>} */}
     </form>
   );
 }

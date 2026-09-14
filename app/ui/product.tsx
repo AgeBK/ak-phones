@@ -13,6 +13,7 @@ import Skeleton from "./skeleton";
 import styles from "@/app/css/Product.module.css";
 
 // http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
+// TODO: check skeleton when carousel moves to beneath main image
 
 export default function Product({
   data,

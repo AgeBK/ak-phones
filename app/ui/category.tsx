@@ -5,17 +5,15 @@ import { PagingProps, PhoneProps } from "../lib/definitions";
 import {
   capitalizeFirstLetter,
   checkSearch,
-  filterBySearch,
   filterPageData,
-  typeCheck,
 } from "../lib/utils";
 import { pagingSettings, blurb } from "../lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
-import styles from "@/app/css/Category.module.css";
 import Paging from "./paging";
 import ItemsPerPage from "./itemsPerPage";
 import CategoryFilter from "./categoryFilter";
 import CategoryList from "./categoryList";
+import styles from "@/app/css/Category.module.css";
 
 export default function Category({
   data,
@@ -36,11 +34,13 @@ export default function Category({
   // TODO: appData phone intros?
   // TODO: error page (no internet, turn off hotspot)
   // TODO: deal badge like officeworks
+  // TODO: remove unneccassary comments and commented out stuff, & colour red at end
+  // TODO: console logs
 
-  console.log("Category");
-  console.log(cat);
-  console.log(data);
-  console.log(searchTerm);
+  // console.log("Category");
+  // console.log(cat);
+  // console.log(data);
+  // console.log(searchTerm);
   // console.log(filter);
   // console.log(paging);
   // console.log("=========");

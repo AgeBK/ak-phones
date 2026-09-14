@@ -1,4 +1,4 @@
-"use client";
+import React from "react";
 
 import {
   alternateName,
@@ -9,52 +9,49 @@ import {
 import { ManageProductProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/Form.module.css";
 
-// loads textboxes on add/edit/delete manage page
+type ProductValue = string | number;
+type ProductRecord = Record<string, ProductValue>;
+
 export default function ManageInputFields({
   product,
   action,
-}: ManageProductProps) {
+}: ManageProductProps): React.ReactElement {
+  const prod: ProductRecord = product as unknown as ProductRecord;
+
   return (
     <div className={styles.inputContainer}>
-      {Object.entries(product).map(
-        ([key, value]: [string, string | number]) => {
-          const isReq = isRequired.includes(key);
-          // const dataType = typeof productKeys[key];
-          const isDisabled =
-            readOnlyFields.indexOf(key) > -1 ||
-            (product.id && key === "id") ||
-            action === "delete";
-          const prodKey = alternateName[key] || key;
-          // console.log("Input");
-          // console.log(key);
-          // console.log(numOnlyFields.indexOf(key));
+      {Object.entries(prod).map(([key, value]: [string, ProductValue]) => {
+        const isReq: boolean = isRequired.includes(key);
+        const isDisabled: boolean =
+          readOnlyFields.indexOf(key) > -1 ||
+          (prod.id !== undefined && key === "id") ||
+          action === "delete";
+        const prodKey: string = (alternateName as Record<string, string>)[key] || key;
 
-          return (
-            <div key={key}>
-              <label htmlFor={key} id={`lbl${key}`}>
-                <span className={styles.key}>
-                  {prodKey}
-                  {isReq && <span className={styles.required}>*</span>}
-                </span>
-              </label>
-              <input
-                id={key}
-                name={key}
-                // onChange={handleChange}
-                className={styles.input}
-                type="text"
-                defaultValue={value}
-                aria-labelledby={`lbl${key}`}
-                disabled={isDisabled}
-                required={isReq}
-                pattern={
-                  numOnlyFields.indexOf(key) > -1 ? "^[1-9][0-9]*$" : "[^]*"
-                }
-              />
-            </div>
-          );
-        },
-      )}
+        return (
+          <div key={key}>
+            <label htmlFor={key} id={`lbl${key}`}>
+              <span className={styles.key}>
+                {prodKey}
+                {isReq && <span className={styles.required}>*</span>}
+              </span>
+            </label>
+            <input
+              id={key}
+              name={key}
+              className={styles.input}
+              type="text"
+              defaultValue={value}
+              aria-labelledby={`lbl${key}`}
+              disabled={isDisabled}
+              required={isReq}
+              pattern={
+                numOnlyFields.indexOf(key) > -1 ? "^[1-9][0-9]*$" : "[^]*"
+              }
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

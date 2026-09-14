@@ -4,8 +4,7 @@ import Img from "../image";
 import { ManageProductActionsProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/ManageProductActions.module.css";
 
-// add/edit/delte buttons on main manage page
-// TODO: need image uploader??
+// functionallity for add/edit/delte buttons on main manage page
 export default function ManageProductActions({
   enableModal,
   isDelete,
@@ -26,9 +25,6 @@ export default function ManageProductActions({
           <span>Save</span>
           <Img src="icons/save.svg" alt="save" w={24} h={24} l="eager" />
         </Button>
-        //         <button type="submit" disabled={isPending}>
-        //   {isPending ? "Submitting..." : "Submit"}
-        // </button>
       )}
     </div>
   );

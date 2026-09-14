@@ -5,10 +5,9 @@
 
 .table {
   display: table;
-  width: 99%;
+  width: 100%;
   text-align: left;
-  /* padding: 5px; */
-  /* background-color: #000; */
+
   border-radius: 6px;
 }
 

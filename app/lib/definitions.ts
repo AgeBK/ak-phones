@@ -67,17 +67,33 @@ export type PriceProps = {
   css: string;
 };
 
+export type ButtonProps = {
+  children?: ReactNode;
+  onClick?: (e: React.MouseEvent<Element, MouseEvent>) => void;
+  id?: string;
+  css?: string;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset" | undefined;
+};
+
+// TODO: am i using qty pricewas?
+export type CartProps = Pick<
+  PhoneProps,
+  "modelid" | "brand" | "title" | "price" | "pricewas" | "image"
+>;
+
+// export type CartProps = {
+//   brand: string;
+//   title: string;
+//   modelid: string;
+//   price: number;
+//   pricewas: number; // TODO: am i using?
+//   image: string;
+//   qty?: number; // TODO: am i using?
+// };
+
 export type CartItemProps = {
-  item: {
-    brand: string;
-    title: string;
-    colour: string;
-    modelid: string;
-    price: number;
-    pricewas: number;
-    image: string;
-    qty?: number;
-  };
+  item: CartProps;
 };
 
 export type SelectProps = {
@@ -104,9 +120,13 @@ export type FormStateProps = {
 
 export type ModalDeleteProps = {
   id: number;
-  name: string;
-  initialState: FormStateProps;
+  title: string;
   setShowModal: (show: boolean) => void;
+};
+
+export type ManageProductActionsProps = {
+  enableModal: (e: React.MouseEvent<Element, MouseEvent>) => void;
+  isDelete: boolean;
 };
 
 // TODO: research interface

@@ -1,7 +1,6 @@
 .container {
   display: flex;
   cursor: default;
-  /* max-height: 100vh; */
   z-index: 11;
   position: relative;
   border-radius: 0 10px 10px 0;
@@ -71,7 +70,6 @@
   margin-top: 10px;
   background-color: #fff;
   min-width: 50px;
-  /* padding: 10px; */
   background-color: #fff;
 }
 
@@ -89,7 +87,7 @@
 .sName {
   font-size: 14px;
   height: 18px;
-  overflow: hidden; /* TODO */
+  overflow: hidden;
 }
 
 .qtyCont {
@@ -106,10 +104,6 @@
   font-size: 16px;
 }
 
-.qtyCont button {
-  filter: var(--filter-invert);
-}
-
 .price {
   font-weight: bold;
   font-size: 18px;
@@ -117,7 +111,6 @@
 
 .total {
   display: flex;
-  /* border-top: 1px solid #d3d3d3; */
   padding: 5px;
   font-size: 18px;
   padding: 10px;
@@ -132,13 +125,4 @@
 .cartTotal {
   margin: auto;
   font-size: 20px;
-}
-
-/* cart image show/hide TODO: ?? */
-.cartLight {
-  display: var(--light-display);
-}
-
-.cartDark {
-  display: var(--dark-display);
 }

@@ -15,15 +15,8 @@ export default function Carousel({
   setHeroImage: (heroImage: string) => void;
   winWidth: number;
 }) {
-  // console.log("Carousel");
-  // console.log(images);
-
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const itemsCnt = itemsToShow(winWidth);
-  // console.log("itemsCnt");
-  // console.log("winWidth: " + winWidth);
-  // console.log(itemsCnt);
 
   // Handler to move to the next item
   const handleNext = () => {
@@ -41,7 +34,6 @@ export default function Carousel({
 
   return (
     <div className={styles.carouselContainer}>
-      {/* Prev Button */}
       <button
         onClick={handlePrev}
         disabled={currentIndex === 0}
@@ -50,8 +42,6 @@ export default function Carousel({
       >
         &#9664;
       </button>
-
-      {/* Main Track Window */}
       <div className={styles.window}>
         <div
           style={{
@@ -72,8 +62,6 @@ export default function Carousel({
           ))}
         </div>
       </div>
-
-      {/* Next Button */}
       <button
         onClick={handleNext}
         disabled={currentIndex >= images.length - itemsCnt}
@@ -87,50 +75,3 @@ export default function Carousel({
     </div>
   );
 }
-
-// Inline styles for zero-dependency implementation
-// const styles = {
-//   carouselContainer: {
-//     display: "flex",
-//     alignItems: "center",
-//     width: "100%",
-//     maxWidth: "1000px",
-//     margin: "0 auto",
-//   },
-//   window: {
-//     overflow: "hidden",
-//     width: "100%",
-//     margin: "0 10px",
-//   },
-//   track: {
-//     display: "flex",
-//     transition: "transform 0.4s ease-in-out",
-//     width: "100%",
-//   },
-//   item: {
-//     boxSizing: "border-box",
-//     padding: "0 5px",
-//   },
-//   card: {
-//     background: "#476391",
-//     color: "#fff",
-//     height: "150px",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     borderRadius: "8px",
-//     fontSize: "1.2rem",
-//     fontWeight: "bold",
-//   },
-//   button: {
-//     background: "#1f2937",
-//     color: "#fff",
-//     border: "none",
-//     padding: "10px 15px",
-//     fontSize: "18px",
-//     cursor: "pointer",
-//     borderRadius: "4px",
-//   },
-// };
-
-// export default Carousel;

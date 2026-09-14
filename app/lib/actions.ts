@@ -297,11 +297,6 @@ export async function updateProduct(
   formData: FormData,
 ) {
   console.log("updateProduct");
-  // console.log(prevState);
-  // console.log(formData);
-  // console.log(id);
-
-  // TODO:
 
   const validatedFields = validateFormData(FormSchema, formData); // TODO: update schema vs add??
   if (!validatedFields.success) {
@@ -413,7 +408,7 @@ export async function updateProduct(
   };
 }
 
-export async function deleteProduct(id: string) {
+export async function deleteProduct(id: number) {
   console.log("delete Product");
   console.log(id);
 

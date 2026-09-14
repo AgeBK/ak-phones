@@ -6,8 +6,8 @@ import Img from "@/app/ui/image";
 import FancyText from "@/app/ui/fancyText";
 import Search from "./search";
 import { DataProps } from "../lib/definitions";
-import styles from "@/app/css/Header.module.css";
 import Menu from "./menu";
+import styles from "@/app/css/Header.module.css";
 
 export default function Header({ data }: DataProps) {
   return (

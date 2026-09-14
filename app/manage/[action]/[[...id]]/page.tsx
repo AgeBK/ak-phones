@@ -10,7 +10,7 @@ export default async function ManagePage({ params }: ManagePageParams) {
   const { action, id } = await params;
   const product: PhoneProps | PhoneProps = id
     ? await fetchPhoneById(id[0])
-    : { ...productKeys }; // fetch product or product shape
+    : { ...productKeys }; // keys only, no values 
 
   return (
     <div className={styles.container}>

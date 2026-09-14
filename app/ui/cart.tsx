@@ -19,11 +19,6 @@ export default function Cart() {
   const [showCart, setShowCart] = useState(false);
   const cartTotalPrice = totalPrice();
   const cartTotalItems = totalItems();
-  // console.log("Cart");
-  // console.log(cartItems);
-
-  // console.log("cartTotalPrice: " + cartTotalPrice);
-  // console.log("cartTotalItems: " + cartTotalItems);
 
   return (
     <div className={styles.container}>
@@ -48,8 +43,7 @@ export default function Cart() {
           </div>
         )}
         {cartItems.map((item) => {
-          const { modelid, brand, title, colour, image, price, pricewas, qty } =
-            item;
+          const { modelid, brand, title, image, price, qty } = item;
           return (
             <div className={styles.cartItem} key={modelid}>
               <div className={styles.imgCont}>

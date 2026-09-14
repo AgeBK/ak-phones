@@ -1,10 +1,10 @@
 "use client";
 
 import { MouseEvent, KeyboardEvent } from "react";
+import { ModalDeleteProps } from "@/app/lib/definitions";
 import Link from "next/link";
 import Button from "../button";
 import Img from "../image";
-import { ModalDeleteProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/ManageModalDelete.module.css";
 
 export default function ModalDelete({
@@ -13,9 +13,6 @@ export default function ModalDelete({
   setShowModal,
 }: ModalDeleteProps) {
   // loads pop up to confirm product deletion
-  console.log("ModalDelete");
-  console.log(title);
-  console.log(id);
 
   const closeModal = (
     e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
