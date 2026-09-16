@@ -1,35 +1,39 @@
 import { create } from "zustand";
-import { CartItemProps } from "./lib/definitions";
-// TODO: CartProps??
+import { CartItemProps, PhoneProps } from "./lib/definitions";
 
 const checkCartExisting = (
   arr: CartItemProps[],
-  item: CartItemProps,
+  item: PhoneProps,
   itemQty: number,
 ) => {
+  // check if new item or existing
   console.log("checkCartExisting");
   console.log(item);
 
-  const itemExists = arr.find((val) => val.modelid === item.modelid);
-  console.log("itemExists");
-  console.log(itemExists ? "Yes" : "No");
+  const { modelid, brand, title, image, price } = item;
 
+  const cartItem: CartItemProps = {
+    modelid,
+    brand,
+    title,
+    image,
+    price,
+    qty: 1,
+  };
+
+  const itemExists = arr.find((val) => val.modelid === item.modelid);
   if (itemExists && itemExists.qty) {
     itemExists.qty += itemQty;
   } else {
-    item.qty = itemQty;
-    arr.push(item);
+    // item.qty = itemQty;
+    arr.push(cartItem);
   }
-  // check if product is part of a 2 for deal
-  console.log("cart");
-  console.log(arr);
-
   return arr;
 };
 
 export const useCartStore = create<{
   cartItems: CartItemProps[];
-  addCartItem: (item: CartItemProps, qty?: number) => void;
+  addCartItem: (item: PhoneProps) => void;
   removeItem: (modelid: string) => void;
   deleteItem: (modelid: string) => void;
   clearCart: () => void;
@@ -37,9 +41,9 @@ export const useCartStore = create<{
   totalItems: () => number;
 }>((set, get) => ({
   cartItems: [],
-  addCartItem: (item: CartItemProps, qty = 1) => {
+  addCartItem: (item: PhoneProps) => {
     set((state) => ({
-      cartItems: checkCartExisting(state.cartItems, item, qty),
+      cartItems: checkCartExisting(state.cartItems, item, 1),
     }));
   },
   removeItem: (modelid: string) =>

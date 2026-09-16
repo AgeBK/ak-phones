@@ -1,22 +1,16 @@
-import { CartItemProps, PhoneProps } from "../lib/definitions";
-
+import { PhoneProps } from "../lib/definitions";
 import Link from "next/link";
 import CartBtn from "./cartBtn";
 import Img from "./image";
 import Price from "./price";
 import styles from "@/app/css/CategoryItems.module.css";
 
-export default function CategoryItems({
-  data,
-}: {
-  data: PhoneProps[];
-}) {
+export default function CategoryItems({ data }: { data: PhoneProps[] }) {
   return (
     <div className={styles.categoryItems}>
       <div className={styles.items}>
         {data.map((item) => {
-          const { modelid, brand, title, colour, image, price, pricewas } =
-            item;
+          const { modelid, brand, title, image, price, pricewas } = item;
           const link = `/${brand.toLowerCase()}/${modelid}`;
           return (
             <div className={styles.item} key={modelid}>

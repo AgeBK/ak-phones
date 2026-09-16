@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { PhoneProps } from "@/app/lib/definitions";
+import { useWindowWidth } from "@/app/hooks/useWindowWidth";
 import Img from "@/app/ui/image";
 import Price from "@/app/ui/price";
 import Link from "next/link";
 import Carousel from "@/app/ui/carousel";
-import { useWindowWidth } from "@/app/hooks/useWindowWidth";
 import ProductInfo from "./productInfo";
 import CartBtn from "./cartBtn";
 import Skeleton from "./skeleton";
@@ -15,32 +15,13 @@ import styles from "@/app/css/Product.module.css";
 // http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
 // TODO: check skeleton when carousel moves to beneath main image
 
-export default function Product({
-  data,
-  cat,
-  id,
-}: {
-  data: PhoneProps;
-  cat: string;
-  id: string;
-}) {
+export default function Product({ data }: { data: PhoneProps }) {
   const [heroImage, setHeroImage] = useState<string>("");
   const winWidth = useWindowWidth();
-
-  // console.log("Product");
-  // console.log(winWidth);
-  // console.log(cat, id);
-  // console.log(data);
-  // console.log(Object.keys(data));
-
-  // useEffect(() => {
-  //   winWidth = useWindowWidth()
-  // }, []);
 
   const {
     brand,
     title,
-    modelid,
     modelnumber,
     price,
     pricewas,
@@ -74,26 +55,13 @@ export default function Product({
           </h3>
           <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          {winWidth && winWidth > 1150 ? (
-            <Carousel
-              images={images}
-              setHeroImage={setHeroImage}
-              winWidth={winWidth}
-            />
-          ) : (
-            <Skeleton />
-          )}
-          <CartBtn
-            item={{
-              modelid,
-              brand,
-              title,
-              colour,
-              image,
-              price,
-              pricewas,
-            }}
+          {/* {winWidth && winWidth > 1150 && ( */}
+          <Carousel
+            images={images}
+            setHeroImage={setHeroImage}
+            winWidth={winWidth}
           />
+          <CartBtn item={data} />
         </div>
       </div>
       <ProductInfo

@@ -36,6 +36,7 @@ export default function Category({
   // TODO: deal badge like officeworks
   // TODO: remove unneccassary comments and commented out stuff, & colour red at end
   // TODO: console logs
+  // TODO: check server console logs
 
   // console.log("Category");
   // console.log(cat);

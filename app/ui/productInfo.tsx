@@ -11,12 +11,12 @@ export default function ProductInfo({
 }: {
   data: PhoneProps;
   setHeroImage: (heroImage: string) => void;
-  winWidth: number;
+  winWidth: number | null;
 }) {
   const { descriptions, images } = data;
   return (
     // TODO: css instead of winWidth??
-    <div className={styles.productInfo}>    
+    <div className={styles.productInfo}>
       {winWidth && winWidth < 1151 ? (
         <Carousel
           images={images}

@@ -76,24 +76,18 @@ export type ButtonProps = {
   type?: "button" | "submit" | "reset" | undefined;
 };
 
-// TODO: am i using qty pricewas?
 export type CartProps = Pick<
   PhoneProps,
   "modelid" | "brand" | "title" | "price" | "pricewas" | "image"
 >;
 
-// export type CartProps = {
-//   brand: string;
-//   title: string;
-//   modelid: string;
-//   price: number;
-//   pricewas: number; // TODO: am i using?
-//   image: string;
-//   qty?: number; // TODO: am i using?
-// };
-
 export type CartItemProps = {
-  item: CartProps;
+  brand: string;
+  title: string;
+  modelid: string;
+  price: number;
+  image: string;
+  qty: number;
 };
 
 export type SelectProps = {
