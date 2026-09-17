@@ -1,25 +1,16 @@
-// import { CategoryListProps } from "@/app/lib/definitions";
-// import ProductItem from "@/app/ui/product/product-item";
+import { CategoryProps } from "@/app/lib/definitions";
 import CategoryItems from "./categoryItems";
 import ManageProducts from "./manage/manage-products";
-// import ManageHeader from '../manage/manage-header';
-// import Loading from './loading';
 import styles from "@/app/css/CategoryList.module.css";
 
-export default function CategoryList({ data, cat }: CategoryListProps) {
+export default function CategoryList({ data, cat }: CategoryProps) {
   // Loads product lists on Category page and Manage products page
-  console.log("CategoryList");
-  console.log(cat);
-  console.log(data);
-
   const style = cat === "manage" ? "table" : "categoryList";
   const List = cat === "manage" ? ManageProducts : CategoryItems;
 
-  return data.length > 0 ? (
+  return (
     <div className={styles[style]}>
-      <List data={data} css="" hdr="" />
+      <List data={data} />
     </div>
-  ) : (
-    <div>No results.</div>
   );
 }

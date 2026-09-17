@@ -35,7 +35,14 @@ export default function Product({ data }: { data: PhoneProps }) {
     <div className={styles.productCont}>
       <div className={styles.product}>
         <div className={styles.imgCont}>
-          <Img src={heroImage || image} alt={title} w={400} h={400} l="eager" />
+          <Img
+            src={heroImage || image}
+            alt={title}
+            w={400}
+            h={400}
+            l="eager"
+            p={true}
+          />
         </div>
         <div className={styles.details}>
           <h2 className={styles.hdr}>{title}</h2>
@@ -55,12 +62,13 @@ export default function Product({ data }: { data: PhoneProps }) {
           </h3>
           <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          {/* {winWidth && winWidth > 1150 && ( */}
-          <Carousel
-            images={images}
-            setHeroImage={setHeroImage}
-            winWidth={winWidth}
-          />
+          {winWidth && winWidth > 1150 && (
+            <Carousel
+              images={images}
+              setHeroImage={setHeroImage}
+              winWidth={winWidth}
+            />
+          )}
           <CartBtn item={data} />
         </div>
       </div>

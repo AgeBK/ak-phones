@@ -4,7 +4,6 @@ import styles from "@/app/css/Footer.module.css";
 
 export default function Footer() {
   const yr = new Date().getFullYear();
-  // TODO: height/widths in appData
   return (
     <footer className={styles.container}>
       <div className={styles.ak}>
@@ -24,11 +23,12 @@ export default function Footer() {
       </div>
       <div className={styles.payment}>
         <Img
-          src={`payment/payment2.png`}
+          src="payment/payment2.png"
           alt="payment methods"
           w={200}
           h={20}
           l="eager"
+          p={false}
         />
       </div>
     </footer>

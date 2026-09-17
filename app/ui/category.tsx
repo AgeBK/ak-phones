@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PagingProps, PhoneProps } from "../lib/definitions";
+import { CategoryProps, PagingProps, PhoneProps } from "../lib/definitions";
 import {
   capitalizeFirstLetter,
   checkSearch,
@@ -18,25 +18,24 @@ import styles from "@/app/css/Category.module.css";
 export default function Category({
   data,
   cat,
-}: {
-  data: PhoneProps[];
-  cat: string;
-}) {
+}: CategoryProps) {
   const [, setSortOrder] = useState("");
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
   const [filter, setFilter] = useState("");
-  const catLow = cat?.toLowerCase(); // TODO:
+  const catLow = cat?.toLowerCase();
+  const blurbMap: Record<string, string> = blurb;
+  const intro = blurbMap[catLow] || blurbMap["default"];
   const searchTerm = cat && checkSearch(cat);
-  const intro = blurb[catLow] || blurb["default"];
   let pagedData: PhoneProps[] = [];
 
-  // TODO: eager above fold?
+  // TODO: Google eager above fold?
   // TODO: appData phone intros?
   // TODO: error page (no internet, turn off hotspot)
   // TODO: deal badge like officeworks
   // TODO: remove unneccassary comments and commented out stuff, & colour red at end
   // TODO: console logs
   // TODO: check server console logs
+  // TODO: lighthouse/WAVE
 
   // console.log("Category");
   // console.log(cat);
@@ -86,8 +85,7 @@ export default function Category({
   // console.log(pagedData);
 
   return (
-    <div className={styles.category}>
-      {/* <h1 className={styles.hdr}>{capitalizeFirstLetter(searchTerm || cat)}</h1> */}
+    <>
       <div className={styles.intro}>{intro}</div>
       <div className={styles.catHdr}>
         <div className={styles.amt}>
@@ -114,6 +112,6 @@ export default function Category({
           dataLength={dataLength}
         />
       </div>
-    </div>
+    </>
   );
 }

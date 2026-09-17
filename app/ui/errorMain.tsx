@@ -1,15 +1,13 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { errorMsg } from "@/app/lib/appData.json";
 import Link from "next/link";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/Error.module.css";
 
-export default function ErrorMain({ message }: { message: string }) {
+export default function ErrorMain() {
   const pathname = usePathname();
-  console.log(`ErrorMain - ${message}`);
-  console.log(pathname);
-
   const homeLink = pathname.startsWith("/manage") ? "/manage" : "/";
 
   // TODO: needs styling
@@ -24,10 +22,11 @@ export default function ErrorMain({ message }: { message: string }) {
         w={100}
         h={100}
         l="eager"
+        p={true}
       />
       <h2 className={styles.hdr}>
         <strong>Whoops!!</strong>
-        <div>{message}</div>
+        <div>{errorMsg}</div>
       </h2>
       <div>Sorry for the inconvenience</div>
       <Link href={pathname} className={styles.navigate}>

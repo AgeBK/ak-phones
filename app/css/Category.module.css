@@ -12,7 +12,6 @@
 
 .intro {
   margin: 30px 0;
-  /* font-size: 18px; */
 }
 
 .catHdr {
@@ -28,13 +27,6 @@
   display: inline-block;
   margin-left: 4px;
 }
-
-/* .price {
-  margin: 10px 0 20px;
-  font-weight: bold;
-  font-size: 18px;
-  border: 1px solid red;
-} */
 
 .pageCont {
   display: flex;

@@ -1,34 +1,27 @@
 import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
-import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-// import { Chip, InputAdornment } from "@mui/material";
+import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { DataProps, KeyStringProps, PhoneProps } from "../lib/definitions";
+import {
+  DataProps,
+  PhoneProps,
+  SearchChangeProps,
+} from "@/app/lib/definitions";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
 import Img from "./image";
-import styles from "../css/Search.module.css";
+import styles from "@/app/css/Search.module.css";
 
-// export default function Search({ data }: {data: PhoneProps[]}) {
 export default function Search({ data }: DataProps) {
   const [overlay, setOverlay] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  // const { MAX_SMALLSCREEN } = data;
-  // const isPageWidth: boolean | undefined = usePageWidth(MAX_SMALLSCREEN);
   const { replace } = useRouter();
-
-  // TODO: the clear button when you click on a specific product when the text box is small looks bad??
-  // TODO: search 2 words eg: google pixel?
 
   if (data) {
     // data used by the auto complete component
     const ACData = data.map(
       ({ title, modelid, brand, image, price }: PhoneProps) => {
-        // TODO: ??
-        // console.log("ACData");
-        // console.log(title, modelid, brand, image, price);
-
         return { title, modelid, brand, image, price };
       },
     );
@@ -39,11 +32,10 @@ export default function Search({ data }: DataProps) {
 
     const handleChange = (
       _: SyntheticEvent<Element, Event>,
-      val: PhoneProps | null,
+      val: SearchChangeProps,
     ): void => {
       if (val) {
         const { brand, modelid } = val;
-
         setOverlay(false);
         setOpen(false);
         replace(`/${brand}/${modelid}`);
@@ -57,7 +49,7 @@ export default function Search({ data }: DataProps) {
     ): void => {
       const { key } = e;
       if (key === "Enter" && searchTerm) {
-        // if entered press, display results on category page
+        // if Enter pressed, display results on category page
         setOverlay(false);
         setOpen(false);
         replace(`/search=${searchTerm}`);
@@ -85,7 +77,7 @@ export default function Search({ data }: DataProps) {
           onChange={(e, value) => handleChange(e, value)}
           onInputChange={(_, value) => handleInputChange(_, value)}
           onKeyDown={(e) => handleKeyDown(e)}
-          getOptionLabel={(option) => option.title} // TODO: was name? is short_name unique??
+          getOptionLabel={(option) => option.title}
           className={`${styles.autoComplete} ${
             overlay ? styles.pageWidth : ""
           }`}
@@ -98,25 +90,24 @@ export default function Search({ data }: DataProps) {
                 option.brand.toLowerCase().includes(query),
             );
           }}
-          // filterOptions={createFilterOptions({
-          //   limit: 7,
-          // })}
           isOptionEqualToValue={(option, value) =>
             value === undefined || option.modelid === value.modelid
           }
-          renderOption={(
-            props,
-            { title, modelid, brand, image, price },
-            { inputValue },
-          ) => {
-            // TODO: name?? using?? try just short_name?
+          renderOption={(props, { title, modelid, image }, { inputValue }) => {
             const matches = match(title, inputValue);
             const parts = parse(title, matches);
             return (
               <li {...props} className={styles.listItem} key={modelid}>
                 <div className={styles.itemCont}>
                   <div className={styles.itemImg}>
-                    <Img src={image} alt={title} w={50} h={50} l="eager" />
+                    <Img
+                      src={image}
+                      alt={title}
+                      w={50}
+                      h={50}
+                      l="eager"
+                      p={false}
+                    />
                   </div>
                   <div className={styles.itemLabel}>
                     {parts.map((part, index) => (
@@ -134,26 +125,13 @@ export default function Search({ data }: DataProps) {
               </li>
             );
           }}
-          // TODO: below causing Next error, don't think it's required??
-
-          // renderTags={(tagValue, getTagProps) => {
-          //   return tagValue.map((option, index) => (
-          //     <Chip
-          //       {...getTagProps({ index })}
-          //       label={option.modelid}
-          //       key={option.modelid}
-          //     />
-          //   ));
-          // }}
           renderInput={(params) => (
             <TextField
-              // label={isPageWidth ? "Search" : "What are you looking for?"}
               label="Search"
               {...params}
               className={styles.tf}
               onClick={handleClick}
               onBlur={handleBlur}
-              // placeholder="Search spirits"
               sx={{
                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
                   {
@@ -165,22 +143,6 @@ export default function Search({ data }: DataProps) {
                   paddingRight: "10px !important", // Adjust padding here
                 },
               }}
-              // TODO: below causing Next error, don't think it's required??
-              // InputProps={{
-              //   ...params.InputProps,
-              //   endAdornment: (
-              //     <InputAdornment position="end">
-              //       {/* <SearchIcon /> */}
-              //       <Img
-              //         src={`icons/search.png`}
-              //         alt="search"
-              //         w={24}
-              //         h={24}
-              //         l="eager"
-              //       />
-              //     </InputAdornment>
-              //   ),
-              // }}
             />
           )}
         ></Autocomplete>

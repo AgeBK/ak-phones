@@ -5,8 +5,8 @@ import Cart from "@/app/ui/cart";
 import Img from "@/app/ui/image";
 import FancyText from "@/app/ui/fancyText";
 import Search from "./search";
-import { DataProps } from "../lib/definitions";
 import Menu from "./menu";
+import { DataProps } from "../lib/definitions";
 import styles from "@/app/css/Header.module.css";
 
 export default function Header({ data }: DataProps) {
@@ -18,7 +18,14 @@ export default function Header({ data }: DataProps) {
       <div className={styles.brand}>
         <div className={styles.logo}>
           <Link href="/">
-            <Img src="logos/AK.png" alt="AK Phones" w={90} h={60} l="eager" />
+            <Img
+              src="logos/AK.png"
+              alt="AK Phones"
+              w={90}
+              h={60}
+              l="eager"
+              p={true}
+            />
           </Link>
         </div>
         <h1 className={styles.hdr}>

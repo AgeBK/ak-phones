@@ -43,7 +43,7 @@ export const checkSearch = (qry: string) => {
   if (qry.startsWith(param)) {
     searchTerm = qry.replace(param, "");
   }
-  return searchTerm;
+  return decodeURIComponent(searchTerm);
 };
 
 export const filterBySearch = (arr: PhoneProps[], searchTerm: string) => {
@@ -100,6 +100,8 @@ export const typeCheck = (obj: Record<string, unknown>) => {
   console.log(o);
 };
 
+export const aboveFold = () => {};
+
 export const validateImage = async (strUrl: string) => {
   try {
     await new Promise((resolve, reject) => {
@@ -140,3 +142,14 @@ export const postGresArr = (str: string) =>
   str
     ? JSON.stringify(str.split(",")).replace("[", "{").replace("]", "}")
     : null;
+
+export const checkOppo = (query: string) => {
+  let q = "";
+  if (query === "oppo") {
+    // This brand is all uppercase
+    q = query.toUpperCase();
+  } else {
+    q = capitalizeFirstLetter(query);
+  }
+  return q;
+};

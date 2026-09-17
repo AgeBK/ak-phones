@@ -50,12 +50,12 @@
   background-color: transparent;
 }
 
-.pillDel {
+/* .pillDel {
   border: 1px solid red;
   padding: 2px 4px;
   text-transform: capitalize;
   font-size: 14px;
-}
+} */
 
 .brand {
   display: block;
@@ -139,7 +139,7 @@
   color: #fff;
 }
 
-@media screen and (max-width: 650px) {
+/* @media screen and (max-width: 650px) {
   .filterBtn {
     display: block;
     margin: 10px auto;
@@ -153,4 +153,4 @@
   .filterBtn:hover {
     color: #fff;
   }
-}
+} */

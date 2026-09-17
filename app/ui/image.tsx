@@ -1,7 +1,7 @@
 import { ImgProps } from "../lib/definitions";
 import Image from "next/image";
 
-export default function Img({ src, alt, w, h, l }: ImgProps) {
+export default function Img({ src, alt, w, h, l, p }: ImgProps) {
   // use this for images with set height/width
   // TODO: loading?
   const imgPath = "/img/";
@@ -12,6 +12,7 @@ export default function Img({ src, alt, w, h, l }: ImgProps) {
       width={w}
       height={h}
       loading={l}
+      priority={p}
     />
   );
 }

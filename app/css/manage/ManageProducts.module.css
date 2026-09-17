@@ -38,10 +38,6 @@
   display: table-row;
 }
 
-.row:nth-of-type(odd) {
-  /* background-color: red; */
-}
-
 .row:nth-of-type(even) {
   background-color: #f6f6f6;
 }

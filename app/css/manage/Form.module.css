@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  /* max-width: 700px; */
   align-items: baseline;
 }
 

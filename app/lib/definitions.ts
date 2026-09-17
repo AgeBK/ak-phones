@@ -45,12 +45,18 @@ export type PhoneProps = {
   capacity: string[];
 };
 
+export type CategoryProps = {
+  data: PhoneProps[];
+  cat: string;
+};
+
 export type ImgProps = {
   src: string;
   alt: string;
   w: number;
   h: number;
   l: "eager" | "lazy" | undefined;
+  p: boolean;
 };
 
 export type ContainerProps = {
@@ -123,6 +129,14 @@ export type ManageProductActionsProps = {
   isDelete: boolean;
 };
 
+export type SearchChangeProps = {
+  title: string;
+  modelid: string;
+  brand: string;
+  image: string;
+  price: number;
+} | null;
+
 // TODO: research interface
 // export interface CartItemProps extends PhoneProps {
 //   qty: number;
@@ -130,8 +144,6 @@ export type ManageProductActionsProps = {
 
 export type PagingProps = { page: number; pageSize: number };
 
-export type KeyStringProps = { [key: string]: string };
-
-export type KeyNumberProps = { [key: string]: number };
+export type KeyStringProps = Record<string, string>; // same as { [key: string]: string };
 
 export type StringPair = [string, string];
