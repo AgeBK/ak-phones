@@ -38,12 +38,15 @@ export const formatCurrency = (amount: number) => {
 };
 
 export const checkSearch = (qry: string) => {
-  const param = "search%3D";
-  let searchTerm = "";
-  if (qry.startsWith(param)) {
-    searchTerm = qry.replace(param, "");
+  if (qry) {
+    const param = "search%3D";
+    let searchTerm = "";
+    if (qry.startsWith(param)) {
+      searchTerm = qry.replace(param, "");
+    }
+    return decodeURIComponent(searchTerm);
   }
-  return decodeURIComponent(searchTerm);
+  return "";
 };
 
 export const filterBySearch = (arr: PhoneProps[], searchTerm: string) => {

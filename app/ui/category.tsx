@@ -15,42 +15,23 @@ import CategoryFilter from "./categoryFilter";
 import CategoryList from "./categoryList";
 import styles from "@/app/css/Category.module.css";
 
-export default function Category({
-  data,
-  cat,
-}: CategoryProps) {
+export default function Category({ data, cat }: CategoryProps) {
   const [, setSortOrder] = useState("");
   const [paging, setPaging] = useState<PagingProps>(pagingSettings);
   const [filter, setFilter] = useState("");
   const catLow = cat?.toLowerCase();
   const blurbMap: Record<string, string> = blurb;
-  const intro = blurbMap[catLow] || blurbMap["default"];
-  const searchTerm = cat && checkSearch(cat);
+  const intro = blurbMap[catLow || "default"];
+  const searchTerm = checkSearch(cat);
   let pagedData: PhoneProps[] = [];
 
-  // TODO: Google eager above fold?
-  // TODO: appData phone intros?
-  // TODO: error page (no internet, turn off hotspot)
-  // TODO: deal badge like officeworks
-  // TODO: remove unneccassary comments and commented out stuff, & colour red at end
+  // TODO: Go through every file: remove unneccassary comments and commented out stuff, & colour red at end
   // TODO: console logs
   // TODO: check server console logs
   // TODO: lighthouse/WAVE
+  // TODO: full test again after todo's/mobile view
 
-  // console.log("Category");
-  // console.log(cat);
-  // console.log(data);
-  // console.log(searchTerm);
-  // console.log(filter);
-  // console.log(paging);
-  // console.log("=========");
-  // const prodObj = data[1];
-
-  // console.log(Object.keys(data[1]));
-  // console.log("BEFORE filter paged data");
-  // console.log(pagedData);
-
-  // filters phone data by brand or by users search term
+  // filters phone data by brand or by search term entered by user
   pagedData = filterPageData(data, catLow, searchTerm);
 
   if (filter) {
@@ -61,9 +42,6 @@ export default function Category({
     });
   }
 
-  // console.log("AFTER filter paged data");
-  // console.log(pagedData);
-
   const dataLength = pagedData.length;
 
   // page data results (20, 40, 60, 80 per page)
@@ -72,8 +50,6 @@ export default function Category({
     (paging.page + 1) * paging.pageSize,
   );
 
-  // dataLength = pagedData.length;
-
   const updatePaging = (page: number, pageSize: number) => {
     // show data for next/prev page, scroll back to top of page
     if (window) {
@@ -81,8 +57,6 @@ export default function Category({
       setPaging({ page, pageSize });
     }
   };
-  // console.log("pagedData");
-  // console.log(pagedData);
 
   return (
     <>

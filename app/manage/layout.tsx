@@ -1,4 +1,4 @@
-import "../globals.css";
+import "@/app/globals.css";
 import styles from "@/app/css/manage/ManageLayout.module.css";
 
 // manage folder seperate from the default routes (authorised users only)

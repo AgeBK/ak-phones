@@ -2,12 +2,19 @@ import { ImgProps } from "../lib/definitions";
 import Image from "next/image";
 
 export default function Img({ src, alt, w, h, l, p }: ImgProps) {
-  // use this for images with set height/width
-  // TODO: loading?
-  const imgPath = "/img/";
+  // interface ImageOptimizationProps {
+  //   priority?: boolean;              // Load immediately (LCP critical)
+  //   loading?: 'eager' | 'lazy';      // Loading strategy
+  //   quality?: number;                // 1-100, default: 75
+  //   placeholder?: 'blur' | 'empty';  // Loading state
+  //   blurDataURL?: string;            // Base64 blur placeholder
+  //   sizes?: string;                  // Responsive breakpoints
+  //   fill?: boolean;                  // Container-based sizing
+  // }
+
   return (
     <Image
-      src={`${imgPath}${src}`}
+      src={`/img/${src}`}
       alt={alt}
       width={w}
       height={h}

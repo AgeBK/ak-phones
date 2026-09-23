@@ -6,7 +6,7 @@ import Img from "./image";
 import Btn from "./button";
 import Skeleton from "./skeleton";
 import styles from "@/app/css/Carousel.module.css";
-// TODO: fix skeleton
+
 export default function Carousel({
   images,
   setHeroImage,

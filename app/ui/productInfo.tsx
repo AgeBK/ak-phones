@@ -1,4 +1,4 @@
-import { PhoneProps } from "../lib/definitions";
+import { PhoneProps } from "@/app/lib/definitions";
 import Carousel from "@/app/ui/carousel";
 import ProductFeatures from "@/app/ui/productFeatures";
 import Masonary from "@/app/ui/masonary";
@@ -17,13 +17,15 @@ export default function ProductInfo({
   return (
     // TODO: css instead of winWidth??
     <div className={styles.productInfo}>
-      {winWidth && winWidth < 1151 ? (
+      <div className={styles.carousel}>
+        {/* {winWidth && winWidth < 1151 ? ( */}
         <Carousel
           images={images}
           setHeroImage={setHeroImage}
           winWidth={winWidth}
         />
-      ) : null}
+        {/* ) : null} */}
+      </div>
       <hr />
       <ProductFeatures descriptions={descriptions} />
       <hr />

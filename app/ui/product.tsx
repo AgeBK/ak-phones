@@ -9,11 +9,7 @@ import Link from "next/link";
 import Carousel from "@/app/ui/carousel";
 import ProductInfo from "./productInfo";
 import CartBtn from "./cartBtn";
-import Skeleton from "./skeleton";
 import styles from "@/app/css/Product.module.css";
-
-// http://localhost:3000/Samsung/S26U256WT TODO: (some images wider than others)
-// TODO: check skeleton when carousel moves to beneath main image
 
 export default function Product({ data }: { data: PhoneProps }) {
   const [heroImage, setHeroImage] = useState<string>("");
@@ -62,13 +58,15 @@ export default function Product({ data }: { data: PhoneProps }) {
           </h3>
           <Price price={price} pricewas={pricewas} css="product" />
           <div className={styles.desc}>{description}</div>
-          {winWidth && winWidth > 1150 && (
+          {/* {winWidth && winWidth > 1150 && ( */}
+          <div className={styles.carousel}>
             <Carousel
               images={images}
               setHeroImage={setHeroImage}
               winWidth={winWidth}
             />
-          )}
+          </div>
+          {/* )} */}
           <CartBtn item={data} />
         </div>
       </div>

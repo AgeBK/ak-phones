@@ -9,12 +9,12 @@ export default async function Page({
 }) {
   const urlParams = await params; // TODO:
   const { urlCategory, urlId } = urlParams;
-  // console.log("Product");
-  // console.log(urlCategory, urlId);
-  // console.log(typeof urlId);
+  console.log("Product");
+  console.log(urlCategory, urlId);
+  console.log(typeof urlId);
 
   const data = await fetchPhoneById(urlId);
   // console.log(data);
 
-  return <Product data={data} cat={urlCategory} id={urlId} />;
+  return <Product data={data} />;
 }

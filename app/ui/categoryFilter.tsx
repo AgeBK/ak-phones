@@ -14,7 +14,8 @@ export default function CategoryFilter({
   setFilter: (filter: string) => void;
   filter: string;
 }) {
-  const filterBy = filters[catLow];
+  const filterMap: Record<string, string[]> = filters;
+  const filterBy = filterMap[catLow];
 
   // console.log("CategoryFilter");
   // console.log(filters);

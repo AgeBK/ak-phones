@@ -60,7 +60,6 @@ export default function Search({ data }: DataProps) {
       _: SyntheticEvent<Element, Event>,
       val: string,
     ): void => {
-      console.log("handleInputChange: " + val);
       // store user input in searchTerm state var
       // only show results if 2 or more characters are entered
       setSearchTerm(val);

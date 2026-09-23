@@ -21,6 +21,7 @@
 .item {
   padding: 0;
   border: 1px solid #fff;
+  text-align: center;
 }
 
 .item:hover {
@@ -37,7 +38,6 @@
   border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
-  /* border: 5px solid #fff; */
 }
 
 .button {
@@ -87,5 +87,16 @@
   .carouselContainer {
     max-width: 400px;
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .carouselContainer {
+    max-width: 300px;
+  }
+
+  .carouselContainer img {
+    width: 90px;
+    height: 90px;
   }
 }

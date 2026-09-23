@@ -1,0 +1,9 @@
+.carousel {
+  display: none;
+}
+
+@media screen and (max-width: 1150px) {
+  .carousel {
+    display: block;
+  }
+}

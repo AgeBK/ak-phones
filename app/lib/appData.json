@@ -4,6 +4,8 @@
   "pagingSettings": { "page": 0, "pageSize": 20 },
   "sortBy": ["--- Select ---", "$", "$$$", "Sale", "A-Z", "Z-A"],
   "imgPath": "/img/",
+  "carouselBreakPoint": 1150,
+  "skeletonLen": 4,
   "homeIntroX": "AK Phones, Australia’s one stop shop for the best mobile phones. With all the latest technology, you can do what you do best, and on-the-go. Whether you’re looking for the newest Apple iPhone or a Google Pixel, a high-tech camera or all-day-long battery life, there’s something at AK Phones for everyone. Look for your next Motorola, iPhone, or Samsung Galaxy Phone right here. Shop all the best brands in mobile phones, including cases and other mobile accessories, at AK Phones.",
   "homeIntro": "Whether you’re looking for the newest Apple iPhone or a Google Pixel, a high-tech camera or all-day-long battery life, there’s something at AK Phones for everyone. Look for your next Motorola, iPhone, or Samsung Galaxy Phone right here. Shop all the best brands in mobile phones, including cases and other mobile accessories at AK Phones.",
   "blurb": {

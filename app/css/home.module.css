@@ -60,11 +60,7 @@
 }
 
 .blurb {
-  /* //Todo: inset, place-self: ??; */
   position: absolute;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   inset: 0;
   place-self: center;
   width: 50%;
@@ -77,8 +73,7 @@
 .blurb h3 {
   text-align: center;
   font-size: 42px;
-  color: white; /* Text color */
-  -webkit-text-stroke: 2px red; /* Outline */
+  color: #fff;
 }
 
 @media screen and (max-width: 1000) {
