@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { ChangeEvent, ReactNode } from "react";
 
 export type PhoneProps = {
@@ -141,6 +142,53 @@ export type SearchChangeProps = {
 // export interface CartItemProps extends PhoneProps {
 //   qty: number;
 // }
+
+export type SchemaProps = z.ZodObject<
+  {
+    brand: z.ZodString;
+    title: z.ZodString;
+    modelid: z.ZodString;
+    colour: z.ZodString;
+    price: z.ZodNumber;
+    producttype: z.ZodString;
+    description: z.ZodString;
+    image: z.ZodString;
+    barcode: z.ZodString;
+    descriptions: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    modelnumber: z.ZodString;
+    pricewas: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+    colour2: z.ZodString;
+    colours: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    height: z.ZodString;
+    depth: z.ZodString;
+    width: z.ZodString;
+    weight: z.ZodString;
+    dimensions: z.ZodString;
+    bluetooth: z.ZodString;
+    memory: z.ZodString;
+    memorycardmax: z.ZodString;
+    memorycardtype: z.ZodString;
+    displaytype: z.ZodString;
+    warranty: z.ZodString;
+    os: z.ZodString;
+    displaysize: z.ZodString;
+    displayres: z.ZodString;
+    video: z.ZodString;
+    primarycam: z.ZodString;
+    secondarycam: z.ZodString;
+    ram: z.ZodString;
+    sim: z.ZodString;
+    dualsim: z.ZodString;
+    nfc: z.ZodString;
+    battery: z.ZodString;
+    images: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    wirelessprotocol: z.ZodString;
+    variation: z.ZodString;
+    capacity: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    launched: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+  },
+  z.core.$strip
+>;
 
 export type PagingProps = { page: number; pageSize: number };
 

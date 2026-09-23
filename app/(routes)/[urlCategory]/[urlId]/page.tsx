@@ -5,16 +5,10 @@ import Product from "@/app/ui/product";
 export default async function Page({
   params,
 }: {
-  params: { urlCategory: string; urlId: string };
+  params: Promise<{ urlId: string }>;
 }) {
-  const urlParams = await params; // TODO:
-  const { urlCategory, urlId } = urlParams;
-  console.log("Product");
-  console.log(urlCategory, urlId);
-  console.log(typeof urlId);
-
+  const { urlId } = await params;
   const data = await fetchPhoneById(urlId);
-  // console.log(data);
 
   return <Product data={data} />;
 }

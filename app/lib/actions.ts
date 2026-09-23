@@ -1,15 +1,13 @@
 "use server";
 import { neon } from "@neondatabase/serverless";
-
-const sql = neon(process.env.DATABASE_URL);
-// const sql = neon(process.env.NEON_DATABASE_URL!); TODO:?? https://www.freecodecamp.org/news/nextjs-clerk-neon-fullstack-development/
+const sql = neon(process.env.DATABASE_URL ? process.env.DATABASE_URL : "");
 import { z } from "zod";
 import { postGresArr } from "./utils";
+import { FormStateProps, PhoneProps, SchemaProps } from "./definitions";
 
 const zStrNull = z.string().nullable().optional();
 const zNumNull = z.number().nullable().optional();
 const zStr = z.string();
-const minNum = z.number();
 const zStr3 = z
   .string()
   .min(3, { message: "Must be 3 or more characters long" });
@@ -19,9 +17,6 @@ const zStr10 = z
 const gt0 = z
   .number()
   .gt(0, { message: "Please enter an amount greater than 0." });
-// const nonNeg = z.coerce.number().nonnegative();
-
-// TODO: SIM, NFC types in DB?
 
 const FormSchema = z.object({
   brand: zStr3,
@@ -33,7 +28,6 @@ const FormSchema = z.object({
   description: zStr3,
   image: zStr3,
   barcode: zStr10,
-
   descriptions: zStrNull,
   modelnumber: zStr,
   pricewas: zNumNull,
@@ -67,8 +61,6 @@ const FormSchema = z.object({
   capacity: zStrNull,
   launched: zStrNull,
 });
-
-// const UpdateSchema = FormSchema.omit({ id: true });
 
 const validateFormData = (Schema: SchemaProps, formData: FormData) => {
   return Schema.safeParse({
@@ -117,27 +109,16 @@ const validateFormData = (Schema: SchemaProps, formData: FormData) => {
 };
 
 export async function addProduct(
-  prevState: FormStateProps,
+  prevState: { message: unknown },
   formData: FormData,
 ) {
   const validatedFields = validateFormData(FormSchema, formData);
-
-  console.log("***********");
-  console.log("addProduct");
-  console.log(validatedFields);
-  console.log(formData);
-  console.log("Brand: " + formData.get("brand"));
-
-  // if (!validatedFields.success) {
-  //   console.log("Fields NOT validated?");
-  //   console.log(validatedFields);
-
-  //   //   return {
-  //   //     errors: validatedFields.error.flatten().fieldErrors,
-  //   //     message: "Failed to add new product. Please check the fields above",
-  //   //   };
-  // }
-
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Failed to update product. Please check the fields above",
+    };
+  }
   const {
     brand,
     title,
@@ -181,13 +162,6 @@ export async function addProduct(
     capacity,
     launched,
   } = validatedFields.data;
-
-  console.log("validatedFields.data");
-  console.log(validatedFields.data);
-  console.log(brand);
-
-  // TODO: barcode not number in edit but is add??
-  // TODO: edit = all strings no numbers??
 
   // Insert data into the database
   try {
@@ -296,9 +270,7 @@ export async function updateProduct(
   prevState: { message: unknown },
   formData: FormData,
 ) {
-  console.log("updateProduct");
-
-  const validatedFields = validateFormData(FormSchema, formData); // TODO: update schema vs add??
+  const validatedFields = validateFormData(FormSchema, formData);
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -409,9 +381,6 @@ export async function updateProduct(
 }
 
 export async function deleteProduct(id: number) {
-  console.log("delete Product");
-  console.log(id);
-
   try {
     await sql`DELETE FROM phones WHERE id = ${id}`;
     return {

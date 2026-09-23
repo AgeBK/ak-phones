@@ -1,20 +1,14 @@
 .manageNav {
   min-width: 160px;
-  /*  background-color: #555;
- padding: 0 20px;
-  margin-bottom: 20px; */
   flex-grow: 1;
   border: 1px solid #d3d3d3;
 }
 
 .manageNav li:first-child {
-  /* background-color: rgb(8, 158, 8);
-  border-radius: 16px; */
   color: rgb(8, 158, 8);
 }
 
 .manageNav li:first-child span {
-  /* font-size: 24px; */
   display: inline-block;
   margin-right: 5px;
 }
@@ -36,8 +30,8 @@
   align-items: center;
 }
 
-.add {
-  color: green;
+.add a {
+  color: #008000;
 }
 
 .burger {
