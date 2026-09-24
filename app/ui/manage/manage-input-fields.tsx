@@ -1,16 +1,16 @@
 import React from "react";
-
 import {
   alternateName,
   isRequired,
   readOnlyFields,
   numOnlyFields,
 } from "@/app/lib/appData.json";
-import { ManageProductProps } from "@/app/lib/definitions";
+import {
+  ManageProductProps,
+  ProductRecord,
+  ProductValue,
+} from "@/app/lib/definitions";
 import styles from "@/app/css/manage/Form.module.css";
-
-type ProductValue = string | number;
-type ProductRecord = Record<string, ProductValue>;
 
 export default function ManageInputFields({
   product,
@@ -26,7 +26,8 @@ export default function ManageInputFields({
           readOnlyFields.indexOf(key) > -1 ||
           (prod.id !== undefined && key === "id") ||
           action === "delete";
-        const prodKey: string = (alternateName as Record<string, string>)[key] || key;
+        const prodKey: string =
+          (alternateName as Record<string, string>)[key] || key;
 
         return (
           <div key={key}>

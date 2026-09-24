@@ -15,16 +15,13 @@ export default function ProductInfo({
 }) {
   const { descriptions, images } = data;
   return (
-    // TODO: css instead of winWidth??
     <div className={styles.productInfo}>
       <div className={styles.carousel}>
-        {/* {winWidth && winWidth < 1151 ? ( */}
         <Carousel
           images={images}
           setHeroImage={setHeroImage}
           winWidth={winWidth}
         />
-        {/* ) : null} */}
       </div>
       <hr />
       <ProductFeatures descriptions={descriptions} />

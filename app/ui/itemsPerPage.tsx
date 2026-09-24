@@ -13,8 +13,6 @@ export default function ItemsPerPage({
   const itemsArr = [20, 40, 60, 80];
   const { page, pageSize } = paging;
 
-  // TODO: need a way to pass 2 styles
-
   if (dataLength >= 20) {
     return (
       <div className={styles.itemsPPCont}>
@@ -23,7 +21,6 @@ export default function ItemsPerPage({
           <Button
             key={val}
             css={val === pageSize ? "itemsPPSelected" : "itemsPP"}
-            // css={`${styles.itemsPerPage} ${val === perPage ? styles.selected : ""}`}
             onClick={() => updatePaging(page, val)}
           >
             {val}

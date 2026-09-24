@@ -105,7 +105,7 @@ export type SelectProps = {
 };
 
 export type ManagePageParams = {
-  params: KeyStringProps;
+  params: Promise<KeyStringProps>;
 };
 
 export type ManageProductProps = {
@@ -130,6 +130,10 @@ export type ManageProductActionsProps = {
   isDelete: boolean;
 };
 
+export type ManageImageProps = {
+  product: PhoneProps;
+};
+
 export type SearchChangeProps = {
   title: string;
   modelid: string;
@@ -138,10 +142,21 @@ export type SearchChangeProps = {
   price: number;
 } | null;
 
-// TODO: research interface
-// export interface CartItemProps extends PhoneProps {
-//   qty: number;
-// }
+export type SortProductProps = {
+  data: PhoneProps[];
+  setSortOrder: (value: string) => void;
+};
+
+export type CartBtnProps = { item: PhoneProps };
+
+export type PagingProps = {
+  dataLength: number;
+  updatePaging: (page: number, pageSize: number) => void;
+  paging: { page: number; pageSize: number };
+};
+
+export type ProductValue = string | number;
+export type ProductRecord = Record<string, ProductValue>;
 
 export type SchemaProps = z.ZodObject<
   {
@@ -189,8 +204,6 @@ export type SchemaProps = z.ZodObject<
   },
   z.core.$strip
 >;
-
-export type PagingProps = { page: number; pageSize: number };
 
 export type KeyStringProps = Record<string, string>; // same as { [key: string]: string };
 

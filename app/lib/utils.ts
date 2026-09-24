@@ -78,32 +78,8 @@ export const filterPageData = (
       ({ brand }: { brand: string }) => brand.toLowerCase() === catLow,
     );
   }
-  return filteredData.length ? filteredData : data; // TODO: this will return all data for manage page
+  return filteredData.length ? filteredData : data; // this will return all data for manage page
 };
-
-export const typeCheck = (obj: Record<string, unknown>) => {
-  // Checks type of value in an object (number, string and array only)
-  const o: Record<string, unknown> = {};
-  for (const key in obj) {
-    if (!Object.prototype.hasOwnProperty.call(obj, key)) continue;
-
-    const val: unknown = obj[key];
-    const valType: string = typeof val;
-
-    if (Number(val) >= 0) {
-      o[key] = 0;
-    } else if (Array.isArray(val)) {
-      o[key] = [];
-    } else if (valType === "string") {
-      o[key] = "string";
-    } else {
-      // type object or bool (not using)
-    }
-  }
-  console.log(o);
-};
-
-export const aboveFold = () => {};
 
 export const validateImage = async (strUrl: string) => {
   try {

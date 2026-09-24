@@ -30,6 +30,7 @@ export default function Category({ data, cat }: CategoryProps) {
   // TODO: check server console logs
   // TODO: lighthouse/WAVE
   // TODO: full test again after todo's/mobile view
+  // TODO: images to webp??
 
   // filters phone data by brand or by search term entered by user
   pagedData = filterPageData(data, catLow, searchTerm);

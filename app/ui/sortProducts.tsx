@@ -1,16 +1,10 @@
 "use client";
 
-import { PhoneProps } from "@/app/lib/definitions";
+import {  SortProductProps } from "@/app/lib/definitions";
 import { sortBy } from "@/app/lib/appData.json";
 import styles from "@/app/css/SortProducts.module.css";
 
-export default function SortProducts({
-  data,
-  setSortOrder,
-}: {
-  data: PhoneProps[]; // TODO:
-  setSortOrder: (value: string) => void;
-}) {
+export default function SortProducts({ data, setSortOrder }: SortProductProps) {
   const price = (value?: string) => {
     data.sort((a, b) => {
       const priceA = Number(a.price);

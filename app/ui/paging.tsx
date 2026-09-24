@@ -1,28 +1,14 @@
-import { PagingProps, PhoneProps } from "../lib/definitions";
-import Button from "./button";
+import { PagingProps } from "../lib/definitions";
+import Button from "@/app/ui/button";
 import styles from "@/app/css/Paging.module.css";
 
 export default function Paging({
-  // totalPages,
   dataLength,
   updatePaging,
   paging,
-  // totalItems,
-}: {
-  // totalPages: number;
-  dataLength: number;
-  updatePaging: (page: number, pageSize: number) => void;
-  paging: PagingProps;
-  // totalItems: number;
-}) {
-  // TODO: need to attach to bottom when minimal products
+}: PagingProps) {
   const totalPages = Math.ceil(dataLength / paging.pageSize);
-  // let totalItems = data.length;
   const { page, pageSize } = paging;
-
-  // console.log("Paging");
-  // console.log(dataLength);
-  // console.log(page, pageSize);
 
   if (totalPages > 1) {
     return (

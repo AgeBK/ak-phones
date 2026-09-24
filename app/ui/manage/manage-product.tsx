@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useActionState } from "react";
 import { redirect } from "next/navigation";
 import { FormStateProps, ManageProductProps } from "@/app/lib/definitions";
 import { addProduct, deleteProduct, updateProduct } from "@/app/lib/actions";
-import { useActionState } from "react";
-import InputFields from "./manage-input-fields";
-import ProductActions from "./manage-product-actions";
-import DBMessages from "./manage-db-messages";
-import ModalDelete from "./manage-modal-delete";
+import InputFields from "@/app/ui/manage/manage-input-fields";
+import ProductActions from "@/app/ui/manage/manage-product-actions";
+import DBMessages from "@/app/ui/manage/manage-db-messages";
+import ModalDelete from "@/app/ui/manage/manage-modal-delete";
+import ManageImage from "@/app/ui/manage/manage-image";
 import styles from "@/app/css/manage/Form.module.css";
 
 const initialState: FormStateProps = {
@@ -58,6 +58,7 @@ export default function ManageProduct({ product, action }: ManageProductProps) {
   return (
     <form action={formAction} className={styles.container}>
       <InputFields product={product} action={action} />
+      <ManageImage product={product} />
       <ProductActions isDelete={isDelete} enableModal={enableModal} />
       <DBMessages errorMessages={state} />
       {showModal && (

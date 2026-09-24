@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import ErrorMain from "@/app/ui/errorMain";
+import "@/app/globals.css";
 
 export default function Error({
   error,

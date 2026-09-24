@@ -1,3 +1,7 @@
+.categoryItems {
+  flex-grow: 1;
+}
+
 .items {
   flex-wrap: wrap;
   justify-content: center;

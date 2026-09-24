@@ -10,7 +10,7 @@ export default async function ManagePage({ params }: ManagePageParams) {
   const { action, id } = await params;
   const product: PhoneProps | PhoneProps = id
     ? await fetchPhoneById(id[0])
-    : { ...productKeys }; // keys only, no values 
+    : { ...productKeys }; // keys only, no values
 
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ export default async function ManagePage({ params }: ManagePageParams) {
           <ManageProduct product={product} action={action} />
         </div>
       ) : (
-        <ErrorMain message="Sorry, product not found" />
+        <ErrorMain />
       )}
     </div>
   );

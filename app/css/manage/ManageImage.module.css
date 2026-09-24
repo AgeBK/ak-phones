@@ -1,0 +1,13 @@
+.hdr {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.imgs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img {
+  margin-bottom: 30px;
+}

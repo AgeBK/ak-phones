@@ -10,8 +10,6 @@ export default function ErrorMain() {
   const pathname = usePathname();
   const homeLink = pathname.startsWith("/manage") ? "/manage" : "/";
 
-  // TODO: needs styling
-  // To create error replace samsung filter in appData with this: "samsung": "['Samsung Galaxy A, Samsung Galaxy S, Samsung Galaxy Z']",
   // then goto http://localhost:3000/samsung
 
   return (

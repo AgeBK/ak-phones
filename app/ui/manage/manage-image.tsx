@@ -1,51 +1,43 @@
-"use client";
+import { ManageImageProps } from "@/app/lib/definitions";
+import Img from "@/app/ui/image";
+import styles from "@/app/css/manage/ManageImage.module.css";
 
-import { useState } from "react";
-// import { ManageImageProps } from "@/app/lib/definitions";
-import { validateImage } from "@/app/lib/utils";
-import { imgPath } from "@/app/lib/appData.json";
-import Img from "../image";
-import ManageUpload from "./manage-upload";
-import styles from "@/app/css/manage/Form.module.css";
-
-export default function ManageImage({ id, image, isDelete }: ManageImageProps) {
-  const [isImageFound, setIsImageFound] = useState(false);
-  const [newImage, setNewImage] = useState("");
-  const phoneImg = `${imgPath}${image}`; // TODO: image?
-
-  console.log("ManageImage");
-  console.log(id, image, phoneImg);
-
-  validateImage(phoneImg).then((isValid) => {
-    // check if image exists
-    console.log("validateImage");
-    console.log(isValid);
-    setIsImageFound(isValid);
-  });
+export default function ManageImage({ product }: ManageImageProps) {
+  const { image, images } = product;
 
   return (
     <div className={styles.manageImg}>
-      <ManageUpload id={image} setNewImage={setNewImage} isDelete={isDelete} />
-      {id && isImageFound && !newImage && (
-        // edit
-        <div className={styles.existingImage}>
-          <Img src={image} alt="manage image" w={160} h={160} l="eager" />
-        </div>
-      )}
-
-      {/* // TODO: check if fix for caching now? */}
-      {/* Next.js image caching stops new uploaded images being shown so using standard img element */}
-      {id && newImage && (
-        <div className={styles.newImage}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            // src={`${phoneImg}?imgId=${Date.now()}`}
-            src={phoneImg}
-            alt="phone"
-            className={styles.uploadImg}
-          />
-        </div>
-      )}
+      {image ? (
+        <>
+          <h2 className={styles.hdr}>Main image:</h2>
+          <div className={styles.img}>
+            <Img
+              src={image}
+              alt="main image"
+              w={100}
+              h={100}
+              l="eager"
+              p={true}
+            />
+          </div>
+          <h2 className={styles.hdr}>Other images:</h2>
+          <div className={styles.imgs}>
+            {images?.map((val: string) =>
+              val ? (
+                <Img
+                  src={val}
+                  alt={val}
+                  w={100}
+                  h={100}
+                  l="eager"
+                  p={true}
+                  key={val}
+                />
+              ) : null,
+            )}
+          </div>
+        </>
+      ) : null}
     </div>
   );
 }

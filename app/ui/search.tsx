@@ -64,7 +64,7 @@ export default function Search({ data }: DataProps) {
       // only show results if 2 or more characters are entered
       setSearchTerm(val);
       if (val.length <= 1) {
-        if (open) setOpen(false); // TODO: ??
+        if (open) setOpen(false);
       } else if (!open) setOpen(true);
     };
 
