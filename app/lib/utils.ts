@@ -125,10 +125,24 @@ export const postGresArr = (str: string | null | undefined) =>
 export const checkOppo = (query: string) => {
   let q = "";
   if (query === "oppo") {
-    // This brand is all uppercase
+    // This brand is all uppercase TODO: CHECK OTHER BRANDS IN DB
     q = query.toUpperCase();
   } else {
     q = capitalizeFirstLetter(query);
   }
   return q;
 };
+
+// export const getServerSideURL = () => {
+//   let url = process.env.NEXT_PUBLIC_SERVER_URL;
+
+//   if (!url && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+//     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+//   }
+
+//   if (!url) {
+//     url = "http://localhost:3000";
+//   }
+
+//   return url;
+// };

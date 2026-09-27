@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CategoryProps, PagingProps, PhoneProps } from "../lib/definitions";
+import { CategoryProps, PageProps, PhoneProps } from "../lib/definitions";
 import {
   capitalizeFirstLetter,
   checkSearch,
@@ -9,15 +9,15 @@ import {
 } from "../lib/utils";
 import { pagingSettings, blurb } from "../lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
-import Paging from "./paging";
-import ItemsPerPage from "./itemsPerPage";
-import CategoryFilter from "./categoryFilter";
-import CategoryList from "./categoryList";
+import Paging from "@/app/ui/paging";
+import ItemsPerPage from "@/app/ui/itemsPerPage";
+import CategoryFilter from "@/app/ui/categoryFilter";
+import CategoryList from "@/app/ui/categoryList";
 import styles from "@/app/css/Category.module.css";
 
 export default function Category({ data, cat }: CategoryProps) {
   const [, setSortOrder] = useState("");
-  const [paging, setPaging] = useState<PagingProps>(pagingSettings);
+  const [paging, setPaging] = useState<PageProps>(pagingSettings);
   const [filter, setFilter] = useState("");
   const catLow = cat?.toLowerCase();
   const blurbMap: Record<string, string> = blurb;

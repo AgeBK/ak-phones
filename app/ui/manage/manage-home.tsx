@@ -11,20 +11,24 @@ export default function ManageHome({ data }: DataProps) {
   // CategoryMain component used for category page and main manage page
   // TODO: check spirits manage
   const [manageData, setManageData] = useState(data);
-  const arr: string[] = [];
+  const brandArr: string[] = [];
+  data.forEach(
+    ({ brand }) => brandArr.indexOf(brand) < 0 && brandArr.push(brand),
+  );
 
-  data.forEach(({ brand }) => arr.indexOf(brand) < 0 && arr.push(brand));
+  console.log("ManageHome");
+  console.log(brandArr);
 
   const handleChange = (e: { target: { value: string } }) => {
     const { value } = e.target;
-    const arr = [...data].filter(({ brand }) => brand.startsWith(value));
-    setManageData(arr);
+    const brandArr = [...data].filter(({ brand }) => brand.startsWith(value));
+    setManageData(brandArr);
   };
 
   return (
     <div className={styles.home}>
       <div className={styles.manageHdr}>
-        <ManageNav data={arr} handleChange={handleChange} />
+        <ManageNav data={brandArr} handleChange={handleChange} />
       </div>
       <Category data={manageData} cat="manage" />
     </div>

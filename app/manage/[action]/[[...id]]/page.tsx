@@ -3,7 +3,6 @@ import { fetchPhoneById } from "@/app/lib/data";
 import { ManagePageParams, PhoneProps } from "@/app/lib/definitions";
 import ErrorMain from "@/app/ui/errorMain";
 import ManageProduct from "@/app/ui/manage/manage-product";
-import ManageNav from "@/app/ui/manage/manage-nav";
 import styles from "@/app/css/manage/ManagePage.module.css";
 
 export default async function ManagePage({ params }: ManagePageParams) {
@@ -14,7 +13,6 @@ export default async function ManagePage({ params }: ManagePageParams) {
 
   return (
     <div className={styles.container}>
-      <ManageNav />
       <h1 className={styles.hdr}>{`${action} Product`}</h1>
       {product ? (
         <div className={styles.product}>

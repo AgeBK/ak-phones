@@ -2,7 +2,7 @@
 
 import { ChangeEvent } from "react";
 import Link from "next/link";
-import Select from "@/app/ui/select";
+import SortBrands from "../sortBrands";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/manage/ManageNav.module.css";
 
@@ -10,8 +10,8 @@ export default function ManageNav({
   data,
   handleChange,
 }: {
-  data?: string[];
-  handleChange?: (event: ChangeEvent<HTMLSelectElement, Element>) => void;
+  data: string[];
+  handleChange: (event: ChangeEvent<HTMLSelectElement, Element>) => void;
 }) {
   return (
     <nav className={styles.manageNav}>
@@ -40,14 +40,10 @@ export default function ManageNav({
           <Link href="/manage">Sales Data</Link>
         </li>
         <li>
-          {data && handleChange && (
-            <Select
-              data={data}
-              id="Brands"
-              hdr="Filter brands"
-              handleChange={handleChange}
-            />
-          )}
+          <SortBrands
+            data={data}
+            handleChange={handleChange}
+          />
         </li>
       </ul>
     </nav>

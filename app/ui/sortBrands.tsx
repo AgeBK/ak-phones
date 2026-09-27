@@ -1,19 +1,19 @@
-import { SelectProps } from "../lib/definitions";
+import { SortBrandProps } from "../lib/definitions";
 import styles from "@/app/css/SortProducts.module.css";
 
-export default function Select({ data, id, hdr, handleChange }: SelectProps) {
+export default function SortBrands({ data, handleChange }: SortBrandProps) {
   // renders an array of strings as a drop down
+
   return (
     <>
-      {" "}
-      <label className={styles.label} htmlFor={id}>
-        {hdr}:
+      <label className={styles.label} htmlFor="brands">
+        Filter brands:
       </label>
       <div className={styles.sortCont}>
         <select
           className={styles.sortBy}
-          name={id}
-          id={id}
+          name="brands"
+          id="brands"
           onChange={handleChange}
         >
           <option value="">-- Select --</option>

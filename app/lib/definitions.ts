@@ -97,10 +97,8 @@ export type CartItemProps = {
   qty: number;
 };
 
-export type SelectProps = {
+export type SortBrandProps = {
   data: string[];
-  id: string;
-  hdr: string;
   handleChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
@@ -149,10 +147,12 @@ export type SortProductProps = {
 
 export type CartBtnProps = { item: PhoneProps };
 
+export type PageProps = { page: number; pageSize: number };
+
 export type PagingProps = {
   dataLength: number;
   updatePaging: (page: number, pageSize: number) => void;
-  paging: { page: number; pageSize: number };
+  paging: PageProps;
 };
 
 export type ProductValue = string | number;

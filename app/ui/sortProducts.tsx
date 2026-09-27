@@ -1,9 +1,10 @@
 "use client";
 
-import {  SortProductProps } from "@/app/lib/definitions";
+import { SortProductProps } from "@/app/lib/definitions";
 import { sortBy } from "@/app/lib/appData.json";
 import styles from "@/app/css/SortProducts.module.css";
 
+// TODO: select vs sortProducts?
 export default function SortProducts({ data, setSortOrder }: SortProductProps) {
   const price = (value?: string) => {
     data.sort((a, b) => {
@@ -52,7 +53,10 @@ export default function SortProducts({ data, setSortOrder }: SortProductProps) {
 
   return (
     <div className={styles.sortCont}>
-      <select className={styles.sortBy} onChange={handleChange}>
+      <label htmlFor="sort" className={styles.srOnly}>
+        Sort:
+      </label>
+      <select className={styles.sortBy} onChange={handleChange} id="sort">
         {sortBy.map((option) => (
           <option key={option} value={option}>
             {option}

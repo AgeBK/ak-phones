@@ -1,4 +1,4 @@
-# TODO
+# TODO (needs to be updated after deployment)
 
 # NextJS + React + Zustand + TypeScript + Postgres
 
@@ -15,7 +15,7 @@ Here's a link to preview the site: <a target="_blank" href="https://ak-phones.ne
 
 Here's a link to the JavaScript version code base: <a target="_blank" href="https://github.com/AgeBK/ak-phones">GitHub</a>
 
-I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied (I used the MUI Autocomplete Component for the search).
+I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied and AI has not been used (I used the MUI Autocomplete Component for the search).
 
 ## Description
 
@@ -23,13 +23,11 @@ I've included a Search bar using MUI Autocomplete. The site also makes use of 2 
 
 I have also built an admin panel portal where products on the site can be managed (CRUD operations) which includes the ability to upload images.
 
-The site uses NextAuth for authentication where a user can be logged in (this is a requirement to access the admin panel in the site)
-
 The site uses a Postgres database hosted by Vercel with all of the products for the site. Various calls are made to the db for fetching data displayed throughout the site. Examples are
 
 - fetch by phone category
-- fetch by phone category and variety
-- fetch by products 10% off
+- fetch by phone by id
+- fetch by phone category
 - and many more
 
 I've built a shopping cart as well which you can add products to. The cart uses Zustand which can be accessed anywhere in the site. You can increase and decrease amounts and enter a correct discount code. Calculations are automatically made in the cart for a variety of discounts that apply to a range of many products (2 for $XX, 10 for $100, 10% off when code is entered etc) The idea being that the user can have a simulated on-line shopping experience.
@@ -39,12 +37,12 @@ I've built a shopping cart as well which you can add products to. The cart uses 
 - Authorisiation
 - Login and sign up
 - Admin panel where CRUD operations can be performed for products
-- Over 1600 products
+- Over 200 products
 - Over 70 components
 - Search bar (MUI auto complete)
 - Shopping cart
 - Responsive carousel
-- Multiple filters (price, rating, variety, region, (search by id and name also in admin))
+- Filters
 - Dynamic header/blurb on Category page (variety change)
 - Sorting (alphabetical, price, sale items)
 - Paging
@@ -68,4 +66,4 @@ The <b>manage</b> landing page displays a list of all the products in the databa
 
 The <b>manage</b> product page displays different views of which ever action you'd like to perform (add/edit/delete). Each field available from the database is displayed as well as the product image. If you choose to delete a product, a confirmation modal is displayed.
 
-<a target="_blank" href="https://ak-fine-phone.vercel.app/manage">Link to admin</a>
+<a target="_blank" href="https://ak-phone.vercel.app/manage">Link to admin</a>
