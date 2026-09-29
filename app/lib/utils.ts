@@ -97,25 +97,6 @@ export const validateImage = async (strUrl: string) => {
   }
 };
 
-export const uploadImg = async (file: Blob, imgName: string) => {
-  const formData = new FormData();
-  formData.append("file", file, imgName);
-
-  const response = await fetch("/api/upload", {
-    method: "POST",
-    body: formData,
-  });
-
-  const result = await response.json();
-
-  if (result.success) {
-    return true;
-  } else {
-    console.log("ManageUpload image FAILED");
-    return false;
-  }
-};
-
 // converts a string to postGres friendly array
 export const postGresArr = (str: string | null | undefined) =>
   str && typeof str === "string"

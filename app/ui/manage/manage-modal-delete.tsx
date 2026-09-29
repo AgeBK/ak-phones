@@ -3,8 +3,8 @@
 import { MouseEvent, KeyboardEvent } from "react";
 import { ModalDeleteProps } from "@/app/lib/definitions";
 import Link from "next/link";
-import Button from "../button";
-import Img from "../image";
+import Button from "@/app/ui/button";
+import Img from "@/app/ui/image";
 import styles from "@/app/css/manage/ManageModalDelete.module.css";
 
 export default function ModalDelete({
@@ -21,6 +21,7 @@ export default function ModalDelete({
       setShowModal(false);
     }
   };
+
   return (
     <div
       className={styles.modalCont}
@@ -31,7 +32,14 @@ export default function ModalDelete({
     >
       <div className={styles.modal}>
         <div className={styles.exclamation}>
-          <Img src={`icons/trash.svg`} alt="trash" w={60} h={60} l="eager" />
+          <Img
+            src={`icons/trash.svg`}
+            alt="trash"
+            w={60}
+            h={60}
+            l="eager"
+            p={false}
+          />
         </div>
         <h2 className={styles.hdr}>Are you sure?</h2>
         <div className={styles.confirm}>
@@ -57,11 +65,19 @@ export default function ModalDelete({
                 w={24}
                 h={24}
                 l="eager"
+                p={false}
               />
             </Link>
             <Button css="delete" type="submit">
               <span>Delete </span>
-              <Img src="icons/trash.svg" alt="Delete" w={24} h={24} l="eager" />
+              <Img
+                src="icons/trash.svg"
+                alt="Delete"
+                w={24}
+                h={24}
+                l="eager"
+                p={false}
+              />
             </Button>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import { ChangeEvent } from "react";
 import Link from "next/link";
-import SortBrands from "../sortBrands";
+import SortBrands from "@/app/ui/sortBrands";
 import Img from "@/app/ui/image";
 import styles from "@/app/css/manage/ManageNav.module.css";
 
@@ -40,10 +40,7 @@ export default function ManageNav({
           <Link href="/manage">Sales Data</Link>
         </li>
         <li>
-          <SortBrands
-            data={data}
-            handleChange={handleChange}
-          />
+          <SortBrands data={data} handleChange={handleChange} />
         </li>
       </ul>
     </nav>

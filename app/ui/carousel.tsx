@@ -19,9 +19,6 @@ export default function Carousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsCnt = itemsToShow(winWidth);
 
-  console.log("Carousel");
-  console.log(itemsCnt);
-
   const handleNext = () => {
     if (currentIndex < images.length - itemsCnt) {
       setCurrentIndex((prev) => prev + 1);

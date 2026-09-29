@@ -37,6 +37,7 @@ export default function Cart() {
                   w={18}
                   h={18}
                   l="eager"
+                  p={true}
                 />
               </Button>
             </span>
@@ -47,7 +48,14 @@ export default function Cart() {
           return (
             <div className={styles.cartItem} key={modelid}>
               <div className={styles.imgCont}>
-                <Img src={`${image}`} alt={title} w={50} h={50} l="eager" />
+                <Img
+                  src={`${image}`}
+                  alt={title}
+                  w={50}
+                  h={50}
+                  l="eager"
+                  p={false}
+                />
               </div>
               <div className={styles.details}>
                 <h3 className={styles.brand}>{brand}</h3>
@@ -79,6 +87,7 @@ export default function Cart() {
                     w={18}
                     h={18}
                     l="eager"
+                    p={false}
                   />
                 </Button>
                 <div className={styles.price}>${price * qty}</div>
@@ -104,16 +113,24 @@ export default function Cart() {
         >
           {cartTotalItems ? (
             <span className={styles.cartLight}>
-              <Img src={`icons/cart.jpg`} alt="cart" w={30} h={30} l="eager" />
+              <Img
+                src={`icons/cart.jpg`}
+                alt="cart"
+                w={32}
+                h={32}
+                l="eager"
+                p={true}
+              />
             </span>
           ) : (
             <span className={styles.cartLight}>
               <Img
                 src={`icons/cartEmpty.jpg`}
                 alt="cart"
-                w={30}
-                h={30}
+                w={32}
+                h={32}
                 l="eager"
+                p={true}
               />
             </span>
           )}

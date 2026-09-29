@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 import Autocomplete from "@mui/material/Autocomplete";

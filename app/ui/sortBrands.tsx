@@ -1,4 +1,4 @@
-import { SortBrandProps } from "../lib/definitions";
+import { SortBrandProps } from "@/app/lib/definitions";
 import styles from "@/app/css/SortProducts.module.css";
 
 export default function SortBrands({ data, handleChange }: SortBrandProps) {

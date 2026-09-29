@@ -1,6 +1,6 @@
 # TODO (needs to be updated after deployment)
 
-# NextJS + React + Zustand + TypeScript + Postgres
+# NextJS 16 + React 19 + Zustand + TypeScript + Postgres + MUI
 
 ## About
 
@@ -25,17 +25,14 @@ I have also built an admin panel portal where products on the site can be manage
 
 The site uses a Postgres database hosted by Vercel with all of the products for the site. Various calls are made to the db for fetching data displayed throughout the site. Examples are
 
-- fetch by phone category
+- fetch by phone brand
 - fetch by phone by id
-- fetch by phone category
 - and many more
 
-I've built a shopping cart as well which you can add products to. The cart uses Zustand which can be accessed anywhere in the site. You can increase and decrease amounts and enter a correct discount code. Calculations are automatically made in the cart for a variety of discounts that apply to a range of many products (2 for $XX, 10 for $100, 10% off when code is entered etc) The idea being that the user can have a simulated on-line shopping experience.
+I've built a shopping cart as well which you can add products to. The cart uses Zustand which can be accessed anywhere in the site. You can increase and decrease amounts and enter a correct discount code. Calculations are automatically made in the cart for a variety of discounts that apply to a range of many products. The idea being that the user can have a simulated on-line shopping experience.
 
 ## Features
 
-- Authorisiation
-- Login and sign up
 - Admin panel where CRUD operations can be performed for products
 - Over 200 products
 - Over 70 components

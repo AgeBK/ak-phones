@@ -1,30 +1,23 @@
-import React from "react";
 import {
   alternateName,
   isRequired,
   readOnlyFields,
   numOnlyFields,
 } from "@/app/lib/appData.json";
-import {
-  ManageProductProps,
-  ProductRecord,
-  ProductValue,
-} from "@/app/lib/definitions";
+import { ManageProductProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/Form.module.css";
 
 export default function ManageInputFields({
   product,
   action,
-}: ManageProductProps): React.ReactElement {
-  const prod: ProductRecord = product as unknown as ProductRecord;
-
+}: ManageProductProps) {
   return (
     <div className={styles.inputContainer}>
-      {Object.entries(prod).map(([key, value]: [string, ProductValue]) => {
+      {Object.entries(product).map(([key, value]) => {
         const isReq: boolean = isRequired.includes(key);
         const isDisabled: boolean =
           readOnlyFields.indexOf(key) > -1 ||
-          (prod.id !== undefined && key === "id") ||
+          (product.id !== undefined && key === "id") ||
           action === "delete";
         const prodKey: string =
           (alternateName as Record<string, string>)[key] || key;

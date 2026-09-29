@@ -4,7 +4,6 @@ import { SortProductProps } from "@/app/lib/definitions";
 import { sortBy } from "@/app/lib/appData.json";
 import styles from "@/app/css/SortProducts.module.css";
 
-// TODO: select vs sortProducts?
 export default function SortProducts({ data, setSortOrder }: SortProductProps) {
   const price = (value?: string) => {
     data.sort((a, b) => {
