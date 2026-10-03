@@ -1,4 +1,4 @@
-import { PagingProps } from "../lib/definitions";
+import { PagingProps } from "@/app/lib/definitions";
 import Button from "@/app/ui/button";
 import styles from "@/app/css/Paging.module.css";
 

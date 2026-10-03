@@ -9,28 +9,9 @@
   background-color: #555;
 }
 
-.btnProdImage {
-}
-
 .cartUpdate {
   font-size: 20px;
 }
-
-/* .cartAdd {
-
-}
-
-.cartAdd:hover {
-
-}
-
-.cartMinus {
-
-}
-
-.cartMinus:hover {
-
-} */
 
 .cartDel {
   background-color: transparent;
@@ -131,19 +112,3 @@
 .closeNav {
   color: #fff;
 }
-
-/* @media screen and (max-width: 650px) {
-  .filterBtn {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 18px;
-    width: 150px;
-    border: 1px solid red;
-  }
-
-  .filterBtn:hover {
-    color: #fff;
-  }
-} */

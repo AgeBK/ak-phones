@@ -1,4 +1,4 @@
-import Button from "./button";
+import Button from "@/app/ui/button";
 import styles from "@/app/css/ItemsPerPage.module.css";
 
 export default function ItemsPerPage({

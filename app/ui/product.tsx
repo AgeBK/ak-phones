@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { PhoneProps } from "@/app/lib/definitions";
-import { useWindowWidth } from "@/app/hooks/useWindowWidth";
+import Link from "next/link";
 import Img from "@/app/ui/image";
 import Price from "@/app/ui/price";
-import Link from "next/link";
 import Carousel from "@/app/ui/carousel";
-import ProductInfo from "./productInfo";
-import CartBtn from "./cartBtn";
+import ProductInfo from "@/app/ui/productInfo";
+import CartBtn from "@/app/ui/cartBtn";
+import { PhoneProps } from "@/app/lib/definitions";
+import { useWindowWidth } from "@/app/hooks/useWindowWidth";
 import styles from "@/app/css/Product.module.css";
 
 export default function Product({ data }: { data: PhoneProps }) {

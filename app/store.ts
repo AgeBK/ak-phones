@@ -1,39 +1,24 @@
 import { create } from "zustand";
-import { CartItemProps, PhoneProps } from "./lib/definitions";
+import { CartItemProps } from "./lib/definitions";
 
 const checkCartExisting = (
   arr: CartItemProps[],
-  item: PhoneProps,
+  item: CartItemProps,
   itemQty: number,
 ) => {
   // check if new item or existing
-  console.log("checkCartExisting");
-  console.log(item);
-
-  const { modelid, brand, title, image, price } = item;
-
-  const cartItem: CartItemProps = {
-    modelid,
-    brand,
-    title,
-    image,
-    price,
-    qty: 1,
-  };
-
   const itemExists = arr.find((val) => val.modelid === item.modelid);
   if (itemExists && itemExists.qty) {
     itemExists.qty += itemQty;
   } else {
-    // item.qty = itemQty;
-    arr.push(cartItem);
+    arr.push(item);
   }
   return arr;
 };
 
 export const useCartStore = create<{
   cartItems: CartItemProps[];
-  addCartItem: (item: PhoneProps) => void;
+  addCartItem: (item: CartItemProps) => void;
   removeItem: (modelid: string) => void;
   deleteItem: (modelid: string) => void;
   clearCart: () => void;
@@ -41,7 +26,7 @@ export const useCartStore = create<{
   totalItems: () => number;
 }>((set, get) => ({
   cartItems: [],
-  addCartItem: (item: PhoneProps) => {
+  addCartItem: (item: CartItemProps) => {
     set((state) => ({
       cartItems: checkCartExisting(state.cartItems, item, 1),
     }));

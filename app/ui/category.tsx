@@ -6,8 +6,8 @@ import {
   capitalizeFirstLetter,
   checkSearch,
   filterPageData,
-} from "../lib/utils";
-import { pagingSettings, blurb } from "../lib/appData.json";
+} from "@/app/lib/utils";
+import { pagingSettings, blurb } from "@/app/lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
 import Paging from "@/app/ui/paging";
 import ItemsPerPage from "@/app/ui/itemsPerPage";
@@ -28,9 +28,8 @@ export default function Category({ data, cat }: CategoryProps) {
   // TODO: Go through every file: remove unneccassary comments and commented out stuff, & colour red at end
   // TODO: console logs
   // TODO: check server console logs
-  // TODO: lighthouse/WAVE
   // TODO: full test again after todo's/mobile view
-  // TODO: images to webp??
+  // TODO: test delete with Ghost phones
 
   // filters phone data by brand or by search term entered by user
   pagedData = filterPageData(data, catLow, searchTerm);
@@ -67,7 +66,7 @@ export default function Category({ data, cat }: CategoryProps) {
           {dataLength} results
           {cat !== "manage" && (
             <span>
-              for <b>{capitalizeFirstLetter(searchTerm || cat)}</b>
+              for <b>{searchTerm || cat}</b>
             </span>
           )}
         </div>

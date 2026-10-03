@@ -27,8 +27,26 @@
 
 .hdr {
   padding: 15px;
-  color: #555;
   text-transform: capitalize;
   margin: 0 auto;
   max-width: 800px;
+  display: flex;
+  align-items: baseline;
+}
+
+.hdr img {
+  margin-right: 5px;
+}
+
+.hdr h1 {
+  color: #555;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.chevron:after {
+  content: "›";
+  font-size: 1.5rem;
+  color: #999;
 }

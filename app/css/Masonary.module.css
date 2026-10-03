@@ -17,11 +17,6 @@
   text-transform: capitalize;
 }
 
-.item::before {
-  /* counter-increment: grid;
-  content: counter(grid); */
-}
-
 .item:nth-child(7n) {
   aspect-ratio: 1;
   background: #0d1117;

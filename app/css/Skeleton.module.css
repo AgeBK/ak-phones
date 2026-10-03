@@ -10,7 +10,6 @@
 .card {
   flex: 1;
   margin-right: 30px;
-  /* max-width: 140px; */
   height: 140px;
 }
 
@@ -75,16 +74,3 @@
     background-position-x: -20%;
   }
 }
-
-/* .loading h4 {
-  min-height: 1.6rem;
-  border-radius: 4px;
-  animation-delay: 0.05s;
-  border: 1px solid red;
-}
-
-.loading .description {
-  min-height: 4rem;
-  border-radius: 4px;
-  animation-delay: 0.06s;
-} */

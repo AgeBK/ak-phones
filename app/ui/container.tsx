@@ -1,8 +1,8 @@
 import { ContainerProps } from "../lib/definitions";
-import Header from "./header";
-import Footer from "./footer";
+import Header from "@/app/ui/header";
+import Footer from "@/app/ui/footer";
+import { fetchPhones } from "@/app/lib/data";
 import styles from "@/app/css/Container.module.css";
-import { fetchPhones } from "../lib/data";
 
 export default async function Container({ children }: ContainerProps) {
   const data = await fetchPhones();

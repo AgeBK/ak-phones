@@ -28,7 +28,14 @@ export default function ManageProducts({ data }: DataProps) {
             </div>
             <div className={`${styles.col} ${styles.actions}`}>
               <Link href={`/${brand.toLowerCase()}/${modelid}`}>
-                <Img src="icons/eye.svg" alt="view" w={24} h={24} l="eager" />
+                <Img
+                  src="icons/eye.svg"
+                  alt="view"
+                  w={24}
+                  h={24}
+                  l="eager"
+                  p={true}
+                />
               </Link>
               <Link href={`/manage/edit/${modelid}`}>
                 <Img
@@ -37,10 +44,18 @@ export default function ManageProducts({ data }: DataProps) {
                   w={24}
                   h={24}
                   l="eager"
+                  p={true}
                 />
               </Link>
               <Link href={`/manage/delete/${modelid}`}>
-                <Img src="icons/trash.svg" alt="view" w={24} h={24} l="eager" />
+                <Img
+                  src="icons/trash.svg"
+                  alt="view"
+                  w={24}
+                  h={24}
+                  l="eager"
+                  p={true}
+                />
               </Link>
             </div>
           </div>

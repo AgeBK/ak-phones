@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Cart from "@/app/ui/cart";
 import Img from "@/app/ui/image";

@@ -111,6 +111,10 @@ export type ManageProductProps = {
   action: string;
 };
 
+export type ManageDBMessagesProps = {
+  errorMessages: FormStateProps;
+};
+
 export type FormStateProps = {
   message: string | null;
   errors: KeyStringProps;
@@ -155,8 +159,10 @@ export type PagingProps = {
   paging: PageProps;
 };
 
-export type ProductValue = string | number;
-export type ProductRecord = Record<string, ProductValue>;
+export type ProductImgsProps = {
+  data: string[];
+  setHeroImage: (heroImage: string) => void;
+};
 
 export type SchemaProps = z.ZodObject<
   {

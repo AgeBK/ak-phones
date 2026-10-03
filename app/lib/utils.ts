@@ -1,4 +1,4 @@
-import { PhoneProps } from "./definitions";
+import { PhoneProps } from "@/app/lib/definitions";
 
 export const capitalizeFirstLetter = (val: string) =>
   val.charAt(0).toUpperCase() + val.slice(1);
@@ -68,7 +68,7 @@ export const filterPageData = (
   searchTerm: string,
 ) => {
   // filters category data by url (eg: samsung) or by search term (MUI search box)
-  let filteredData = [...data];
+  let filteredData = [...data]; 
   if (searchTerm) {
     // MUI search bar
     filteredData = filterBySearch(data, searchTerm);
@@ -102,28 +102,3 @@ export const postGresArr = (str: string | null | undefined) =>
   str && typeof str === "string"
     ? JSON.stringify(str.split(",")).replace("[", "{").replace("]", "}")
     : null;
-
-export const checkOppo = (query: string) => {
-  let q = "";
-  if (query === "oppo") {
-    // This brand is all uppercase TODO: CHECK OTHER BRANDS IN DB
-    q = query.toUpperCase();
-  } else {
-    q = capitalizeFirstLetter(query);
-  }
-  return q;
-};
-
-// export const getServerSideURL = () => {
-//   let url = process.env.NEXT_PUBLIC_SERVER_URL;
-
-//   if (!url && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-//     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-//   }
-
-//   if (!url) {
-//     url = "http://localhost:3000";
-//   }
-
-//   return url;
-// };

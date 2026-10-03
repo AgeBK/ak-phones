@@ -10,8 +10,6 @@ export default function ErrorMain() {
   const pathname = usePathname();
   const homeLink = pathname.startsWith("/manage") ? "/manage" : "/";
 
-  // then goto http://localhost:3000/samsung
-
   return (
     <section className={styles.container}>
       <Img

@@ -14,6 +14,7 @@ export default function ProductInfo({
   winWidth: number | null;
 }) {
   const { descriptions, images } = data;
+  
   return (
     <div className={styles.productInfo}>
       <div className={styles.carousel}>

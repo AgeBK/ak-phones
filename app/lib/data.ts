@@ -1,6 +1,5 @@
 import { neon } from "@neondatabase/serverless";
-import { PhoneProps } from "./definitions";
-import { checkOppo } from "./utils";
+import { PhoneProps } from "@/app/lib/definitions";
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not defined");
 }
@@ -51,24 +50,6 @@ export async function fetchPhoneById(query: string) {
   } catch (err) {
     console.error("Database Error:", err);
     throw new Error("Failed to fetch phones by id.");
-  }
-}
-
-export async function fetchPhonesByBrand(query: string) {
-  const qry = checkOppo(query);
-
-  try {
-    const data = await sql`
-      SELECT *
-      FROM phones
-      WHERE producttype = 'Mobile Phone'
-      AND brand=${qry}
-      `;
-
-    return data as PhoneProps[];
-  } catch (err) {
-    console.error("Database Error:", err);
-    throw new Error("Failed to fetch phones by brand.");
   }
 }
 

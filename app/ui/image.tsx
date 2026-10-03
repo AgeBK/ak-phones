@@ -1,4 +1,4 @@
-import { ImgProps } from "../lib/definitions";
+import { ImgProps } from "@/app/lib/definitions";
 import Image from "next/image";
 
 export default function Img({ src, alt, w, h, l, p }: ImgProps) {

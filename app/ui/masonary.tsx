@@ -1,5 +1,5 @@
 import { JSX, ReactNode } from "react";
-import { PhoneProps } from "../lib/definitions";
+import { PhoneProps } from "@/app/lib/definitions";
 import { specKeysArr, alternateName } from "@/app/lib/appData.json";
 import styles from "@/app/css/Masonary.module.css";
 

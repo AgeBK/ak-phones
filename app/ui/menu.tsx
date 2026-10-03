@@ -1,6 +1,6 @@
-import { DataProps, PhoneProps } from "../lib/definitions";
-import styles from "@/app/css/Menu.module.css";
+import { DataProps, PhoneProps } from "@/app/lib/definitions";
 import Link from "next/link";
+import styles from "@/app/css/Menu.module.css";
 
 export default function Menu({ data }: DataProps) {
   const spirits = data.map((val: PhoneProps) => val.brand);

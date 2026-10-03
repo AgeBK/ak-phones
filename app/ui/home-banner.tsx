@@ -1,5 +1,5 @@
-import { homeIntro } from "../lib/appData.json";
-import Img from "./image";
+import { homeIntro } from "@/app/lib/appData.json";
+import Img from "@/app/ui/image";
 import styles from "@/app/css/Home.module.css";
 
 export default function HomeBanner() {
@@ -14,7 +14,7 @@ export default function HomeBanner() {
         p={true}
       />
       <div className={styles.blurb}>
-        <h3>AK Phones</h3>
+        <h2>AK Phones</h2>
         <span>{homeIntro}</span>
       </div>
     </div>

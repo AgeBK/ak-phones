@@ -3,6 +3,7 @@ import {
   isRequired,
   readOnlyFields,
   numOnlyFields,
+  csv,
 } from "@/app/lib/appData.json";
 import { ManageProductProps } from "@/app/lib/definitions";
 import styles from "@/app/css/manage/Form.module.css";
@@ -14,8 +15,9 @@ export default function ManageInputFields({
   return (
     <div className={styles.inputContainer}>
       {Object.entries(product).map(([key, value]) => {
-        const isReq: boolean = isRequired.includes(key);
-        const isDisabled: boolean =
+        const isReq = isRequired.includes(key);
+        const isCSV = csv.includes(key);
+        const isDisabled =
           readOnlyFields.indexOf(key) > -1 ||
           (product.id !== undefined && key === "id") ||
           action === "delete";
@@ -28,6 +30,7 @@ export default function ManageInputFields({
               <span className={styles.key}>
                 {prodKey}
                 {isReq && <span className={styles.required}>*</span>}
+                {isCSV && <span className={styles.required}>^</span>}
               </span>
             </label>
             <input
