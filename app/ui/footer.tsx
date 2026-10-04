@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Img from "./image";
+import Img from "@/app/ui/image";
 import styles from "@/app/css/Footer.module.css";
 
 export default function Footer() {

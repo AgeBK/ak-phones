@@ -1,7 +1,7 @@
-import { ContainerProps } from "../lib/definitions";
+import { ContainerProps } from "@/app/lib/definitions";
+import { fetchPhones } from "@/app/lib/data";
 import Header from "@/app/ui/header";
 import Footer from "@/app/ui/footer";
-import { fetchPhones } from "@/app/lib/data";
 import styles from "@/app/css/Container.module.css";
 
 export default async function Container({ children }: ContainerProps) {

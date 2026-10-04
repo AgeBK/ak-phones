@@ -2,8 +2,8 @@
 import { neon } from "@neondatabase/serverless";
 const sql = neon(process.env.DATABASE_URL ? process.env.DATABASE_URL : "");
 import { z } from "zod";
-import { postGresArr } from "./utils";
-import { SchemaProps } from "./definitions";
+import { postGresArr } from "@/app/lib/utils";
+import { SchemaProps } from "@/app/lib/definitions";
 
 const zStrNull = z.string().nullable().optional();
 const zNumNull = z.number().nullable().optional();

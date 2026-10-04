@@ -1,12 +1,11 @@
-import { PhoneProps } from "../lib/definitions";
+import { PhoneProps } from "@/app/lib/definitions";
 import Link from "next/link";
-import CartBtn from "./cartBtn";
-import Img from "./image";
-import Price from "./price";
+import CartBtn from "@/app/ui/cartBtn";
+import Img from "@/app/ui/image";
+import Price from "@/app/ui/price";
 import styles from "@/app/css/CategoryItems.module.css";
 
 export default function CategoryItems({ data }: { data: PhoneProps[] }) {
-  
   return (
     <div className={styles.categoryItems}>
       <div className={styles.items}>
@@ -17,7 +16,14 @@ export default function CategoryItems({ data }: { data: PhoneProps[] }) {
             <div className={styles.item} key={modelid}>
               <Link href={link}>
                 <h2>{title}</h2>
-                <Img src={image} alt={title} w={100} h={100} l="eager" p={true} />
+                <Img
+                  src={image}
+                  alt={title}
+                  w={100}
+                  h={100}
+                  l="eager"
+                  p={true}
+                />
                 <Price price={price} pricewas={pricewas} css="" />
               </Link>
               <CartBtn item={item} />

@@ -60,7 +60,7 @@
 }
 
 .required {
-  color: rgb(223, 0, 0); /*  red not passing WAVE */
+  color: rgb(223, 0, 0);
   display: inline-block;
   margin-left: 5px;
 }

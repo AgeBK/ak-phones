@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { itemsToShow } from "@/app/lib/utils";
-import Img from "./image";
-import Btn from "./button";
-import Skeleton from "./skeleton";
+import Img from "@/app/ui/image";
+import Btn from "@/app/ui/button";
+import Skeleton from "@/app/ui/skeleton";
 import styles from "@/app/css/Carousel.module.css";
 
 export default function Carousel({

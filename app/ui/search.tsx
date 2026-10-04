@@ -11,7 +11,7 @@ import {
 } from "@/app/lib/definitions";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
-import Img from "./image";
+import Img from "@/app/ui/image";
 import styles from "@/app/css/Search.module.css";
 
 export default function Search({ data }: DataProps) {

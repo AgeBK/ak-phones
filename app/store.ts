@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { CartItemProps } from "./lib/definitions";
+import { CartItemProps } from "@/app/lib/definitions";
 
 const checkCartExisting = (
   arr: CartItemProps[],

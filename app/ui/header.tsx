@@ -2,9 +2,9 @@ import Link from "next/link";
 import Cart from "@/app/ui/cart";
 import Img from "@/app/ui/image";
 import FancyText from "@/app/ui/fancyText";
-import Search from "./search";
-import Menu from "./menu";
-import { DataProps } from "../lib/definitions";
+import Search from "@/app/ui/search";
+import Menu from "@/app/ui/menu";
+import { DataProps } from "@/app/lib/definitions";
 import styles from "@/app/css/Header.module.css";
 
 export default function Header({ data }: DataProps) {

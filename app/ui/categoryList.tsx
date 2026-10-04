@@ -1,6 +1,6 @@
 import { CategoryProps } from "@/app/lib/definitions";
-import CategoryItems from "./categoryItems";
-import ManageProducts from "./manage/manage-products";
+import CategoryItems from "@/app/ui/categoryItems";
+import ManageProducts from "@/app/ui/manage/manage-products";
 import styles from "@/app/css/CategoryList.module.css";
 
 export default function CategoryList({ data, cat }: CategoryProps) {
