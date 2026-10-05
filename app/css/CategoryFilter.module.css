@@ -19,3 +19,9 @@
   background-color: #476391;
   color: #fff;
 }
+
+@media screen and (max-width: 650px) {
+  .filterCont {
+    margin-right: 0;
+  }
+}

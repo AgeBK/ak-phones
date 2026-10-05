@@ -1,7 +1,7 @@
 "use client";
 
-import { useCartStore } from "../store";
 import { useState } from "react";
+import { useCartStore } from "@/app/store";
 import { formatCurrency } from "@/app/lib/utils";
 import Img from "@/app/ui/image";
 import Button from "@/app/ui/button";

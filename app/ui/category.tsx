@@ -1,12 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { CategoryProps, PageProps, PhoneProps } from "../lib/definitions";
-import {
-  capitalizeFirstLetter,
-  checkSearch,
-  filterPageData,
-} from "@/app/lib/utils";
+import { CategoryProps, PageProps, PhoneProps } from "@/app/lib/definitions";
+import { checkSearch, filterPageData } from "@/app/lib/utils";
 import { pagingSettings, blurb } from "@/app/lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
 import Paging from "@/app/ui/paging";
@@ -25,11 +21,9 @@ export default function Category({ data, cat }: CategoryProps) {
   const searchTerm = checkSearch(cat);
   let pagedData: PhoneProps[] = [];
 
-  // TODO: Go through every file: remove unneccassary comments and commented out stuff, & colour red at end
-  // TODO: console logs
-  // TODO: check server console logs
   // TODO: full test again after todo's/mobile view
   // TODO: test delete with Ghost phones
+  // TODO: undefined css in browser on price?
 
   // filters phone data by brand or by search term entered by user
   pagedData = filterPageData(data, catLow, searchTerm);

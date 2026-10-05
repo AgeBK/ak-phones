@@ -55,3 +55,17 @@
   aspect-ratio: 6 / 5;
   background: lightyellow;
 }
+
+@media screen and (max-width: 650px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .grid .item {
+    height: auto;
+    aspect-ratio: auto;
+    text-align: center;
+  }
+}

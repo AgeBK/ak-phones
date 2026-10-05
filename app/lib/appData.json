@@ -2,7 +2,7 @@
   "errorMsg": "Something has gone wrong",
   "notFoundMsg": "Could not find the requested product",
   "pagingSettings": { "page": 0, "pageSize": 20 },
-  "sortBy": ["--- Select ---", "$", "$$$", "Sale", "A-Z", "Z-A"],
+  "sortBy": ["--- Sort ---", "$", "$$$", "Sale", "A-Z", "Z-A"],
   "imgPath": "/img/",
   "carouselBreakPoint": 1150,
   "skeletonLen": 4,

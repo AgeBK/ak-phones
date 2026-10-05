@@ -1,5 +1,11 @@
 .btnCart {
   display: flex;
+  align-items: baseline;
   flex-wrap: nowrap;
   margin-left: 5px;
+}
+
+.btnCart span {
+  display: inline-block;
+  margin-right: 5px;
 }

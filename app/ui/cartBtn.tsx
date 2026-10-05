@@ -1,6 +1,6 @@
 "use client";
 
-import { useCartStore } from "../store";
+import { useCartStore } from "@/app/store";
 import { CartBtnProps, CartItemProps } from "@/app/lib/definitions";
 import Btn from "@/app/ui/button";
 import Img from "@/app/ui/image";
@@ -20,8 +20,8 @@ export default function CartBtn({ item }: CartBtnProps) {
 
   return (
     <Btn onClick={() => addCartItem(cartItem)} css="btn">
-      <span className={styles.btnCart}>
-        ADD TO CART
+      <div className={styles.btnCart}>
+        <span>ADD TO CART</span>
         <Img
           src="icons/cartEmpty.svg"
           alt="Add to cart"
@@ -30,7 +30,7 @@ export default function CartBtn({ item }: CartBtnProps) {
           l="eager"
           p={true}
         />
-      </span>
+      </div>
     </Btn>
   );
 }

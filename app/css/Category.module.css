@@ -43,4 +43,12 @@
   .pageCont > div:first-child {
     margin: 15px 0;
   }
+
+  .catHdr {
+    flex-direction: column;
+  }
+
+  .catHdr > div {
+    margin-bottom: 15px;
+  }
 }
