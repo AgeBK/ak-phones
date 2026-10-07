@@ -1,25 +1,22 @@
-# TODO (needs to be updated after deployment)
+# AK Phones
 
-# NextJS 16 + React 19 + Zustand + TypeScript + Postgres + MUI
+## NextJS 16 + React 19 + Zustand + TypeScript + Postgres + MUI
 
 ## About
 
-Skeleton
-Carousel
-Manage
-Masonary
-
-I originally built this mock e-commerce style website from a JSON file I found online which contains retail phone store data with accompanying images. After I completed that, I transformed the JSON data into a db script and inserted the data into a Postgres database at Vercel.com
+I originally built this mock e-commerce style website from a JSON file I found online which contains retail phone store data with accompanying images. After I completed that, I transformed the JSON data into a db script and inserted the data into a Postgres database at Vercel.com.
 
 Here's a link to preview the site: <a target="_blank" href="https://ak-phones.netlify.app/">AK Fine Wines</a>
 
-Here's a link to the JavaScript version code base: <a target="_blank" href="https://github.com/AgeBK/ak-phones">GitHub</a>
+Here's a link to the code base: <a target="_blank" href="https://github.com/AgeBK/ak-phones">GitHub</a>
 
 I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied and AI has not been used (I used the MUI Autocomplete Component for the search).
 
 ## Description
 
 I've included a Search bar using MUI Autocomplete. The site also makes use of 2 custom hooks. For styling, it's using Flexbox via CSS modules. The site also includes loading, not found and error components. Responsive design techniques have been taken into account, the site should present nicely on mobile and desktop. I have used semantic HTML, compressed the product images and taken accessibility and SEO into consideration. The site scores high 90's and 100's in lighthouse testing and I have extensive lint rules in place as well.
+
+I've created a skeleton, carousel and masonary components that I use on the product page.
 
 I have also built an admin panel portal where products on the site can be managed (CRUD operations) which includes the ability to upload images.
 
@@ -35,7 +32,7 @@ I've built a shopping cart as well which you can add products to. The cart uses 
 
 - Admin panel where CRUD operations can be performed for products
 - Over 200 products
-- Over 70 components
+- Over 50 components
 - Search bar (MUI auto complete)
 - Shopping cart
 - Responsive carousel
@@ -47,7 +44,7 @@ I've built a shopping cart as well which you can add products to. The cart uses 
 
 ## Performance
 
-- Scores high 90-100 in all aspects of lighthouse report
+- Scores high 90-100 in all aspects of lighthouse report.
 
 ## Pages.
 
@@ -61,6 +58,8 @@ The <b>product</b> page displays all the details about an individual product.
 
 The <b>manage</b> landing page displays a list of all the products in the database. Actions such as add/edit/delete product can be performed here. This page is similar to the category page which has paging, filtering and sorting. It also has search by id and name.
 
-The <b>manage</b> product page displays different views of which ever action you'd like to perform (add/edit/delete). Each field available from the database is displayed as well as the product image. If you choose to delete a product, a confirmation modal is displayed.
+The <b>manage</b> product page displays different views of whichever action you'd like to perform (add/edit/delete). Each field available from the database is displayed as well as the product image. If you choose to delete a product, a confirmation modal is displayed.
 
-<a target="_blank" href="https://ak-phone.vercel.app/manage">Link to admin</a>
+<a target="_blank" href="https://ak-phones.netlify.app/manage">Link to admin</a>
+
+Another similar site that I have built <a target="_blank" href="https://ak-fine-wines-ts.netlify.app">AK Fine Wines</a>
