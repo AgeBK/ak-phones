@@ -75,7 +75,7 @@
   transition: color 0.5s ease-in;
 }
 
-.manage a {
+.light a {
   color: #d3d3d3;
 }
 
@@ -118,6 +118,5 @@
 @media screen and (max-width: 500px) {
   .menu {
     width: 40px;
-    height: 40px;
   }
 }

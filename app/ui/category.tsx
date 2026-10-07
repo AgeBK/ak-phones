@@ -11,19 +11,17 @@ import CategoryFilter from "@/app/ui/categoryFilter";
 import CategoryList from "@/app/ui/categoryList";
 import styles from "@/app/css/Category.module.css";
 
+// TODO: readme (link to readme)
+
 export default function Category({ data, cat }: CategoryProps) {
   const [, setSortOrder] = useState("");
   const [paging, setPaging] = useState<PageProps>(pagingSettings);
   const [filter, setFilter] = useState("");
   const catLow = cat?.toLowerCase();
   const blurbMap: Record<string, string> = blurb;
-  const intro = blurbMap[catLow || "default"];
+  const intro = blurbMap[catLow] || blurbMap["default"];
   const searchTerm = checkSearch(cat);
   let pagedData: PhoneProps[] = [];
-
-  // TODO: full test again after todo's/mobile view
-  // TODO: test delete with Ghost phones
-  // TODO: undefined css in browser on price?
 
   // filters phone data by brand or by search term entered by user
   pagedData = filterPageData(data, catLow, searchTerm);

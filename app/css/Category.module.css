@@ -14,6 +14,10 @@
   display: flex;
 }
 
+.catHdr > div {
+  margin-bottom: 15px;
+}
+
 .amt {
   color: #999;
   flex-grow: 1;
@@ -47,10 +51,6 @@
   .catHdr {
     flex-direction: column;
     text-align: center;
-  }
-
-  .catHdr > div {
-    margin-bottom: 15px;
   }
 
   .catHdr > div:last-child {

@@ -8,18 +8,18 @@ export default function Footer() {
     <footer className={styles.container}>
       <div className={styles.ak}>
         © {yr}
-        <a
+        <Link
           href="https://github.com/AgeBK/ak-phones?tab=readme-ov-file#about"
           target="_blank"
         >
           AK Phones
-        </a>
+        </Link>
         All rights reserved.
-        <div>
+        {/* <div>
           <span className={styles.manage}>
             <Link href="/manage">Manage</Link>
           </span>
-        </div>
+        </div> */}
       </div>
       <div className={styles.payment}>
         <Img

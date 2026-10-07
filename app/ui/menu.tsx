@@ -23,8 +23,16 @@ export default function Menu({ data }: DataProps) {
                   <Link href={`/${val.toLowerCase()}`}>{val}</Link>
                 </li>
               ))}
-              <li className={styles.manage} key="manage">
+              <li className={styles.light} key="manage">
                 <Link href={`/manage`}>Manage</Link>
+              </li>{" "}
+              <li className={styles.light} key="about">
+                <Link
+                  href="https://github.com/AgeBK/ak-phones?tab=readme-ov-file#about"
+                  target="_blank"
+                >
+                  About
+                </Link>
               </li>
             </ul>
           </div>

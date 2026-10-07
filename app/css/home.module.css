@@ -97,6 +97,10 @@
 }
 
 @media screen and (max-width: 500) {
+  .home {
+    padding: 10px;
+  }
+
   .blurb {
     padding: 4px;
     display: none;
