@@ -15,14 +15,17 @@ export default function Menu({ data }: DataProps) {
         <div className={styles.wrapper}>
           <div className={styles.test}>
             <ul>
-              <li className={styles.menuItem} key="All">
+              <li key="all">
                 <Link href={`/all`}>All</Link>
               </li>
               {menuItems.map((val: string) => (
-                <li className={styles.menuItem} key={val}>
+                <li key={val}>
                   <Link href={`/${val.toLowerCase()}`}>{val}</Link>
                 </li>
               ))}
+              <li className={styles.manage} key="manage">
+                <Link href={`/manage`}>Manage</Link>
+              </li>
             </ul>
           </div>
         </div>

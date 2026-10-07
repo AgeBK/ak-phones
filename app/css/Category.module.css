@@ -35,7 +35,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 950px) {
   .pageCont {
     flex-direction: column;
   }
@@ -46,9 +46,14 @@
 
   .catHdr {
     flex-direction: column;
+    text-align: center;
   }
 
   .catHdr > div {
     margin-bottom: 15px;
+  }
+
+  .catHdr > div:last-child {
+    margin-left: auto;
   }
 }

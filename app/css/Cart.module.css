@@ -1,7 +1,6 @@
 .container {
   display: flex;
   cursor: default;
-  z-index: 11;
   position: relative;
   border-radius: 0 10px 10px 0;
   margin: 5px 5px 0 0;
@@ -38,6 +37,7 @@
 .showCart {
   display: block;
   position: absolute;
+  z-index: 99;
   top: 0;
   right: 0;
   background-color: #fff;

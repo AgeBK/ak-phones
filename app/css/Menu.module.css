@@ -75,6 +75,10 @@
   transition: color 0.5s ease-in;
 }
 
+.manage a {
+  color: #d3d3d3;
+}
+
 /* =================== */
 .wrapper {
   width: fit-content;

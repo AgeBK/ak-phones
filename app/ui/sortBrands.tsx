@@ -6,7 +6,7 @@ export default function SortBrands({ data, handleChange }: SortBrandProps) {
 
   return (
     <>
-      <label className={styles.label} htmlFor="brands">
+      <label className={styles.srOnly} htmlFor="brands">
         Filter brands:
       </label>
       <div className={styles.sortCont}>
@@ -16,7 +16,7 @@ export default function SortBrands({ data, handleChange }: SortBrandProps) {
           id="brands"
           onChange={handleChange}
         >
-          <option value="">-- Select --</option>
+          <option value="">-- Brands --</option>
           {data.map((val: string) => (
             <option value={val} key={val}>
               {val}
