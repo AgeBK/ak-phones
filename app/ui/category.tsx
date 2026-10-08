@@ -12,6 +12,7 @@ import CategoryList from "@/app/ui/categoryList";
 import styles from "@/app/css/Category.module.css";
 
 // TODO: readme (link to readme)
+// TODO: check server logs
 
 export default function Category({ data, cat }: CategoryProps) {
   const [, setSortOrder] = useState("");
