@@ -3,6 +3,7 @@
   align-items: baseline;
   flex-wrap: nowrap;
   margin-left: 5px;
+  width: 130px;
 }
 
 .btnCart span {

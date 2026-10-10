@@ -6,9 +6,9 @@
 
 I originally built this mock e-commerce style website from a JSON file I found online which contains retail phone store data with accompanying images. After I completed that, I transformed the JSON data into a db script and inserted the data into a Postgres database at Vercel.com.
 
-Here's a link to preview the site: <a target="_blank" href="https://ak-phones.netlify.app/">AK Phones</a>
+Here's a link to preview the site: <a href="https://ak-phones.netlify.app/">AK Phones</a>
 
-Here's a link to the code base: <a target="_blank" href="https://github.com/AgeBK/ak-phones">GitHub</a>
+Here's a link to the code base: <a href="https://github.com/AgeBK/ak-phones">GitHub</a>
 
 I wrote all of the code (JS/CSS/HTML) myself, none of it has been copied and AI has not been used (I used the MUI Autocomplete Component for the search).
 
@@ -54,10 +54,10 @@ The <b>product</b> page displays all the details about an individual product. I'
 
 ## Admin Pages.
 
-The <b>manage</b> landing page displays a list of all the products in the database. Actions such as add/edit/delete product can be performed here. This page is similar to the category page which has paging, filtering and sorting. It also has search by id and name.
+The <b>manage</b> landing page displays a list of all the products in the database. Actions such as add/edit/delete product can be performed here. This page is similar to the category page which has paging, filtering and sorting.
 
 The <b>manage</b> product page displays different views of whichever action you'd like to perform (add/edit/delete). Each field available from the database is displayed as well as the product image. If you choose to delete a product, a confirmation modal is displayed.
 
-<a target="_blank" href="https://ak-phones.netlify.app/manage">Link to admin</a>
+<a href="https://ak-phones.netlify.app/manage">Link to admin</a>
 
-Another similar site that I have built <a target="_blank" href="https://ak-fine-wines-ts.netlify.app">AK Fine Wines</a>
+Another similar site that I have built <a href="https://ak-fine-wines-ts.netlify.app">AK Fine Wines</a>
