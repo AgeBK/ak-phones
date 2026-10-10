@@ -11,11 +11,8 @@ import CategoryFilter from "@/app/ui/categoryFilter";
 import CategoryList from "@/app/ui/categoryList";
 import styles from "@/app/css/Category.module.css";
 
-// TODO: readme (link to readme)
-// TODO: check server logs
-
 export default function Category({ data, cat }: CategoryProps) {
-  const [, setSortOrder] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
   const [paging, setPaging] = useState<PageProps>(pagingSettings);
   const [filter, setFilter] = useState("");
   const catLow = cat?.toLowerCase();
@@ -52,7 +49,7 @@ export default function Category({ data, cat }: CategoryProps) {
   };
 
   return (
-    <>
+    <div className={styles.category}>
       <div className={styles.intro}>{intro}</div>
       <div className={styles.catHdr}>
         <div className={styles.amt}>
@@ -64,7 +61,11 @@ export default function Category({ data, cat }: CategoryProps) {
           )}
         </div>
         <CategoryFilter catLow={catLow} setFilter={setFilter} filter={filter} />
-        <SortProducts data={data} setSortOrder={setSortOrder} />
+        <SortProducts
+          data={data}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+        />
       </div>
       <CategoryList data={pagedData} cat={cat} />
       <div className={styles.pageCont}>
@@ -79,6 +80,6 @@ export default function Category({ data, cat }: CategoryProps) {
           dataLength={dataLength}
         />
       </div>
-    </>
+    </div>
   );
 }

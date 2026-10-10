@@ -146,6 +146,7 @@ export type SearchChangeProps = {
 
 export type SortProductProps = {
   data: PhoneProps[];
+  sortOrder: string;
   setSortOrder: (value: string) => void;
 };
 
