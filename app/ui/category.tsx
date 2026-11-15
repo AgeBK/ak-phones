@@ -9,6 +9,7 @@ import Paging from "@/app/ui/paging";
 import ItemsPerPage from "@/app/ui/itemsPerPage";
 import CategoryFilter from "@/app/ui/categoryFilter";
 import CategoryList from "@/app/ui/categoryList";
+import CategoryNoResults from "@/app/ui/categoryNoResults";
 import styles from "@/app/css/Category.module.css";
 
 export default function Category({ data, cat }: CategoryProps) {
@@ -48,6 +49,24 @@ export default function Category({ data, cat }: CategoryProps) {
     }
   };
 
+  // reset to page 0 when filter/sorting changes
+  const resetPage = () => setPaging((p) => ({ ...p, page: 0 }));
+
+  const handleFilter = (val: string) => {
+    setFilter(val);
+    resetPage();
+  };
+
+  const handleSort = (val: string) => {
+    setSortOrder(val);
+    resetPage();
+  };
+
+  if (dataLength === 0) {
+    // alternate view for nothing returned
+    return <CategoryNoResults data={data} searchTerm={searchTerm} cat={cat} />;
+  }
+
   return (
     <div className={styles.category}>
       <div className={styles.intro}>{intro}</div>
@@ -60,11 +79,15 @@ export default function Category({ data, cat }: CategoryProps) {
             </span>
           )}
         </div>
-        <CategoryFilter catLow={catLow} setFilter={setFilter} filter={filter} />
+        <CategoryFilter
+          catLow={catLow}
+          setFilter={handleFilter}
+          filter={filter}
+        />
         <SortProducts
           data={data}
           sortOrder={sortOrder}
-          setSortOrder={setSortOrder}
+          setSortOrder={handleSort}
         />
       </div>
       <CategoryList data={pagedData} cat={cat} />

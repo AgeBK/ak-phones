@@ -17,13 +17,15 @@ export default function Paging({
           onClick={() => updatePaging(0, pageSize)}
           disabled={page === 0}
           css="paging"
+          aria-label="First page"  
         >
           &lt;&lt;
         </Button>
         <Button
-          onClick={() => updatePaging(page + 1, pageSize)}
+          onClick={() => updatePaging(page - 1, pageSize)}
           disabled={page === 0}
           css="paging"
+          aria-label="Previous page"
         >
           &lt;
         </Button>
@@ -35,6 +37,7 @@ export default function Paging({
           onClick={() => updatePaging(page + 1, pageSize)}
           disabled={page === totalPages - 1}
           css="paging"
+          aria-label="Next page"
         >
           &gt;
         </Button>
@@ -42,6 +45,7 @@ export default function Paging({
           onClick={() => updatePaging(totalPages - 1, pageSize)}
           disabled={page === totalPages - 1}
           css="paging"
+          aria-label="Last page"
         >
           &gt;&gt;
         </Button>

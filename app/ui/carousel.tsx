@@ -50,28 +50,31 @@ export default function Carousel({
               }}
               className={styles.track}
             >
-              {images.map((val, index) => (
-                <div
-                  key={index}
-                  style={{ flex: `0 0 ${100 / itemsCnt}%` }}
-                  className={styles.item}
-                >
-                  <Btn
-                    onClick={() => setHeroImage(val)}
-                    css="btnProdImg"
-                    key={val}
+              {images.map((val, index) => {
+                const above = index < 5;
+                return (
+                  <div
+                    key={index}
+                    style={{ flex: `0 0 ${100 / itemsCnt}%` }}
+                    className={styles.item}
                   >
-                    <Img
-                      src={val}
-                      alt={val}
-                      w={140}
-                      h={140}
-                      l="eager"
-                      p={index < 5}
-                    />
-                  </Btn>
-                </div>
-              ))}
+                    <Btn
+                      onClick={() => setHeroImage(val)}
+                      css="btnProdImg"
+                      key={val}
+                    >
+                      <Img
+                        src={val}
+                        alt={val}
+                        w={140}
+                        h={140}
+                        l={above ? "eager" : "lazy"}
+                        p={index < 5}
+                      />
+                    </Btn>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <button

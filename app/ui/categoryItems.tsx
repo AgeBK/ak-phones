@@ -9,7 +9,8 @@ export default function CategoryItems({ data }: { data: PhoneProps[] }) {
   return (
     <div className={styles.categoryItems}>
       <div className={styles.items}>
-        {data.map((item) => {
+        {data.map((item, i) => {
+          const above = i < 5;
           const { modelid, brand, title, image, price, pricewas } = item;
           const link = `/${brand.toLowerCase()}/${modelid}`;
           return (
@@ -21,8 +22,8 @@ export default function CategoryItems({ data }: { data: PhoneProps[] }) {
                   alt={title}
                   w={500}
                   h={500}
-                  l="eager"
-                  p={true}
+                  l={above ? "eager" : "lazy"}
+                  p={above}
                 />
                 <Price price={price} pricewas={pricewas} css="" />
               </Link>

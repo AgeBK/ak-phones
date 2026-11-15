@@ -51,6 +51,12 @@ export type CategoryProps = {
   cat: string;
 };
 
+export type CategoryNoResultProps = {
+  data: PhoneProps[];
+  searchTerm: string;
+  cat: string;
+};
+
 export type ImgProps = {
   src: string;
   alt: string;

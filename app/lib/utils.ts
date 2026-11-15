@@ -68,17 +68,19 @@ export const filterPageData = (
   searchTerm: string,
 ) => {
   // filters category data by url (eg: samsung) or by search term (MUI search box)
-  let filteredData = [...data]; 
-  if (searchTerm) {
-    // MUI search bar
-    filteredData = filterBySearch(data, searchTerm);
-  } else {
-    // URL brand filter
-    filteredData = data.filter(
-      ({ brand }: { brand: string }) => brand.toLowerCase() === catLow,
-    );
+  let filteredData = [...data];
+  if (catLow !== "manage" && catLow !== "all") {
+    if (searchTerm) {
+      // MUI search bar
+      filteredData = filterBySearch(data, searchTerm.toLowerCase());
+    } else {
+      // URL brand filter
+      filteredData = data.filter(
+        ({ brand }: { brand: string }) => brand.toLowerCase() === catLow,
+      );
+    }
   }
-  return filteredData.length ? filteredData : data; // this will return all data for manage page
+  return filteredData;
 };
 
 export const validateImage = async (strUrl: string) => {
