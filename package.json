@@ -14,7 +14,7 @@
     "@mui/material": "^9.3.1",
     "@neondatabase/serverless": "^1.1.0",
     "autosuggest-highlight": "^3.3.4",
-    "next": "^16.4.0",
+    "next": "^16.4.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "zod": "^4.6.5",
@@ -27,7 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.2.35",
+    "eslint-config-next": "^16.4.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

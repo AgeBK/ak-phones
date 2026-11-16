@@ -3,8 +3,8 @@ import Link from "next/link";
 import styles from "@/app/css/Menu.module.css";
 
 export default function Menu({ data }: DataProps) {
-  const spirits = data.map((val: PhoneProps) => val.brand);
-  const menuItems: string[] = [...new Set(spirits)].sort();
+  const brands = data.map((val: PhoneProps) => val.brand);
+  const menuItems: string[] = [...new Set(brands)].sort();
 
   return (
     <div className={styles.menu}>
@@ -25,7 +25,7 @@ export default function Menu({ data }: DataProps) {
               ))}
               <li className={styles.light} key="manage">
                 <Link href={`/manage`}>Manage</Link>
-              </li>{" "}
+              </li>
               <li className={styles.light} key="about">
                 <Link
                   href="https://github.com/AgeBK/ak-phones?tab=readme-ov-file#about"

@@ -44,7 +44,11 @@ export const checkSearch = (qry: string) => {
     if (qry.startsWith(param)) {
       searchTerm = qry.replace(param, "");
     }
-    return decodeURIComponent(searchTerm);
+    try {
+      return decodeURIComponent(searchTerm);
+    } catch (error) {
+      return "";
+    }
   }
   return "";
 };
@@ -104,3 +108,31 @@ export const postGresArr = (str: string | null | undefined) =>
   str && typeof str === "string"
     ? JSON.stringify(str.split(",")).replace("[", "{").replace("]", "}")
     : null;
+
+export const sortPhones = (arr: PhoneProps[], sortOrder: string) => {
+  const sorted = [...arr];
+  switch (sortOrder) {
+    case "$":
+      return sorted.sort((a, b) => Number(a.price) - Number(b.price));
+    case "$$$":
+      return sorted.sort((a, b) => Number(b.price) - Number(a.price));
+    case "Sale":
+      return sorted.sort((a, b) => Number(!!b.pricewas) - Number(!!a.pricewas));
+    case "A-Z":
+      return sorted.sort((a, b) => a.title.localeCompare(b.title));
+    case "Z-A":
+      return sorted.sort((a, b) => b.title.localeCompare(a.title));
+    default:
+      return sorted;
+  }
+};
+
+export const uniqueBrands = (data: PhoneProps[]) => {
+  const brands = data.reduce((acc, { brand }) => {
+    if (acc.indexOf(brand) === -1) {
+      acc.push(brand);
+    }
+    return acc;
+  }, [] as string[]);
+  return brands;
+};

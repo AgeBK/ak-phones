@@ -1,22 +1,24 @@
-import { CategoryNoResultProps } from "../lib/definitions";
-import CategoryList from "./categoryList";
-import styles from "@/app/css/Category.module.css";
-import Img from "./image";
+import { CategoryNoResultProps, PhoneProps } from "@/app/lib/definitions";
+import CategoryList from "@/app/ui/categoryList";
 import Link from "next/link";
+import { uniqueBrands } from "../lib/utils";
+import styles from "@/app/css/Category.module.css";
 
 export default function CategoryNoResults({
   data,
   searchTerm,
   cat,
 }: CategoryNoResultProps) {
-  const onSale = data.filter(({ pricewas }) => pricewas).slice(0, 8);
+  const brands = uniqueBrands(data);
+  const onSale = data.filter(({ pricewas }) => pricewas).slice(0, 10);
+
   return (
     <div className={styles.category}>
       <div className={styles.noResults}>
         <h1>No results for “{searchTerm || cat}”</h1>
         <p>Check your spelling or browse a brand instead.</p>
         <div className={styles.brandLinks}>
-          {["Samsung", "Apple", "Google", "Oppo"].map((b) => (
+          {brands.map((b) => (
             <Link key={b} href={`/${b.toLowerCase()}`}>
               {b}
             </Link>

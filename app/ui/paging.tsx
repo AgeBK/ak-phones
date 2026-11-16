@@ -17,7 +17,7 @@ export default function Paging({
           onClick={() => updatePaging(0, pageSize)}
           disabled={page === 0}
           css="paging"
-          aria-label="First page"  
+          aria-label="First page"
         >
           &lt;&lt;
         </Button>

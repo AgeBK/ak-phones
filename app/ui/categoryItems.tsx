@@ -20,8 +20,8 @@ export default function CategoryItems({ data }: { data: PhoneProps[] }) {
                 <Img
                   src={image}
                   alt={title}
-                  w={500}
-                  h={500}
+                  w={160}
+                  h={160}
                   l={above ? "eager" : "lazy"}
                   p={above}
                 />

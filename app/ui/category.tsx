@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { CategoryProps, PageProps, PhoneProps } from "@/app/lib/definitions";
-import { checkSearch, filterPageData } from "@/app/lib/utils";
+import { checkSearch, filterPageData, sortPhones } from "@/app/lib/utils";
 import { pagingSettings, blurb } from "@/app/lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
 import Paging from "@/app/ui/paging";
@@ -20,23 +20,19 @@ export default function Category({ data, cat }: CategoryProps) {
   const blurbMap: Record<string, string> = blurb;
   const intro = blurbMap[catLow] || blurbMap["default"];
   const searchTerm = checkSearch(cat);
-  let pagedData: PhoneProps[] = [];
 
-  // filters phone data by brand or by search term entered by user
-  pagedData = filterPageData(data, catLow, searchTerm);
+  const visibleData = useMemo(() => {
+    // 1. brand / search filter
+    let result = filterPageData(data, catLow, searchTerm);
+    // 2. pill filter (applied to the filtered results)
+    if (filter) result = result.filter(({ title }) => title.includes(filter));
+    // 3. sort
+    return sortPhones(result, sortOrder);
+  }, [data, catLow, searchTerm, filter, sortOrder]);
 
-  if (filter) {
-    // popular phones can be filtered by subcategory with filter pills that appear (Samsung, Apple, Google, Oppo)
-    pagedData = [...data].filter(({ title }) => {
-      if (!filter) return true;
-      return title.includes(filter);
-    });
-  }
+  const dataLength = visibleData.length;
 
-  const dataLength = pagedData.length;
-
-  // page data results (20, 40, 60, 80 per page)
-  pagedData = pagedData.slice(
+  const pagedData = visibleData.slice(
     paging.page * paging.pageSize,
     (paging.page + 1) * paging.pageSize,
   );
@@ -84,11 +80,7 @@ export default function Category({ data, cat }: CategoryProps) {
           setFilter={handleFilter}
           filter={filter}
         />
-        <SortProducts
-          data={data}
-          sortOrder={sortOrder}
-          setSortOrder={handleSort}
-        />
+        <SortProducts sortOrder={sortOrder} setSortOrder={handleSort} />
       </div>
       <CategoryList data={pagedData} cat={cat} />
       <div className={styles.pageCont}>
