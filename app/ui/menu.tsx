@@ -1,10 +1,10 @@
-import { DataProps, PhoneProps } from "@/app/lib/definitions";
+import { DataProps } from "@/app/lib/definitions";
 import Link from "next/link";
+import { uniqueBrands } from "@/app/lib/utils";
 import styles from "@/app/css/Menu.module.css";
 
 export default function Menu({ data }: DataProps) {
-  const brands = data.map((val: PhoneProps) => val.brand);
-  const menuItems: string[] = [...new Set(brands)].sort();
+  const brands = uniqueBrands(data);
 
   return (
     <div className={styles.menu}>
@@ -18,7 +18,7 @@ export default function Menu({ data }: DataProps) {
               <li key="all">
                 <Link href={`/all`}>All</Link>
               </li>
-              {menuItems.map((val: string) => (
+              {brands.map((val: string) => (
                 <li key={val}>
                   <Link href={`/${val.toLowerCase()}`}>{val}</Link>
                 </li>

@@ -25,8 +25,8 @@ export default function CartBtn({ item }: CartBtnProps) {
         <Img
           src="icons/cartEmpty.svg"
           alt="Add to cart"
-          w={20}
-          h={20}
+          w={16}
+          h={16}
           l="eager"
           p={true}
         />

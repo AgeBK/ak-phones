@@ -1,6 +1,9 @@
 "use server";
 import { neon } from "@neondatabase/serverless";
-const sql = neon(process.env.DATABASE_URL ? process.env.DATABASE_URL : "");
+const sql = neon(process.env.DATABASE_URL ? process.env.DATABASE_URL : ""); // Showcase site: set DEMO_MODE=true in the host's env vars to block all writes
+const DEMO_MODE = process.env.DEMO_MODE === "true";
+const DEMO_MSG =
+  "Demo mode: your input is valid, but changes aren't saved on this showcase site.";
 import { z } from "zod";
 import { postGresArr } from "@/app/lib/utils";
 import { SchemaProps } from "@/app/lib/definitions";
@@ -119,6 +122,7 @@ export async function addProduct(
       message: "Failed to update product. Please check the fields above",
     };
   }
+  if (DEMO_MODE) return { message: DEMO_MSG };
   const {
     brand,
     title,
@@ -254,10 +258,9 @@ export async function addProduct(
         ${launched})
     `;
   } catch (error) {
-    console.log("Failed to add new product: " + error);
+    console.error("Failed to add new product:", error); // full detail stays on the server
     return {
-      message: "Database Error - Failed to add new product: \n" + error,
-      errors: JSON.parse(JSON.stringify(error)),
+      message: "Sorry, the product couldn't be added. Please try again.",
     };
   }
   return {
@@ -277,6 +280,7 @@ export async function updateProduct(
       message: "Failed to update product. Please check the fields above",
     };
   }
+  if (DEMO_MODE) return { message: DEMO_MSG };
   const {
     brand,
     title,
@@ -370,9 +374,9 @@ export async function updateProduct(
       WHERE id = ${id}
     `;
   } catch (error) {
-    console.log("Failed to update product: " + error);
+    console.error("Failed to update product:", error); // full detail stays on the server
     return {
-      message: "Database Error - Failed to update product: \n" + error,
+      message: "Sorry, the product couldn't be updated. Please try again.",
     };
   }
   return {
@@ -381,15 +385,16 @@ export async function updateProduct(
 }
 
 export async function deleteProduct(id: number) {
+  if (DEMO_MODE) return { message: DEMO_MSG };
   try {
     await sql`DELETE FROM phones WHERE id = ${id}`;
     return {
       success: true,
     };
   } catch (error) {
-    console.log("Failed to delete product: " + error);
+    console.error("Failed to deleted product:", error); // full detail stays on the server
     return {
-      message: "Database Error - Failed to delete product:" + error,
+      message: "Sorry, the product couldn't be deleted. Please try again.",
     };
   }
 }

@@ -1,7 +1,7 @@
-import { CategoryNoResultProps, PhoneProps } from "@/app/lib/definitions";
-import CategoryList from "@/app/ui/categoryList";
 import Link from "next/link";
-import { uniqueBrands } from "../lib/utils";
+import { CategoryNoResultProps } from "@/app/lib/definitions";
+import CategoryList from "@/app/ui/categoryList";
+import { uniqueBrands } from "@/app/lib/utils";
 import styles from "@/app/css/Category.module.css";
 
 export default function CategoryNoResults({
@@ -25,10 +25,12 @@ export default function CategoryNoResults({
           ))}
         </div>
       </div>
-      <section className={styles.specials}>
-        <h2>Phones on special</h2>
-        <CategoryList data={onSale} cat="special" />
-      </section>
+      {onSale.length > 0 && (
+        <section className={styles.specials}>
+          <h2>Phones on special</h2>
+          <CategoryList data={onSale} cat="special" />
+        </section>
+      )}
     </div>
   );
 }

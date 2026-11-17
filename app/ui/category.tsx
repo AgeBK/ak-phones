@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CategoryProps, PageProps, PhoneProps } from "@/app/lib/definitions";
+import { CategoryProps, PageProps } from "@/app/lib/definitions";
 import { checkSearch, filterPageData, sortPhones } from "@/app/lib/utils";
 import { pagingSettings, blurb } from "@/app/lib/appData.json";
 import SortProducts from "@/app/ui/sortProducts";
@@ -39,10 +39,8 @@ export default function Category({ data, cat }: CategoryProps) {
 
   const updatePaging = (page: number, pageSize: number) => {
     // show data for next/prev page, scroll back to top of page
-    if (window) {
-      window.scrollTo(0, 0);
-      setPaging({ page, pageSize });
-    }
+    window.scrollTo(0, 0);
+    setPaging({ page, pageSize });
   };
 
   // reset to page 0 when filter/sorting changes

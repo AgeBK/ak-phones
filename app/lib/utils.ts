@@ -46,7 +46,7 @@ export const checkSearch = (qry: string) => {
     }
     try {
       return decodeURIComponent(searchTerm);
-    } catch (error) {
+    } catch {
       return "";
     }
   }
@@ -127,12 +127,5 @@ export const sortPhones = (arr: PhoneProps[], sortOrder: string) => {
   }
 };
 
-export const uniqueBrands = (data: PhoneProps[]) => {
-  const brands = data.reduce((acc, { brand }) => {
-    if (acc.indexOf(brand) === -1) {
-      acc.push(brand);
-    }
-    return acc;
-  }, [] as string[]);
-  return brands;
-};
+export const uniqueBrands = (data: PhoneProps[]) =>
+  [...new Set(data.map(({ brand }) => brand))].sort();
