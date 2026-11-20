@@ -1,9 +1,9 @@
 "use server";
 import { neon } from "@neondatabase/serverless";
 const sql = neon(process.env.DATABASE_URL ? process.env.DATABASE_URL : ""); // Showcase site: set DEMO_MODE=true in the host's env vars to block all writes
-const DEMO_MODE = process.env.DEMO_MODE === "true";
 const DEMO_MSG =
   "Demo mode: your input is valid, but changes aren't saved on this showcase site.";
+const DEMO_MODE = process.env.DEMO_MODE === "true";
 import { z } from "zod";
 import { postGresArr } from "@/app/lib/utils";
 import { SchemaProps } from "@/app/lib/definitions";
@@ -392,7 +392,7 @@ export async function deleteProduct(id: number) {
       success: true,
     };
   } catch (error) {
-    console.error("Failed to deleted product:", error); // full detail stays on the server
+    console.error("Failed to delete product:", error); // full detail stays on the server
     return {
       message: "Sorry, the product couldn't be deleted. Please try again.",
     };

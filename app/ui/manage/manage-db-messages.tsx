@@ -5,8 +5,14 @@ import styles from "@/app/css/manage/Form.module.css";
 export default function ManageDBMessages({
   errorMessages,
 }: ManageDBMessagesProps) {
+  const isDemoMode = String(errorMessages.message?.split(":")) === "Demo_mode";
+
   return (
-    <div aria-live="polite" className={styles.error} role="status">
+    <div
+      aria-live="polite"
+      className={`${isDemoMode}? ${styles.demo} ${styles.message}`}
+      role="status"
+    >
       <div className={styles.message}>{errorMessages?.message}</div>
       <ul>
         {errorMessages.errors &&
